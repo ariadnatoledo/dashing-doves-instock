@@ -1,3 +1,36 @@
 @use "../../styles/partials/global" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.warehouse {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-top: 1px solid $color-secondary-cloud;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    
+    &__title {
+        margin-bottom: .25rem;
+        font-size: .6875rem;
+        line-height: 1rem;
+        font-weight: 600;
+    }
+
+    &__text {
+        font-size: .8125rem;
+        line-height: 1.25rem;
+        font-weight: 400;
+    }
+
+    &__contact-div {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: flex-start;
+        gap: 5rem;
+    }
+}

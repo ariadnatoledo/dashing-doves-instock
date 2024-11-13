@@ -18,6 +18,7 @@ function App() {
       <Route path="/" element={<WarehousePage/>}/>   {/*  can change the home name*/}
       <Route path="/inventory"  element={<InventoryPage/>}/>
       <Route path="/warehouse"  element={<WarehousePage/>}/>
+      <Route path="/warehouse/:warehouseId"  element={<WarehousePage/>}/>
       <Route path='*' element={<NotFoundPage/>} />
 
 
