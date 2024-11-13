@@ -1,4 +1,4 @@
-import React from "react";
+import './WarehousePage.scss'
 import PagesHeader from "../../components/PagesHeader/PagesHeader.jsx";
 import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
 
