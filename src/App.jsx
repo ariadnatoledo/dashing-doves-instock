@@ -8,6 +8,7 @@ import WarehousePage from "../src/pages/WarehousePage/WarehousePage.jsx"
 import NotFoundPage from "../src/pages/NotFoundPage/NotFoundPage.jsx"
 // import axios from 'axios';
 
+
 function App() {
 
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/inventory"  element={<InventoryPage/>}/>
       <Route path="/warehouse"  element={<WarehousePage/>}/>
       <Route path='*' element={<NotFoundPage/>} />
+
 
     </Routes>
     <Footer/>
