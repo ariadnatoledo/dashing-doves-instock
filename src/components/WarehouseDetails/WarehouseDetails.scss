@@ -10,27 +10,60 @@
 
     display: flex;
     flex-direction: column;
+
+    @include tablet {
+        flex-direction: row;
+        gap: 5rem;
+        // justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    @include desktop {
+        padding: 1rem 2rem;
+    }
 }
 
 .card {
-    
     &__title {
+        text-transform: uppercase;
         margin-bottom: .25rem;
-        font-size: .6875rem;
-        line-height: 1rem;
-        font-weight: 600;
+
+        @include desktop {
+            padding-right: 5rem;
+        }
     }
 
     &__text {
-        font-size: .8125rem;
-        line-height: 1.25rem;
-        font-weight: 400;
+
+        &--mobile{
+            @include tablet {
+                display: none;
+            }
+        }
+
+        &--tablet {
+            display: none;
+
+            @include tablet {
+                display: block;
+            }
+        }
     }
 
     &__contact-div {
         margin-top: 2rem;
         display: flex;
         justify-content: flex-start;
-        gap: 5rem;
+        gap: 2rem;
+
+        @include tablet {
+            margin-top: 0;
+            padding-left: 2rem;
+            border-left: 1px solid $color-secondary-cloud;
+        }
+
+        @include desktop {
+            gap: 5rem;
+        }
     }
 }

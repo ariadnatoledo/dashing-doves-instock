@@ -33,20 +33,22 @@ function WarehouseDetails() {
     <section className='warehouse'>
         <article className="card">
         <h4 className="card__title">Warehouse Address:</h4>
-        <p className="card__text">{ warehouse.address }, { warehouse.city }, { warehouse.country }</p>
+        <p className="card__text--mobile body-small">{ warehouse.address }, { warehouse.city }, { warehouse.country }</p>
+        <p className="card__text--tablet body-small">{ warehouse.address }</p>
+        <p className="card__text--tablet body-small">{ warehouse.city }, { warehouse.country }</p>
         </article>
 
         <div className="card__contact-div">
         <article className="card">
         <h4 className="card__title">Contact Name:</h4>
-        <p className="card__text">{ warehouse.contact_name }</p>
-        <p className="card__text">{ warehouse.contact_position }</p>
+        <p className="card__text body-small">{ warehouse.contact_name }</p>
+        <p className="card__text body-small">{ warehouse.contact_position }</p>
         </article>
 
         <article className="card">
         <h4 className="card__title">Contact Information:</h4>
-        <p className="card__text">{ warehouse.contact_phone }</p>
-        <p className="card__text">{ warehouse.contact_email }</p>
+        <p className="card__text body-small">{ warehouse.contact_phone }</p>
+        <p className="card__text body-small">{ warehouse.contact_email }</p>
         </article>
         </div>
 
