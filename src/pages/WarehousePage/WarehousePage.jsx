@@ -1,7 +1,12 @@
 import React from 'react'
+import PagesHeader from '../../components/PagesHeader/PagesHeader.jsx'
 
-export default function WarehousePage() {
+function WarehousePage() {
   return (
-    <div></div>
+    <div className="warehouse-page">
+        <PagesHeader />
+    </div>
   )
 }
+
+export default WarehousePage;

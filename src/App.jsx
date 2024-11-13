@@ -1,13 +1,11 @@
 import "./App.scss";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "../src/components/Header/Header.jsx"
-import Footer from "../src/components/Footer/Footer.jsx"
-import InventoryPage from "../src/pages/InventoryPage/InventoryPage.jsx"
-import WarehousePage from "../src/pages/WarehousePage/WarehousePage.jsx"
-import NotFoundPage from "../src/pages/NotFoundPage/NotFoundPage.jsx"
-// import axios from 'axios';
-
+import Header from "../src/components/Header/Header"
+import Footer from "../src/components/Footer/Footer"
+import WarehousePage from "./pages/WarehousePage/WarehousePage.jsx";
+import InventoryPage from "./pages/InventoryPage/InventoryPage.jsx";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx"
 
 function App() {
 
@@ -15,12 +13,9 @@ function App() {
     <BrowserRouter>
     <Header/>
     <Routes>
-      <Route path="/" element={<WarehousePage/>}/>   {/*  can change the home name*/}
-      <Route path="/inventory"  element={<InventoryPage/>}/>
-      <Route path="/warehouse"  element={<WarehousePage/>}/>
-      <Route path='*' element={<NotFoundPage/>} />
-
-
+      <Route path="/" element={<WarehousePage />} />
+      <Route path="/inventory" element ={<InventoryPage />} />
+      <Route path="*" element ={<NotFoundPage/>}/>
     </Routes>
     <Footer/>
     </BrowserRouter>

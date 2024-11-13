@@ -1,0 +1,94 @@
+@use "/src/styles/partials/mixins.scss" as *;
+@use "/src/styles/partials/variables.scss" as *;
+.header {
+  padding: 1rem;
+  width: 100%;
+  @include flex-center(column, normal, flex-start);
+  gap: 0.75rem;
+
+  @include tablet {
+    @include flex-center(row, space-between);
+  }
+
+  &__title {
+    font-size: 1.5rem;
+
+    @include tablet {
+        font-size: 2rem;
+    }
+  }
+  &__search-and-add {
+    width: 100%;
+    @include flex-center(column);
+    gap: 1rem;
+    @include tablet {
+      @include flex-center();
+      gap: 0.5rem;
+      width: 55%;
+    }
+    @include desktop {
+      width: 40%;
+    }
+  }
+
+  &__search {
+    width: 100%;
+    @include flex-center;
+    border: 0.0625rem solid $color-secondary-cloud;
+    border-radius: 1rem;
+    padding: 0.4375rem 1.5rem 0.4375rem 0.75rem;
+    position: relative;
+
+    @include tablet {
+        padding: 0.5rem 0.75rem;
+    }
+
+    &-input {
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 0.875rem;
+
+      @include tablet {
+        font-size: 0.875rem;
+      }
+      &::placeholder {
+        color: $color-secondary-slate;
+      }
+
+      &:active {
+        border: none;
+      }
+    }
+
+    &-button {
+      @include flex-center;
+      position: absolute;
+      border: none;
+      background-color: white;
+      right: 0.875rem;
+      z-index: 1;
+
+      &-icon {
+        width: 1.25rem;
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+    @include flex-center;
+    background-color: $color-primary-indigo;
+    color: $color-primary-white;
+    border-radius: 1rem;
+    padding: 0.375rem 0.125rem 0.25rem;
+    border: none;
+    transition: background-color 0.3s ease;
+    font-size: 0.625rem;
+
+    @include tablet {
+      font-size: 0.875rem;
+      padding: 0.375rem 0;
+    }
+  }
+}
