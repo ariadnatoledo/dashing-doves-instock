@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function NotFoundPage() {
+export default function WarehousePage() {
   return (
     <div></div>
   )
