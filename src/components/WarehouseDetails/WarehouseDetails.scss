@@ -4,66 +4,64 @@
 @use "../../styles/partials/typography" as *;
 
 .warehouse {
-    margin: 1rem 0;
-    padding: 1rem;
-    border-top: 1px solid $color-secondary-cloud;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-top: 1px solid $color-secondary-cloud;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    @include tablet {
-        flex-direction: row;
-        gap: 5rem;
-        // justify-content: space-between;
-        align-items: flex-start;
-    }
+  @include tablet {
+    flex-direction: row;
+    gap: 5rem;
+    align-items: flex-start;
+  }
 
-    @include desktop {
-        padding: 1rem 2rem;
-    }
+  @include desktop {
+    padding: 1rem 2rem;
+  }
 }
 
 .card {
-    &__title {
-        text-transform: uppercase;
-        margin-bottom: .25rem;
+  &__title {
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
 
-        @include desktop {
-            padding-right: 5rem;
-        }
+    @include desktop {
+      padding-right: 5rem;
+    }
+  }
+
+  &__text {
+    &--mobile {
+      @include tablet {
+        display: none;
+      }
     }
 
-    &__text {
+    &--tablet {
+      display: none;
 
-        &--mobile{
-            @include tablet {
-                display: none;
-            }
-        }
+      @include tablet {
+        display: block;
+      }
+    }
+  }
 
-        &--tablet {
-            display: none;
+  &__contact-div {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
 
-            @include tablet {
-                display: block;
-            }
-        }
+    @include tablet {
+      margin-top: 0;
+      padding-left: 2rem;
+      border-left: 1px solid $color-secondary-cloud;
     }
 
-    &__contact-div {
-        margin-top: 2rem;
-        display: flex;
-        justify-content: flex-start;
-        gap: 2rem;
-
-        @include tablet {
-            margin-top: 0;
-            padding-left: 2rem;
-            border-left: 1px solid $color-secondary-cloud;
-        }
-
-        @include desktop {
-            gap: 5rem;
-        }
+    @include desktop {
+      gap: 5rem;
     }
+  }
 }
