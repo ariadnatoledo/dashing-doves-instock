@@ -1,10 +1,15 @@
 import React from 'react'
 import "../EditWarehouse/EditWarehouse.scss"
+import SaveButton from '../SaveButton/SaveButton'
+import CancelButton from '../CancelButton/CancelButton'
+// import BorderTop from '../BorderTop/BorderTop'
 function EditWarehouse() {
     return (
-        <section className='editWarehouse'>
+       
             <form className='editWarehouse-form'>
+                 <section className='editWarehouse'>
                 <div className='warehouseDetails'>
+                    {/* <BorderTop/> */}
                     <h2 className='warehouseDetails-title'>Warehouse Details</h2>
                     <h3 className='warehouseDetails-name'>Warehouse Name</h3>
                     <textarea className='warehouseDetails-name-input' name='warehouseName' placeholder='Washington'></textarea>
@@ -28,8 +33,14 @@ function EditWarehouse() {
                     <h3 className='contactDetails-email'>Country</h3>
                     <textarea className='contactDetails-email-input' name='contactEmail' placeholder='glyon@instock.com'></textarea>
                 </div>
+                </section>
+                <section className='editWarehouse-button'>
+                  <CancelButton/>
+                  <SaveButton/>
+                </section>
             </form>
-        </section>
+           
+        
     )
 }
 

@@ -1,0 +1,59 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.editWarehouse-form {
+  @include flex-values(column, unset, center);
+}
+
+.editWarehouse {
+  padding-bottom: 1.5rem;
+}
+.editWarehouse-button {
+  background-color: $color-bg-light-grey;
+  width: 100%;
+  padding: 2rem 0;
+  gap: 1rem;
+
+  @include flex-values(row, center, center);
+}
+
+.warehouseDetails,
+.contactDetails {
+  padding-top: 1.5rem;
+  border-top: 1px solid $color-secondary-cloud;
+}
+
+h2 {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  font-size: 20px;
+//   border-top: 1px solid $color-secondary-cloud;
+//   width: 100%;
+}
+
+h3 {
+  color: $color-primary-black;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 22px;
+  padding-bottom: 0.3rem;
+  padding-top: 1rem;
+}
+
+textarea {
+  display: flex;
+  border-color: $color-secondary-cloud;
+  width: 18.5rem;
+  height: 2.25rem;
+  padding: 0.625rem 0 0 1.25rem; //top bottom right left
+  border-radius: 20px;
+  color: $color-primary-black;
+}
+
+textarea::placeholder {
+  color: $color-primary-black; // Replace with your desired color
+  font-weight: 400;
+  font-size: 11px;
+}
