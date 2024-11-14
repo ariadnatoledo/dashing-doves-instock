@@ -1,6 +1,15 @@
+import { useNavigate } from "react-router-dom"; 
 import "./PagesHeader.scss";
 
+
 function PagesHeader({ title }) {
+
+  const navigate = useNavigate(); 
+
+  const handleAddNewWarehouseClick = () => {
+    navigate("/warehouses/add-new"); 
+  };
+
   return (
     <div className="pages-header">
       <h2 className="pages-header__title">{ title }</h2>
@@ -19,9 +28,10 @@ function PagesHeader({ title }) {
             />
           </button>
         </div>
-          <button className="pages-header__button">+ Add New Warehouse</button>
+        <button className="pages-header__button" onClick={handleAddNewWarehouseClick}>
+          + Add New Warehouse
+        </button>
       </div>
-      
     </div>
   );
 }
