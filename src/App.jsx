@@ -7,10 +7,17 @@ import WarehousePage from "./pages/WarehousePage/WarehousePage.jsx";
 import InventoryPage from "./pages/InventoryPage/InventoryPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 
+
+
+
+
 function App() {
   return (
     <BrowserRouter>
+    
       <Header />
+     
+      
       <Routes>
         <Route path="/" element={<WarehousePage />} />{" "}
         <Route path="/inventory" element={<InventoryPage />} />
@@ -19,6 +26,7 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
+     
     </BrowserRouter>
   );
 }

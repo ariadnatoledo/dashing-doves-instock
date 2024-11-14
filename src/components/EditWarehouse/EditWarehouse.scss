@@ -2,13 +2,31 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
+@use "../Header/Header.scss" as *;
 
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $color-bg-light-grey;
+}
+
+body {
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $color-bg-light-grey;
+}
 .editWarehouse-form {
+  position: relative;
   @include flex-values(column, unset, center);
+  box-shadow: 0 4px 8px #13182C1A; 
+  border-radius: 0.25rem;
 }
 
 .editWarehouse {
   padding-bottom: 1.5rem;
+  
 }
 .editWarehouse-button {
   background-color: $color-bg-light-grey;
@@ -45,7 +63,7 @@ h3 {
 textarea {
   display: flex;
   border-color: $color-secondary-cloud;
-  width: 18.5rem;
+  width: 25.5rem;
   height: 2.25rem;
   padding: 0.625rem 0 0 1.25rem; //top bottom right left
   border-radius: 20px;
@@ -57,3 +75,4 @@ textarea::placeholder {
   font-weight: 400;
   font-size: 11px;
 }
+
