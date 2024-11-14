@@ -2,10 +2,9 @@ import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "../src/components/Header/Header";
 import Footer from "../src/components/Footer/Footer";
-import WarehousePage from "./pages/WarehousePage/WarehousePage.jsx";
-import InventoryPage from "./pages/InventoryPage/InventoryPage.jsx";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
-import WarehouseList from "./components/WarehouseList/WarehouseList.jsx";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import ListItems from "./components/ListItems/ListItems";
+import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 
 
 
@@ -15,13 +14,19 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <Routes>
-        <Route path="/" element={<WarehouseList />} />{" "}
-        <Route path="/warehouses" element={<WarehouseList />} />
-        <Route path="/inventory" element={<InventoryPage />} />
-        <Route path="/warehouse/:warehouseId" element={<WarehousePage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <div className="main__card">
+        <Routes>
+          <Route path="/" element={<ListItems items="warehouses" />} />
+          <Route
+            path="/warehouses"
+            element={<ListItems items="warehouses" />}
+          />
+          <Route path="/inventory" element={<ListItems items="inventory" />} />
+          <Route path="/warehouses/:warehouseId" element={<WarehouseDetails />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </div>
+
       <Footer />
      
     </BrowserRouter>
