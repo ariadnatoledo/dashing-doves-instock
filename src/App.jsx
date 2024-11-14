@@ -21,7 +21,7 @@ function App() {
             path="/warehouses"
             element={<ListItems items="warehouses" />}
           />
-          <Route path="/inventory" element={<ListItems items="inventory" />} />
+          <Route path="/inventory" element={<ListItems items="inventories" />} />
           <Route path="/warehouses/:warehouseId" element={<WarehouseDetails />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

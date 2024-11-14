@@ -16,7 +16,7 @@ function WarehouseItem({ warehouse }) {
         <div className="item__info">
           <h4 className="item__label">Warehouse</h4>
           <div className="item__link-container">
-            <Link to={`warehouse/${warehouse.id}`} className="item__link">
+            <Link to={`warehouses/${warehouse.id}`} className="item__link">
               <h3 className="item__data item__data--link">
                 {warehouse.warehouse_name}
               </h3>
@@ -60,7 +60,7 @@ function WarehouseItem({ warehouse }) {
         <div className="item__info item__info--edit">
           <Link
             className="item__edit-link"
-            to={`/warehouse/edit/${warehouse.id}`}
+            to={`/warehouses/edit/${warehouse.id}`}
           >
             <img className="item__edit-icon" src={editIcon} alt="edit icon" />
           </Link>
