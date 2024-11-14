@@ -4,15 +4,13 @@
 @use "../../styles/partials/variables" as *;
 @use "../Header/Header.scss" as *;
 
-.editWarehouseDetails{
-
-  @include tablet{
-    padding: 0 2rem ;
+.editWarehouseDetails {
+  @include tablet {
+    padding: 0 2rem;
   }
 
-  @include desktop{
-    padding: 0 4rem ;
-
+  @include desktop {
+    padding: 0 4rem;
   }
 }
 
@@ -24,9 +22,7 @@
   background-color: $color-primary-white;
   width: 100%;
 
-  @include tablet{
-   
-   
+  @include tablet {
   }
 }
 
@@ -38,13 +34,12 @@
   flex-direction: column;
   padding: 0 2rem;
 
-  @include tablet{
+  @include tablet {
     flex-direction: row;
     justify-content: space-between;
-    padding: 0 2rem ;
+    padding: 0 2rem;
     gap: 4rem;
   }
-  
 }
 .editWarehouse-button {
   background-color: $color-bg-light-grey;
@@ -54,30 +49,26 @@
 
   @include flex-values(row, center, center);
 
-
-  @include tablet{
+  @include tablet {
     justify-content: flex-end;
     padding-right: 2rem;
   }
 }
 
-.warehouseDetails, .contactDetails{
+.warehouseDetails,
+.contactDetails {
   padding: 1.5rem 0rem;
   display: flex;
   flex-direction: column;
-@include tablet{
-  width: 100%;
+  @include tablet {
+    width: 100%;
+  }
 }
-  
-  
-}
-
 
 h2 {
   padding-bottom: 1rem;
   padding-top: 1rem;
   font-size: 20px;
-
 }
 
 h3 {
@@ -93,13 +84,13 @@ textarea {
   display: flex;
   border-color: $color-secondary-cloud;
   height: 2.25rem;
-  padding: 0.625rem 0 0 1.25rem; 
+  padding: 0.625rem 0 0 1.25rem;
   border-radius: 20px;
   color: $color-primary-black;
 }
 
 textarea::placeholder {
-  color: $color-primary-black; 
+  color: $color-primary-black;
   font-weight: 400;
   font-size: 11px;
 }
