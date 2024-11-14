@@ -8,7 +8,7 @@ import SaveCancelAddButton from '../SaveCancelAddButton/SaveCancelAddButton';
 
 function EditWarehouse() {
     return (
-        <section className='editWarehouseDetails'>
+       
             <form className='editWarehouse-form'>
                 <ComponentHeader backIcon={backIconImage} text="Edit Warehouse" />
                 <section className='editWarehouse'>
@@ -43,7 +43,7 @@ function EditWarehouse() {
                 <SaveCancelAddButton showSave={true} />
 
             </form>
-        </section>
+       
 
 
     )

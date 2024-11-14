@@ -1,15 +1,13 @@
 import "../AddNewWarehouse/AddNewWarehouse.scss"
 import ComponentHeader from '../ComponentHeader/ComponentHeader'
 import SaveCancelAddButton from '../SaveCancelAddButton/SaveCancelAddButton';
-import { useNavigate } from "react-router-dom";
 
 
-import React from 'react'
 
 
 export default function AddNewWarehouse() {
     return (
-        <section className='addNewWarehouseDetails'>
+        
             <form className='addNewWarehouse-form'>
                 <ComponentHeader navigateTo="/" text="Add New Warehouse"   />
                 <section className='addNewWarehouse'>
@@ -46,7 +44,7 @@ export default function AddNewWarehouse() {
             </form>
 
 
-        </section>
+       
 
 
     )
