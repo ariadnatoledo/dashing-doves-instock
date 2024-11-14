@@ -1,8 +1,7 @@
-import React from "react";
 import { useNavigate } from "react-router-dom"; 
 import "./PagesHeader.scss";
 
-function DisplayHeader() {
+function DisplayHeader({ title }) {
   const navigate = useNavigate(); 
 
   const handleAddNewWarehouseClick = () => {
@@ -11,7 +10,7 @@ function DisplayHeader() {
 
   return (
     <div className="pages-header">
-      <h2 className="pages-header__title">Warehouses</h2>
+      <h2 className="pages-header__title">{ title }</h2>
       <div className="pages-header__search-and-add">
         <div className="pages-header__search">
           <input

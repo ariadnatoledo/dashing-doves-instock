@@ -10,7 +10,7 @@ function EditWarehouse() {
     return (
         <section className='editWarehouseDetails'>
             <form className='editWarehouse-form'>
-                <ComponentHeader backIcon={backIconImage} text="Edit Warehouse"  />
+                <ComponentHeader backIcon={backIconImage} text="Edit Warehouse" />
                 <section className='editWarehouse'>
                     <div className='warehouseDetails'>
 
