@@ -9,6 +9,7 @@ import WarehouseList from "./components/WarehouseList/WarehouseList.jsx";
 
 
 
+
 function App() {
   return (
     <BrowserRouter>

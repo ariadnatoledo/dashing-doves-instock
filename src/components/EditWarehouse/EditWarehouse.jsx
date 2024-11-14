@@ -2,7 +2,6 @@ import React from 'react'
 import "../EditWarehouse/EditWarehouse.scss"
 import ComponentHeader from '../ComponentHeader/ComponentHeader'
 import backIconImage from "../../assets/Icons/arrowback.svg";
-import editIconWhite from "../../assets/Icons/edit-white-24px.svg"
 import SaveCancelAddButton from '../SaveCancelAddButton/SaveCancelAddButton';
 
 
@@ -10,7 +9,7 @@ function EditWarehouse() {
     return (
         <section className='editWarehouseDetails'>
             <form className='editWarehouse-form'>
-                <ComponentHeader backIcon={backIconImage} text="Edit Warehouse" editIcon={editIconWhite} editIconTablet={editIconWhite} />
+                <ComponentHeader backIcon={backIconImage} text="Edit Warehouse" />
                 <section className='editWarehouse'>
                     <div className='warehouseDetails'>
 

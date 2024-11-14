@@ -1,14 +1,14 @@
 import ListItems from "../ListItems/ListItems";
-import PagesHeader from "../../components/PagesHeader/PagesHeader.jsx";
+// import PagesHeader from "../../components/PagesHeader/PagesHeader.jsx";
 import "./WarehouseList.scss";
 
 
 export default function WarehouseList() {
   return (
     <div className="warehouse-page">
-    <PagesHeader />
+    {/* <PagesHeader />
 
-    <ListItems items="warehouses" />
+    <ListItems items="warehouses" /> */}
   </div>
   )
 }
