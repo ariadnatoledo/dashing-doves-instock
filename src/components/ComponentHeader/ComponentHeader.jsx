@@ -10,7 +10,7 @@ export default function ComponentHeader({ text, backIcon, editIcon, editIconTabl
                 <h2 >{text}</h2>
             </div>
 
-            {/* Conditionally render componentHeader-2 if any of editIcon or editIconTablet is provided */}
+
             {(editIcon || editIconTablet) && (
                 <div className='componentHeader-2'>
                     {editIcon && (
@@ -33,9 +33,9 @@ export default function ComponentHeader({ text, backIcon, editIcon, editIconTabl
 
 ComponentHeader.propTypes = {
     text: PropTypes.string.isRequired,
-    backIcon: PropTypes.string,       // backIcon is optional
-    editIcon: PropTypes.string,       // editIcon is optional
-    editIconTablet: PropTypes.string, // editIconTablet is optional
+    backIcon: PropTypes.string,
+    editIcon: PropTypes.string,
+    editIconTablet: PropTypes.string,
 };
 
 ComponentHeader.defaultProps = {
