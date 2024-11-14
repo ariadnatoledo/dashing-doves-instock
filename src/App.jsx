@@ -7,8 +7,6 @@ import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse.jsx";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse.jsx";
 import ListItems from "./components/ListItems/ListItems";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
-import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
-
 
 function App() {
   return (

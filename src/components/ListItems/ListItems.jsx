@@ -4,6 +4,7 @@ import axios from "axios";
 import WarehouseItem from "../WarehouseItem/WarehouseItem";
 import PagesHeader from "../PagesHeader/PagesHeader";
 import InventoryItem from "../InventoryItem/InventoryItem";
+import TableHeader from "../TableHeader/TableHeader";
 
 function ListItems({ items }) {
   const [list, setList] = useState([]);
@@ -21,6 +22,7 @@ function ListItems({ items }) {
       {items === "warehouses" && (
         <>
           <PagesHeader title="warehouses" />
+          <TableHeader page="warehouses" />
           {list.map((listItem) => (
             <div key={listItem.id}>
               <WarehouseItem warehouse={listItem} />
