@@ -1,0 +1,82 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.warehouse-item {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-top: 1px solid $color-secondary-cloud;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  @include tablet {
+    flex-direction: row;
+    gap: 5rem;
+    align-items: flex-start;
+  }
+
+  @include desktop {
+    padding: 1rem 2rem;
+  }
+}
+
+.item {
+  &__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__info {
+    width: 6.9375rem;
+  }
+
+  &__label {
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+
+    @include desktop {
+      padding-right: 5rem;
+    }
+  }
+
+  &__data {
+    &--mobile {
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include tablet {
+        display: block;
+      }
+    }
+
+
+  }
+
+  &__contact-div {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+
+    @include tablet {
+      margin-top: 0;
+      padding-left: 2rem;
+      border-left: 1px solid $color-secondary-cloud;
+    }
+
+    @include desktop {
+      gap: 5rem;
+    }
+  }
+}

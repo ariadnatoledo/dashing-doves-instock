@@ -7,6 +7,8 @@ function WarehousePage() {
   return (
     <div className="warehouse-page">
       <PagesHeader />
+      <ListItems items="warehouses" />
+  
 
       <WarehouseDetails />
     </div>

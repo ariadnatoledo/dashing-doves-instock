@@ -1,14 +1,14 @@
 import "./ListItems.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import WarehouseItem from "../WarehouseItem/WarehouseItem";
 
 function ListItems({ items }) {
   const [list, setList] = useState([]);
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const getItems = async () => {
-      console.log(baseUrl);
       const response = await axios.get(`${baseUrl}/${items}`);
       setList(response.data);
     };
@@ -19,16 +19,16 @@ function ListItems({ items }) {
     <>
       {items === "warehouses" &&
         list.map((listItem) => (
-          <li key={listItem.id}>
+          <div key={listItem.id}>
             <WarehouseItem warehouse={listItem} />
-          </li>
+          </div>
         ))}
 
       {items === "inventory" &&
         list.map((listItem) => (
-          <li key={listItem.id}>
+          <div key={listItem.id}>
             <InventoryItem inventory={listItem} />
-          </li>
+          </div>
         ))}
     </>
   );
