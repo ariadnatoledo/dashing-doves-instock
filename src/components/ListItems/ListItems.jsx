@@ -29,9 +29,9 @@ function ListItems({ items }) {
         </>
       )}
 
-      {items === "inventory" && (
+      {items === "inventories" && (
         <>
-          <PagesHeader title="inventory" />
+          <PagesHeader title="inventory" button="Item"/>
           {list.map((listItem) => (
             <div key={listItem.id}>
               <InventoryItem inventory={listItem} />

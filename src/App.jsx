@@ -17,12 +17,15 @@ function App() {
         <Routes>
 
           <Route path="/" element={<ListItems items="warehouses" />} />
+
+
           <Route path="/warehouses" element={<ListItems items="warehouses" />} />
           <Route path="/warehouses/:warehouseId" element={<WarehouseDetails />} />
           <Route path="/warehouses/:id/edit" element={<EditWarehouse />} />
           <Route path="/warehouses/add-new" element={<AddNewWarehouse />} />
+           <Route path="/inventory" element={<ListItems items="inventories" />} />
+
           <Route path="*" element={<NotFoundPage />} />
-          <Route path="/inventory" element={<ListItems items="inventories" />} />
 
 
         </Routes>
