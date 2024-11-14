@@ -1,7 +1,14 @@
-import React from 'react'
+import ListItems from "../ListItems/ListItems";
+import PagesHeader from "../../components/PagesHeader/PagesHeader.jsx";
+import "./WarehouseList.scss";
+
 
 export default function WarehouseList() {
   return (
-    <div></div>
+    <div className="warehouse-page">
+    <PagesHeader />
+
+    <ListItems items="warehouses" />
+  </div>
   )
 }
