@@ -58,6 +58,19 @@ h2 {
   }
 }
 
+
+.editTablet:hover{
+
+    background-color: $color-primary-black;
+
+    .editIconTablet {
+        background-color: $color-primary-black; 
+    }
+
+    .editText {
+        background-color: $color-primary-black; 
+    }
+}
 .editMobile {
   display: flex;
   background-color: $color-primary-indigo;
@@ -78,6 +91,8 @@ h2 {
     }
   }
 }
+
+
 
 .backIcon,
 .editMobile,
