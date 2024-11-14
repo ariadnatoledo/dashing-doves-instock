@@ -6,7 +6,7 @@ import Footer from "../src/components/Footer/Footer";
 import WarehousePage from "./pages/WarehousePage/WarehousePage.jsx";
 import InventoryPage from "./pages/InventoryPage/InventoryPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
-// import EditWarehouse from "./components/EditWarehouse/EditWarehouse.jsx";
+
 
 
 
@@ -17,7 +17,7 @@ function App() {
     
       <Header />
      
-      {/* <EditWarehouse/> */}
+      
       <Routes>
         <Route path="/" element={<WarehousePage />} />{" "}
         <Route path="/inventory" element={<InventoryPage />} />
