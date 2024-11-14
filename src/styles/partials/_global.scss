@@ -11,6 +11,16 @@
 body {
   font-family: "TitilliumWeb";
   font-weight: 400;
+  background: linear-gradient(
+    $color-primary-black 12.5rem,
+    $color-primary-white 12.5rem
+  );
+  min-height: 100vh;
+  margin: 0 0.75rem;
+
+  @include tablet {
+    margin: 0 1.5rem;
+  }
 }
 
 h1 {

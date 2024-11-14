@@ -3,12 +3,7 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
 
-.warehouse-page {
-    padding: 0 1.25rem;
-    background-color: $color-primary-white;
-    border-radius: .25rem;
-
-    @include tablet {
-        padding: 0.5rem 1.75rem;
-    }
+.borderTop{
+    padding-top: 1rem;
+    border-top: 1px solid $color-secondary-cloud;
 }

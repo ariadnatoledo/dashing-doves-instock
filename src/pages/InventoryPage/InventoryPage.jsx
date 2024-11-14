@@ -1,7 +1,11 @@
 import React from 'react'
 
-export default function InventoryPage() {
+function InventoryPage() {
   return (
-    <div></div>
+    <div className="inventory-page">
+        <PagesHeader />
+    </div>
   )
 }
+
+export default InventoryPage
