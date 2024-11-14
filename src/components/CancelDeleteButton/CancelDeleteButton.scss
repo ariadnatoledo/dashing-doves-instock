@@ -1,0 +1,49 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.cancelDelete {
+    width: 100%;
+    padding: 2rem 0;
+    gap: 1rem;
+  
+    @include flex-values(row, center, center);
+  
+    @include tablet {
+      justify-content: flex-end;
+      padding-right: 2rem;
+    }
+  }
+
+.cancelButton {
+    background-color: $color-primary-white;
+    border: 1px solid $color-secondary-cloud;
+    padding: 0.5rem 3.5rem;
+    border-radius: 20px;
+  
+    @include tablet {
+      padding: 0.5rem 1rem;
+    }
+  }
+  
+  .cancelButton:hover {
+    border-color: $color-primary-indigo;
+    color: $color-primary-indigo;
+  }
+
+.addDelete {
+    background-color: $color-support-red;
+    border: none;
+    color: $color-primary-white;
+    padding: 0.5rem 3.5rem;
+    border-radius: 20px;
+  
+    @include tablet {
+      padding: 0.5rem 1rem;
+    }
+  }
+  
+  .addDelete:hover {
+    background-color: $color-primary-black;
+  }

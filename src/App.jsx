@@ -8,6 +8,7 @@ import InventoryPage from "./pages/InventoryPage/InventoryPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 
 
+
 function App() {
   return (
     <BrowserRouter>
