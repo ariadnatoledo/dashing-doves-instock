@@ -1,7 +1,9 @@
-import React from 'react'
+import ListItems from "../../components/ListItems/ListItems"
 
 export default function WarehousePage() {
   return (
-    <div></div>
-  )
+    <div>
+      <ListItems items="warehouses" />
+    </div>
+  );
 }
