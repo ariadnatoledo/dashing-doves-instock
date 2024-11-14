@@ -1,6 +1,6 @@
 import "./PagesHeader.scss";
 
-function DisplayHeader({ title }) {
+function PagesHeader({ title }) {
   return (
     <div className="pages-header">
       <h2 className="pages-header__title">{ title }</h2>

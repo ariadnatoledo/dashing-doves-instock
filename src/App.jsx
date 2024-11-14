@@ -17,12 +17,10 @@ function App() {
       <div className="main__card">
         <Routes>
           <Route path="/" element={<ListItems items="warehouses" />} />
-          <Route
-            path="/warehouses"
-            element={<ListItems items="warehouses" />}
+          <Route path="/warehouses" element={<ListItems items="warehouses" />}
           />
-          <Route path="/inventory" element={<ListItems items="inventory" />} />
-          <Route path="/warehouses/:warehouseId" element={<WarehouseDetails />} />
+          <Route path="/inventory" element={<ListItems items="inventories" />} />
+          <Route path="/warehouses/:warehousesId" element={<WarehouseDetails />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>

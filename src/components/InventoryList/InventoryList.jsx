@@ -3,7 +3,9 @@ import ListItems from "../ListItems/ListItems";
 
 function InventoryList() {
   return (
-    <div><ListItems items="inventory" /></div>
+    <div>
+        <ListItems items="inventory" />
+    </div>
   )
 }
 
