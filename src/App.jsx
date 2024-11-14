@@ -5,15 +5,16 @@ import Footer from "../src/components/Footer/Footer";
 import WarehousePage from "./pages/WarehousePage/WarehousePage.jsx";
 import InventoryPage from "./pages/InventoryPage/InventoryPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
+import WarehouseList from "./components/WarehouseList/WarehouseList.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<WarehousePage />} />{" "}
+        <Route path="/" element={<WarehouseList />} />{" "}
+        <Route path="/warehouses" element={<WarehouseList />} />
         <Route path="/inventory" element={<InventoryPage />} />
-        <Route path="/warehouse" element={<WarehousePage />} />
         <Route path="/warehouse/:warehouseId" element={<WarehousePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
