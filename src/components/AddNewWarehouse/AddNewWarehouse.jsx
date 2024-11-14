@@ -1,7 +1,7 @@
 import "../AddNewWarehouse/AddNewWarehouse.scss"
-import backIconImage from "../../assets/Icons/arrowback.svg";
 import ComponentHeader from '../ComponentHeader/ComponentHeader'
 import SaveCancelAddButton from '../SaveCancelAddButton/SaveCancelAddButton';
+import { useNavigate } from "react-router-dom";
 
 
 import React from 'react'
@@ -11,7 +11,7 @@ export default function AddNewWarehouse() {
     return (
         <section className='addNewWarehouseDetails'>
             <form className='addNewWarehouse-form'>
-                <ComponentHeader backIcon={backIconImage} text="Add New Warehouse" />
+                <ComponentHeader navigateTo="/" text="Add New Warehouse" />
                 <section className='addNewWarehouse'>
                     <div className='warehouseDetails'>
 
@@ -25,9 +25,6 @@ export default function AddNewWarehouse() {
                         <textarea className='warehouseDetails-city-input' name='warehouseCity' placeholder='City' required></textarea>
                         <h3 className='warehouseDetails-country'>Country</h3>
                         <textarea className='warehouseDetails-country-input' name='warehouseCountry' placeholder='Country' required></textarea>
-
-
-
 
                     </div>
                     <div className='border'></div>
@@ -47,6 +44,8 @@ export default function AddNewWarehouse() {
 
                 <SaveCancelAddButton showAddWarehouse={true} />
             </form>
+
+
         </section>
 
 
