@@ -5,7 +5,7 @@ import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails
 function WarehousePage() {
   return (
     <div className="warehouse-page">
-      <PagesHeader />
+      <PagesHeader name="Warehouse"/>
   
       <WarehouseDetails />
     </div>

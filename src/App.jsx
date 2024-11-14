@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<WarehouseList />} />{" "}
+        <Route path="/" element={<WarehousePage />} />{" "}
         <Route path="/warehouses" element={<WarehouseList />} />
         <Route path="/inventory" element={<InventoryPage />} />
         <Route path="/warehouse/:warehouseId" element={<WarehousePage />} />

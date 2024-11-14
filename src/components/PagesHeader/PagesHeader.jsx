@@ -1,10 +1,11 @@
 import React from "react";
 import "./PagesHeader.scss";
 
-function DisplayHeader() {
+function PagesHeader({name}) {
+  console.log(name)
   return (
     <div className="pages-header">
-      <h2 className="pages-header__title">Warehouses</h2>
+      <h2 className="pages-header__title">{name}</h2>
       <div className="pages-header__search-and-add">
         <div className="pages-header__search">
           <input
@@ -27,4 +28,4 @@ function DisplayHeader() {
   );
 }
 
-export default DisplayHeader;
+export default PagesHeader;
