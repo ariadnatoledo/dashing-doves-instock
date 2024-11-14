@@ -1,7 +1,15 @@
-import React from 'react'
+import './WarehousePage.scss'
+import PagesHeader from "../../components/PagesHeader/PagesHeader.jsx";
+import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
 
-export default function WarehousePage() {
+function WarehousePage() {
   return (
-    <div></div>
-  )
+    <div className="warehouse-page">
+      <PagesHeader />
+
+      <WarehouseDetails />
+    </div>
+  );
 }
+
+export default WarehousePage;
