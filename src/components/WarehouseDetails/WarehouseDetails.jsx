@@ -1,7 +1,7 @@
 import "./WarehouseDetails.scss";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 
 function WarehouseDetails() {
   const baseURL = import.meta.env.VITE_API_URL;

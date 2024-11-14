@@ -6,6 +6,10 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import ListItems from "./components/ListItems/ListItems";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 
+
+
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -24,6 +28,7 @@ function App() {
       </div>
 
       <Footer />
+     
     </BrowserRouter>
   );
 }
