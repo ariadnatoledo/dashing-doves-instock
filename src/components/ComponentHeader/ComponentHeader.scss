@@ -11,13 +11,19 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
+  border-bottom: 1px solid $color-secondary-cloud;
+ 
 }
 
 .componentHeader-1 {
   display: flex;
   gap: 1rem;
+  background-color: $color-primary-white;
 }
 
+.backIcon, .componentTitle{
+    background-color: $color-primary-white;
+}
 .componentHeader-2 {
   display: flex;
   border-radius: 20px;
@@ -46,10 +52,12 @@ h2 {
     .editIconTablet {
       width: 24px;
       height: 24px;
+      background-color: $color-primary-indigo;
     }
 
     .editText {
       font-size: 1rem;
+      background-color: $color-primary-indigo;
     }
   }
 }
@@ -66,6 +74,7 @@ h2 {
   .editIcon {
     width: 24px;
     height: 24px;
+    background-color: $color-primary-indigo;
   }
 
   @include tablet {
@@ -74,4 +83,10 @@ h2 {
       display: none;
     }
   }
+}
+
+
+.backIcon , .editMobile, .editTablet{
+
+    border: none;
 }
