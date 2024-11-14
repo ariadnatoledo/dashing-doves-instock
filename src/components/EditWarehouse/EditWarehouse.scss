@@ -94,3 +94,8 @@ textarea::placeholder {
   font-weight: 400;
   font-size: 11px;
 }
+
+textarea:hover{
+
+  border-color: $color-primary-indigo;
+}
