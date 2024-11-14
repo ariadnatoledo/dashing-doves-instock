@@ -2,14 +2,15 @@ import "./ListItems.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import WarehouseItem from "../WarehouseItem/WarehouseItem";
+import PagesHeader from "../PagesHeader/PagesHeader";
+import InventoryItem from "../InventoryItem/InventoryItem";
 
 function ListItems({ items }) {
   const [list, setList] = useState([]);
-  const baseUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const getItems = async () => {
-      const response = await axios.get(`${baseUrl}/${items}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/${items}`);
       setList(response.data);
     };
     getItems();
@@ -17,19 +18,27 @@ function ListItems({ items }) {
 
   return (
     <>
-      {items === "warehouses" &&
-        list.map((listItem) => (
-          <div key={listItem.id}>
-            <WarehouseItem warehouse={listItem} />
-          </div>
-        ))}
+      {items === "warehouses" && (
+        <>
+          <PagesHeader title="warehouses" />
+          {list.map((listItem) => (
+            <div key={listItem.id}>
+              <WarehouseItem warehouse={listItem} />
+            </div>
+          ))}
+        </>
+      )}
 
-      {items === "inventory" &&
-        list.map((listItem) => (
-          <div key={listItem.id}>
-            <InventoryItem inventory={listItem} />
-          </div>
-        ))}
+      {items === "inventory" && (
+        <>
+          <PagesHeader title="inventory" />
+          {list.map((listItem) => (
+            <div key={listItem.id}>
+              <InventoryItem inventory={listItem} />
+            </div>
+          ))}
+        </>
+      )}
     </>
   );
 }

@@ -1,10 +1,9 @@
-import React from "react";
 import "./PagesHeader.scss";
 
-function DisplayHeader() {
+function DisplayHeader({ title }) {
   return (
     <div className="pages-header">
-      <h2 className="pages-header__title">Warehouses</h2>
+      <h2 className="pages-header__title">{ title }</h2>
       <div className="pages-header__search-and-add">
         <div className="pages-header__search">
           <input
