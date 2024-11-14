@@ -10,6 +10,7 @@ import WarehouseList from "./components/WarehouseList/WarehouseList.jsx";
 
 
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -22,6 +23,7 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
+     
     </BrowserRouter>
   );
 }
