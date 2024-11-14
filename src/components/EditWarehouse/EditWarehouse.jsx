@@ -2,14 +2,18 @@ import React from 'react'
 import "../EditWarehouse/EditWarehouse.scss"
 import SaveButton from '../SaveButton/SaveButton'
 import CancelButton from '../CancelButton/CancelButton'
-// import BorderTop from '../BorderTop/BorderTop'
+import ComponentHeader from '../ComponentHeader/ComponentHeader'
+import backIconImage from "../../assets/Icons/arrowback.svg";  
+import editIconWhite from "../../assets/Icons/edit-white-24px.svg"
+
 function EditWarehouse() {
     return (
        
             <form className='editWarehouse-form'>
+                <ComponentHeader  backIcon={backIconImage} text="Edit Warehouse" editIcon={editIconWhite}  editIconTablet={editIconWhite}/>
                  <section className='editWarehouse'>
                 <div className='warehouseDetails'>
-                    {/* <BorderTop/> */}
+                
                     <h2 className='warehouseDetails-title'>Warehouse Details</h2>
                     <h3 className='warehouseDetails-name'>Warehouse Name</h3>
                     <textarea className='warehouseDetails-name-input' name='warehouseName' placeholder='Washington'></textarea>
