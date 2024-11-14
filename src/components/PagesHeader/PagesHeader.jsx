@@ -5,7 +5,7 @@ function DisplayHeader({ title }) {
   const navigate = useNavigate(); 
 
   const handleAddNewWarehouseClick = () => {
-    navigate("/add-new-warehouse"); 
+    navigate("/warehouses/add-new"); 
   };
 
   return (
