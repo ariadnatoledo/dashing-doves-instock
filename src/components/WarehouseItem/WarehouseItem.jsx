@@ -60,7 +60,7 @@ function WarehouseItem({ warehouse }) {
         <div className="item__info item__info--edit">
           <Link
             className="item__edit-link"
-            to={`/warehouses/edit/${warehouse.id}`}
+            to={`/warehouses/${warehouse.id}/edit`}
           >
             <img className="item__edit-icon" src={editIcon} alt="edit icon" />
           </Link>
