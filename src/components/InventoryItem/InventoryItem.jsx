@@ -1,8 +1,10 @@
-import React from 'react'
+import "./InventoryItem.scss";
 
-function InventoryItem() {
+function InventoryItem( {inventory }) {
   return (
-    <div>InventoryItem</div>
+    <div>
+      <p>{inventory.id}</p>
+    </div>
   )
 }
 
