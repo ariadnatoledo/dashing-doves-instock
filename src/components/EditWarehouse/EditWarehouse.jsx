@@ -8,7 +8,7 @@ import editIconWhite from "../../assets/Icons/edit-white-24px.svg"
 
 function EditWarehouse() {
     return (
-       
+       <section className='editWarehouseDetails'>
             <form className='editWarehouse-form'>
                 <ComponentHeader  backIcon={backIconImage} text="Edit Warehouse" editIcon={editIconWhite}  editIconTablet={editIconWhite}/>
                  <section className='editWarehouse'>
@@ -24,17 +24,17 @@ function EditWarehouse() {
                     <h3 className='warehouseDetails-country'>Country</h3>
                     <textarea className='warehouseDetails-country-input' name='warehouseCountry' placeholder='USA'></textarea>
 
-
+<div className='border'></div>
                 </div>
                 <div className='contactDetails'>
                     <h2 className='contactDetails-title'> Contact Details</h2>
                     <h3 className='contactDetails-name'>Contact Name</h3>
                     <textarea className='contactDetails-name-input' name='contactName' placeholder='Graeme Lyon'></textarea>
-                    <h3 className='contactDetails-position'>Street Address</h3>
+                    <h3 className='contactDetails-position'>Position</h3>
                     <textarea className='contactDetails-position-input' name='contactPosition' placeholder='Warehouse Manager'></textarea>
-                    <h3 className='contactDetails-phone'>City</h3>
+                    <h3 className='contactDetails-phone'>Phone Number</h3>
                     <textarea className='contactDetails-phone-input' name='contactPhone' placeholder='+1 (647) 504 -0911'></textarea>
-                    <h3 className='contactDetails-email'>Country</h3>
+                    <h3 className='contactDetails-email'>Email</h3>
                     <textarea className='contactDetails-email-input' name='contactEmail' placeholder='glyon@instock.com'></textarea>
                 </div>
                 </section>
@@ -43,6 +43,7 @@ function EditWarehouse() {
                   <SaveButton/>
                 </section>
             </form>
+            </section>
            
         
     )

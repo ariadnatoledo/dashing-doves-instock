@@ -11,13 +11,14 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 
 
 
+
 function App() {
   return (
     <BrowserRouter>
     
       <Header />
      
-      
+     
       <Routes>
         <Route path="/" element={<WarehousePage />} />{" "}
         <Route path="/inventory" element={<InventoryPage />} />
