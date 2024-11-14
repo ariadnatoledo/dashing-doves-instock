@@ -11,7 +11,7 @@ function TableHeader({ page }) {
   return (
     <div className="table-header">
       {tableHeader.map((header, index) => (
-        <div key={index} className="table-header__item">
+        <div key={index} className={`table-header__item table-header__item--${header.replace(" ", "-")}`}>
           <h4 className="table-header__text">{header}</h4>
           <img src={sortIcon} alt="Sort" className="table-header__sort-icon" />
         </div>

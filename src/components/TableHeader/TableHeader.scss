@@ -20,6 +20,10 @@
       color: $color-secondary-slate;
       font-weight: 600;
       flex-grow: 1;
+
+      &__contact-information {
+        min-width: 9.375rem;
+      }
     }
 
     &__sort-icon {
