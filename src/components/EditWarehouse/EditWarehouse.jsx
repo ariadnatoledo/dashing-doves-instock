@@ -2,6 +2,7 @@ import React from 'react'
 import "../EditWarehouse/EditWarehouse.scss"
 import ComponentHeader from '../ComponentHeader/ComponentHeader'
 import backIconImage from "../../assets/Icons/arrowback.svg";
+
 import SaveCancelAddButton from '../SaveCancelAddButton/SaveCancelAddButton';
 
 
