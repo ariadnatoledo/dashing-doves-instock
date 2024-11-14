@@ -1,0 +1,109 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.warehouse-item {
+  border-top: 1px solid $color-secondary-cloud;
+  padding: 1rem 0;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.item {
+  &__row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-grow: 1;
+
+    @include tablet {
+      flex-direction: row;
+    }
+
+    &--actions {
+      flex-direction: row;
+      @include tablet {
+        justify-content: flex-end;
+        gap: 1rem;
+      }
+
+      @include desktop {
+        max-width: 6.25rem;
+      }
+    }
+
+    &--desktop {
+      justify-content: space-around;
+    }
+  }
+
+  &__info {
+    width: 6.9375rem;
+
+    &--contact {
+      width: 7.5rem;
+    }
+
+    &--delete {
+      display: flex;
+      justify-content: flex-start;
+
+      @include tablet {
+        width: auto;
+      }
+    }
+
+    &--edit {
+      width: 8.75rem;
+      display: flex;
+      justify-content: flex-end;
+
+      @include tablet {
+        width: auto;
+      }
+    }
+    &--address {
+      @include desktop {
+        min-width: 15rem;
+      }
+    }
+  }
+
+  &__delete-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+  }
+
+  &__chevron-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  &__label {
+    color: $color-secondary-slate;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__data {
+    &--link {
+      color: $color-primary-indigo;
+      font-weight: 600;
+    }
+  }
+}
