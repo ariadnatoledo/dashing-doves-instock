@@ -63,7 +63,7 @@ function InventoryItem({ inventory, isFirst, isForWarehouseDetails, onDelete }) 
             <div className="inventory-item__right">
               <div className="inventory-item__container-status">
                 <h4 className="inventory-item__label">STATUS</h4>
-                <p className={`inventory-item__instock ${inventory.status === "Out of Stock" ? 'inventory-item__instock--false' : ''}`}>{inventory.status.toUpperCase()}</p>
+                <p className={`inventory-item__instock ${inventory.status === "Out of Stock" ? 'inventory-item__instock--false' : ''}`}>{inventory.status}</p>
               </div>
 
               <div className="inventory-item__container-quantity">
