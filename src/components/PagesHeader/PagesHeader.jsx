@@ -9,7 +9,7 @@ function PagesHeader({ title, display }) {
     if (title === "warehouses") {
       navigate("/warehouses/add-new"); 
     } else if (title === "items") {
-      navigate("/items/add-new");
+      navigate("/inventory/add-new");
     } else {
       console.warn("Unsupported title for Add New action");
     }
