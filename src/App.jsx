@@ -9,7 +9,7 @@ import EditWarehouse from "./components/EditWarehouse/EditWarehouse.jsx";
 import ListItems from "./components/ListItems/ListItems";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import InventoryItem from "./components/InventoryItem/InventoryItem.jsx";
-import DeleteComponent from "./components/DeleteComponent/DeleteComponent.jsx";
+
 import AddNewItem from "./components/AddNewItem/AddNewItem.jsx";
 import EditItem from "./components/EditItem/EditItem.jsx";
 
@@ -39,7 +39,7 @@ function App() {
             path="/inventory/:itemId/delete"
             element={<DeleteComponent />}
           />
-
+          {/* <Route path="/inventory/:id/delete" element={<DeleteComponent/>}/> */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
