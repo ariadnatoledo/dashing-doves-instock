@@ -15,6 +15,8 @@
 }
 
 .inventory {
+  @include flex-center(column);
+
   &-item {
     padding: 1rem 1.5rem;
     width: 100%;
@@ -22,53 +24,62 @@
     @include flex-center(column, normal, flex-start);
     font-size: 0.5rem;
 
-
     @include tablet {
-      @include flex-center(row);
+      @include flex-center(row, space-between, center);
     }
 
     &__info {
       width: 100%;
-      @include flex-center(row, normal, normal);
+      @include flex-center(row, normal, flex-start);
     }
 
-    &__left {
+    &__left,
+    &__right {
       width: 100%;
       @include flex-center(column, flex-start, flex-start);
       gap: 0.75rem;
+    }
 
+    &__left {
       @include tablet {
-        @include flex-center(row);
+        @include flex-center(row, normal, normal);
+        gap: 0;
+        width: 45%;
       }
     }
 
     &__right {
-      width: 100%;
-      @include flex-center(column, normal, normal);
-      gap: 0.75rem;
-
       @include tablet {
         @include flex-center(row, flex-start);
+        gap: 0;
+        width: 55%;
       }
     }
 
     &__container {
       &-item {
-        width: 100%;
         @include flex-center(column, normal, flex-start);
+        flex-grow: 1;
+        flex-basis: 0;
       }
       &-category {
-        width: 100%;
+        align-items: flex-start;
+        flex-grow: 1;
+        flex-basis: 0;
       }
       &-status {
-        @include flex-center(column, normal,flex-start);
-        width: 100%;
+        @include flex-center(column, normal, flex-start);
+        flex-grow: 1;
+        flex-basis: 0;
       }
       &-quantity {
-        width: 100%;
+        flex-grow: 1;
+        flex-basis: 0;
       }
+
       &-warehouse {
-        width: 100%;
+        flex-grow: 1;
+        flex-basis: 0;
         &--off {
           display: none;
         }
@@ -89,13 +100,13 @@
       background-color: $color-support-green--light;
       border-radius: 1rem;
       padding: 0.25rem 0.5rem;
-      font-size: .75rem;
+      font-size: 0.75rem;
       line-height: 1rem;
 
       &--false {
         color: $color-support-red;
         background-color: $color-support-red--light;
-      } 
+      }
     }
 
     &__item-link {
@@ -114,9 +125,9 @@
       @include flex-center(row, space-between);
 
       @include tablet {
-        @include flex-center(row, flex-end);
-        width: 20%;
+        @include flex-center(row, right);
         gap: 1rem;
+        flex: 0;
       }
       &-delete {
         background: none;
