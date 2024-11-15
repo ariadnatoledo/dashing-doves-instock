@@ -8,6 +8,7 @@ import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse.jsx";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse.jsx";
 import ListItems from "./components/ListItems/ListItems";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
+import WarehousePage from "./pages/WarehousePage/WarehousePage.jsx";
 
 
 function App() {
@@ -16,9 +17,8 @@ function App() {
       <Header />
       <div className="main__card">
         <Routes>
-
+          
           <Route path="/" element={<ListItems items="warehouses" />} />
-
 
           <Route path="/warehouses" element={<Navigate to="/" />} />
           <Route path="/warehouses/:warehouseId" element={<WarehouseDetails />} />

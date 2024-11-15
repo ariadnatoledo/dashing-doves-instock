@@ -5,7 +5,7 @@ import editIcon from "../../assets/Icons/edit-24px.svg";
 
 import { Link } from "react-router-dom";
 
-function InventoryItem({ inventory, isFirst }) {
+function InventoryItem({ inventory, isFirst, isForWarehouseDetails }) {
   const handleDeleteInventoryItem = () => {
     console.log("Button clicked");
   };
@@ -48,7 +48,7 @@ function InventoryItem({ inventory, isFirst }) {
             <p className="inventory-item__quantity">{inventory.quantity}</p>
           </div>
 
-          <div className="inventory-item__container-warehouse">
+          <div className={`inventory-item__container-warehouse ${isForWarehouseDetails ? "inventory-item__container-warehouse--off" : ""}`}>
             <h4 className="inventory-item__label">WAREHOUSE</h4>
             <p className="inventory-item__warehouse">
               {inventory.warehouse_name}
