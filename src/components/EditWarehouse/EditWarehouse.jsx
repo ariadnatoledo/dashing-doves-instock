@@ -2,7 +2,6 @@ import React from 'react'
 import "../EditWarehouse/EditWarehouse.scss"
 import ComponentHeader from '../ComponentHeader/ComponentHeader'
 import backIconImage from "../../assets/Icons/arrowback.svg";
-
 import SaveCancelAddButton from '../SaveCancelAddButton/SaveCancelAddButton';
 
 
@@ -40,7 +39,7 @@ function EditWarehouse(navigateTo) {
                     </div>
                 </section>
 
-                <SaveCancelAddButton showSave={true} navigateTo={`/warehouses`} />
+                <SaveCancelAddButton showSave={true} navigateTo={`/warehouses`}  />
 
             </form>
        

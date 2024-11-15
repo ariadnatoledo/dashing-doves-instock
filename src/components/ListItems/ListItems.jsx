@@ -4,12 +4,9 @@ import axios from "axios";
 import WarehouseItem from "../WarehouseItem/WarehouseItem";
 import PagesHeader from "../PagesHeader/PagesHeader";
 import InventoryItem from "../InventoryItem/InventoryItem";
-import DeleteComponent from "../DeleteComponent/DeleteComponent";
-import CancelDeleteButton from "../CancelDeleteButton/CancelDeleteButton";
 
 function ListItems({ items }) {
   const [list, setList] = useState([]);
-  const [deleteItem, setDeleteItem] = useState(null);
 
   useEffect(() => {
     const getItems = async () => {
@@ -18,14 +15,6 @@ function ListItems({ items }) {
     };
     getItems();
   }, [items]);
-
-  const handleDelete = (item) => {
-    setDeleteItem(item);
-  };
-
-  const handleCloseDelete = () => {
-    setDeleteItem(null);
-  };
 
   return (
     <>
@@ -45,18 +34,12 @@ function ListItems({ items }) {
           <PagesHeader title="inventory" button="Item" />
           {list.map((listItem) => (
             <div key={listItem.id}>
-              <InventoryItem inventory={listItem} onDelete={() => handleDelete(listItem)} />
+              <InventoryItem inventory={listItem}  />
             </div>
           ))}
         </>
       )}
-      {deleteItem && (
-        <DeleteComponent
-          inventory={deleteItem}
-          onClose={handleCloseDelete}
-          DeleteItemsComponent={CancelDeleteButton}
-        />
-      )}
+    
     </>
   );
 }
