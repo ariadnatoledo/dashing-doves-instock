@@ -5,7 +5,7 @@ import axios from "axios";
 import ListItems from "../ListItems/ListItems";
 import ComponentHeader from "../ComponentHeader/ComponentHeader";
 import backIconImage from "../../assets/Icons/arrowback.svg";
-import editWhite from "../../assets/Icons/edit-white-24px.svg"
+import editWhite from "../../assets/Icons/edit-white-24px.svg";
 
 function WarehouseDetails() {
   const baseURL = import.meta.env.VITE_API_URL;
@@ -27,39 +27,49 @@ function WarehouseDetails() {
     getWarehouseById(warehouseId);
   }, []);
 
-  // console.log(warehouse)
-
-
   return (
     <div className="warehouse">
-      <ComponentHeader backIcon={backIconImage} navigateTo="/" text={warehouse?.warehouse_name || "Default Text"} editIcon={editWhite} editIconTablet={editWhite} />
-    <section className="warehouse-details">
-      <article className="card">
-        <h4 className="card__title">Warehouse Address:</h4>
-        <p className="card__text--mobile body-small">
-          {warehouse.address}, {warehouse.city}, {warehouse.country}
-        </p>
-        <p className="card__text--tablet body-small">{warehouse.address}</p>
-        <p className="card__text--tablet body-small">
-          {warehouse.city}, {warehouse.country}
-        </p>
-      </article>
-
-      <div className="card__contact-div">
+      <ComponentHeader
+        backIcon={backIconImage}
+        navigateTo="/"
+        text={warehouse?.warehouse_name || "Default Text"}
+        editIcon={editWhite}
+        editIconTablet={editWhite}
+      />
+      <section className="warehouse-details">
         <article className="card">
-          <h4 className="card__title">Contact Name:</h4>
-          <p className="card__text body-small">{warehouse.contact_name}</p>
-          <p className="card__text body-small">{warehouse.contact_position}</p>
+          <h4 className="card__title">Warehouse Address:</h4>
+          <p className="card__text--mobile body-small">
+            {warehouse.address}, {warehouse.city}, {warehouse.country}
+          </p>
+          <p className="card__text--tablet body-small">{warehouse.address}</p>
+          <p className="card__text--tablet body-small">
+            {warehouse.city}, {warehouse.country}
+          </p>
         </article>
 
-        <article className="card">
-          <h4 className="card__title">Contact Information:</h4>
-          <p className="card__text body-small">{warehouse.contact_phone}</p>
-          <p className="card__text body-small">{warehouse.contact_email}</p>
-        </article>
-      </div>
-    </section>
-    <ListItems items="inventories" warehouse={warehouse} display={false} isForWarehouseDetails={true}/>
+        <div className="card__contact-div">
+          <article className="card">
+            <h4 className="card__title">Contact Name:</h4>
+            <p className="card__text body-small">{warehouse.contact_name}</p>
+            <p className="card__text body-small">
+              {warehouse.contact_position}
+            </p>
+          </article>
+
+          <article className="card">
+            <h4 className="card__title">Contact Information:</h4>
+            <p className="card__text body-small">{warehouse.contact_phone}</p>
+            <p className="card__text body-small">{warehouse.contact_email}</p>
+          </article>
+        </div>
+      </section>
+      <ListItems
+        items="inventories"
+        warehouse={warehouse}
+        display={false}
+        isForWarehouseDetails={true}
+      />
     </div>
   );
 }
