@@ -23,7 +23,6 @@
         padding-right: 2rem;
         border-right: 1px solid $color-secondary-cloud;
       }
-   
     }
 
     &--right {
@@ -55,11 +54,9 @@
 
   &__instock {
     @include instock(true);
-    flex-grow: 0;
 
     &--false {
       @include instock(false);
-      flex-grow:0;
     }
   }
 }
