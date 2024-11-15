@@ -5,16 +5,15 @@ import editIcon from "../../assets/Icons/edit-24px.svg";
 
 import { Link } from "react-router-dom";
 
-function InventoryItem({ inventory }) {
+function InventoryItem({ inventory, isFirst, isForWarehouseDetails }) {
   const handleDeleteInventoryItem = () => {
     console.log("Button clicked");
   };
 
   return (
-    <>
-    <div className="top-border"></div>
+    <div className="inventory">
+    <div className={`top-border ${isFirst ? 'first-top-border' : ''}`}></div>
     <div className="inventory-item">
-
       <div className="inventory-item__info">
         <div className="inventory-item__left">
           <div className="inventory-item__container-item">
@@ -41,7 +40,7 @@ function InventoryItem({ inventory }) {
         <div className="inventory-item__right">
           <div className="inventory-item__container-status">
             <h4 className="inventory-item__label">STATUS</h4>
-            <p className="inventory-item__instock">{inventory.status}</p>
+            <p className={`inventory-item__instock ${inventory.status==="Out of Stock" ? 'inventory-item__instock--false' : '' }`}>{inventory.status.toUpperCase()}</p>
           </div>
 
           <div className="inventory-item__container-quantity">
@@ -49,7 +48,7 @@ function InventoryItem({ inventory }) {
             <p className="inventory-item__quantity">{inventory.quantity}</p>
           </div>
 
-          <div className="inventory-item__container-warehouse">
+          <div className={`inventory-item__container-warehouse ${isForWarehouseDetails ? "inventory-item__container-warehouse--off" : ""}`}>
             <h4 className="inventory-item__label">WAREHOUSE</h4>
             <p className="inventory-item__warehouse">
               {inventory.warehouse_name}
@@ -82,7 +81,7 @@ function InventoryItem({ inventory }) {
         </button>
       </div>
     </div>
-    </>
+    </div>
   );
 }
 

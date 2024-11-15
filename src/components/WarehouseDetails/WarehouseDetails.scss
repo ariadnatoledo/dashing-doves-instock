@@ -4,21 +4,24 @@
 @use "../../styles/partials/typography" as *;
 
 .warehouse {
-  margin: 1rem 0;
-  padding: 1rem;
-  border-top: 1px solid $color-secondary-cloud;
+  &-details {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-top: 1px solid $color-secondary-cloud;
 
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-  @include tablet {
-    flex-direction: row;
-    gap: 5rem;
-    align-items: flex-start;
-  }
+    @include tablet {
+      flex-direction: row;
+      gap: 5rem;
+      align-items: flex-start;
+    }
 
-  @include desktop {
-    padding: 1rem 2rem;
+    @include desktop {
+      padding: 1rem 2rem;
+    }
   }
 }
 
