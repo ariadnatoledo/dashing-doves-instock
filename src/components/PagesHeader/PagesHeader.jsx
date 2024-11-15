@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "./PagesHeader.scss";
 
 
-function PagesHeader({ title }) {
+function PagesHeader({ title, display }) {
 
   const navigate = useNavigate(); 
 
@@ -11,7 +11,7 @@ function PagesHeader({ title }) {
   };
 
   return (
-    <div className="pages-header">
+    <div className={`pages-header ${display === false ? "pages-header--off" : ""}`}>
       <h2 className="pages-header__title">{ title }</h2>
       <div className="pages-header__search-and-add">
         <div className="pages-header__search">
@@ -29,7 +29,7 @@ function PagesHeader({ title }) {
           </button>
         </div>
         <button className="pages-header__button" onClick={handleAddNewWarehouseClick}>
-          + Add New Warehouse
+          + Add New {title === "warehouses" ? "Warehouse" : "Item"}
         </button>
       </div>
     </div>
