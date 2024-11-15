@@ -7,7 +7,7 @@ import DeleteModal from "../DeleteModal/DeleteModal";
 
 import { Link } from "react-router-dom";
 
-function WarehouseItem({ warehouse, onDelete }) {
+function WarehouseItem({ warehouse, onDelete, isFirst }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openDeleteModal = () => {
@@ -32,32 +32,30 @@ function WarehouseItem({ warehouse, onDelete }) {
         closeModal={closeDeleteModal}
         deleteItem={deleteWarehouse}
       ></DeleteModal>
-
-      <div className="warehouse-item">
-        <div className="item__row">
-          <div className="item__info">
-            <h4 className="item__label">Warehouse</h4>
-            <div className="item__link-container">
-              <Link to={`warehouses/${warehouse.id}`} className="item__link">
-                <h3 className="item__data item__data--link">
-                  {warehouse.warehouse_name}
-                </h3>
-                <img
-                  className="item__chevron-icon"
-                  src={chevronIcon}
-                  alt="chevron-icon"
-                />
-              </Link>
-            </div>
+     <div className={`warehouse-item ${isFirst ? 'warehouse-item-first' : ''}`}>
+      <div className="item__row">
+        <div className="item__info">
+          <h4 className="item__label">Warehouse</h4>
+          <div className="item__link-container">
+            <Link to={`warehouses/${warehouse.id}`} className="item__link">
+              <h3 className="item__data item__data--link">
+                {warehouse.warehouse_name}
+              </h3>
+              <img
+                className="item__chevron-icon"
+                src={chevronIcon}
+                alt="chevron-icon"
+              />
+            </Link>
           </div>
-          <div className="item__info item__info--address">
+        </div>
+        <div className="item__info item__info--address">
             <h4 className="item__label">Address</h4>
             <p className="item__data p2">
               {" "}
               {warehouse.address}, {warehouse.city}, {warehouse.country}
             </p>
-          </div>
-        </div>
+         </div>
         <div className="item__row item__row--desktop">
           <div className="item__info item__info--contact">
             <h4 className="item__label">Contact Name</h4>

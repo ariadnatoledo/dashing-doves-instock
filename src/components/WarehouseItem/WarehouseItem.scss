@@ -5,12 +5,18 @@
 
 .warehouse-item {
   border-top: 1px solid $color-secondary-cloud;
-  padding: 1rem 0;
+  padding: 1rem;
 
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
+  
+  &-first {
+    @include tablet {
+        border: none;
+      }
+  }
 }
 
 .item {

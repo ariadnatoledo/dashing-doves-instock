@@ -10,6 +10,9 @@
   @include tablet {
     @include flex-center(row, space-between);
   }
+  &--off {
+    display: none;
+  }
 
   &__title {
     text-transform: capitalize;
