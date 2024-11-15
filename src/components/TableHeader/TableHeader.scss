@@ -1,0 +1,34 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.table-header {
+  display: none;
+
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    padding: 0 1rem;
+    background-color: $color-bg-light-grey;
+
+    &__item {
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      color: $color-secondary-slate;
+      font-weight: 600;
+      flex-grow: 1;
+
+      &__contact-information {
+        min-width: 9.375rem;
+      }
+    }
+
+    &__sort-icon {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}
