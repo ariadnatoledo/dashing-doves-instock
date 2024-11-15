@@ -10,11 +10,30 @@ function ListItems({ items }) {
 
   useEffect(() => {
     const getItems = async () => {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/${items}`);
-      setList(response.data);
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/${items}`
+        );
+        setList(response.data);
+      } catch (err) {
+        console.error("Failed to fetch data", err);
+      }
     };
     getItems();
   }, [items]);
+
+  const deleteItem = async (itemType, id) => {
+    try {
+      const response = await axios.delete(
+        `${import.meta.env.VITE_API_URL}/${itemType}/${id}`
+      );
+      if (response.status === 204) {
+        setList((prevList) => prevList.filter((item) => item.id !== id));
+      }
+    } catch (error) {
+      console.error(`Error deleting ${itemType}`, error);
+    }
+  };
 
   return (
     <>
@@ -23,7 +42,10 @@ function ListItems({ items }) {
           <PagesHeader title="warehouses" />
           {list.map((listItem) => (
             <div key={listItem.id}>
-              <WarehouseItem warehouse={listItem} />
+              <WarehouseItem
+                warehouse={listItem}
+                onDelete={() => deleteItem("warehouses", listItem.id)}
+              />
             </div>
           ))}
         </>
@@ -31,7 +53,7 @@ function ListItems({ items }) {
 
       {items === "inventories" && (
         <>
-          <PagesHeader title="inventory" button="Item"/>
+          <PagesHeader title="inventory" button="Item" />
           {list.map((listItem) => (
             <div key={listItem.id}>
               <InventoryItem inventory={listItem} />

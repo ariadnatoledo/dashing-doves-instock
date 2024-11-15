@@ -4,10 +4,11 @@ import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
 import { useState } from "react";
 import DeleteModal from "../DeleteModal/DeleteModal";
+import axios from "axios";
 
 import { Link } from "react-router-dom";
 
-function WarehouseItem({ warehouse }) {
+function WarehouseItem({ warehouse, onDelete }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openDeleteModal = () => {
@@ -19,7 +20,7 @@ function WarehouseItem({ warehouse }) {
   };
 
   const deleteWarehouse = () => {
-    // delete Warehouse goes here
+    onDelete(warehouse.id);
     setIsModalOpen(false);
   };
 
@@ -32,7 +33,7 @@ function WarehouseItem({ warehouse }) {
         closeModal={closeDeleteModal}
         deleteItem={deleteWarehouse}
       ></DeleteModal>
-      
+
       <div className="warehouse-item">
         <div className="item__row">
           <div className="item__info">
