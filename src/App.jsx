@@ -12,6 +12,7 @@ import InventoryItem from "./components/InventoryItem/InventoryItem.jsx";
 import AddNewItem from "./components/AddNewItem/AddNewItem.jsx";
 import EditItem from "./components/EditItem/EditItem.jsx";
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -34,10 +35,10 @@ function App() {
           <Route path="/inventory/add-new" element={<AddNewItem />} />
           <Route path="/inventory/:itemId" element={<InventoryItem />} />
           <Route path="/inventory/:itemId/edit" element={<EditItem />} />
-          <Route
+          {/* <Route
             path="/inventory/:itemId/delete"
             element={<DeleteComponent />}
-          />
+          /> */}
           {/* <Route path="/inventory/:id/delete" element={<DeleteComponent/>}/> */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
