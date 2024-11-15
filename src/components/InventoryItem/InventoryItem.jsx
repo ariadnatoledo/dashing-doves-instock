@@ -3,11 +3,27 @@ import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
 import { useState, useEffect } from "react";
+import DeleteModal from "../DeleteModal/DeleteModal";
+
+
+
 import { Link } from "react-router-dom";
 
-function InventoryItem({ inventory, isFirst, isForWarehouseDetails }) {
-  const handleDeleteInventoryItem = () => {
-    console.log("Button clicked");
+function InventoryItem({ inventory, isFirst, isForWarehouseDetails, onDelete }) {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openDeleteModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeDeleteModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const deleteInventory = () => {
+    onDelete(inventory.id);
+    setIsModalOpen(false);
   };
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -25,6 +41,14 @@ function InventoryItem({ inventory, isFirst, isForWarehouseDetails }) {
   }, []);
 
   return (
+  <>
+  <DeleteModal
+        isModalOpen={isModalOpen}
+        title={`Delete ${inventory.item_name} inventory item?`}
+        content={`Please confirm that you'd like to delete the ${inventory.item_name} from the list of warehouses. You won't be able to undo this action.`}
+        closeModal={closeDeleteModal}
+        deleteItem={deleteInventory}
+      ></DeleteModal>
     <div className="inventory">
       <div className={`top-border ${isFirst ? "first-top-border" : ""}`}></div>
       <div className="inventory-item">
@@ -99,7 +123,7 @@ function InventoryItem({ inventory, isFirst, isForWarehouseDetails }) {
                   <img
                     className="inventory-item__buttons-delete-icon"
                     src={deleteIcon}
-                    onClick={handleDeleteInventoryItem}
+                    onClick={openDeleteModal}
                     alt="delete-icon"
                   />
                 </Link>
@@ -170,17 +194,14 @@ function InventoryItem({ inventory, isFirst, isForWarehouseDetails }) {
             </div>
             <div className="inventory-item__buttons">
               <button className="inventory-item__buttons-delete">
-                <Link
-                  className="inventory-item__buttons-delete-link"
-                  to={`/inventory/${inventory.id}/delete`}
-                >
+                
                   <img
                     className="inventory-item__buttons-delete-icon"
                     src={deleteIcon}
-                    onClick={handleDeleteInventoryItem}
+                    onClick={openDeleteModal}
                     alt="delete-icon"
                   />
-                </Link>
+
               </button>
 
               <button className="inventory-item__buttons-edit">
@@ -200,6 +221,9 @@ function InventoryItem({ inventory, isFirst, isForWarehouseDetails }) {
         )}
       </div>
     </div>
+    </>
+      
+    
   );
 }
 

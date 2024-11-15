@@ -3,13 +3,17 @@ import "./PagesHeader.scss";
 
 
 function PagesHeader({ title, display }) {
-
   const navigate = useNavigate(); 
 
-  const handleAddNewWarehouseClick = () => {
-    navigate("/warehouses/add-new"); 
+  const handleAddNewClick = () => {
+    if (title === "warehouses") {
+      navigate("/warehouses/add-new"); 
+    } else if (title === "items") {
+      navigate("/items/add-new");
+    } else {
+      console.warn("Unsupported title for Add New action");
+    }
   };
-
   return (
     <div className={`pages-header ${display === false ? "pages-header--off" : ""}`}>
       <h2 className="pages-header__title">{ title }</h2>
@@ -28,7 +32,7 @@ function PagesHeader({ title, display }) {
             />
           </button>
         </div>
-        <button className="pages-header__button" onClick={handleAddNewWarehouseClick}>
+        <button className="pages-header__button" onClick={handleAddNewClick}>
           + Add New {title === "warehouses" ? "Warehouse" : "Item"}
         </button>
       </div>

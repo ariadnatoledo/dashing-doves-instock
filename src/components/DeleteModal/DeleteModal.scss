@@ -63,3 +63,49 @@
     }
   }
 }
+
+
+.modal__buttons-container {
+    width: 100%;
+    padding: 2rem 0;
+    gap: 1rem;
+  
+    @include flex-values(row, center, center);
+  
+    @include tablet {
+      justify-content: flex-end;
+      padding-right: 2rem;
+    }
+  }
+
+.modal__cancel-button {
+    background-color: $color-primary-white;
+    border: 1px solid $color-secondary-cloud;
+    padding: 0.5rem 3.5rem;
+    border-radius: 20px;
+  
+    @include tablet {
+      padding: 0.5rem 1rem;
+    }
+  }
+  
+  .modal__cancel-button:hover {
+    border-color: $color-primary-indigo;
+    color: $color-primary-indigo;
+  }
+
+.modal__delete-button {
+    background-color: $color-support-red;
+    border: none;
+    color: $color-primary-white;
+    padding: 0.5rem 3.5rem;
+    border-radius: 20px;
+  
+    @include tablet {
+      padding: 0.5rem 1rem;
+    }
+  }
+  
+  .modal__delete-button:hover {
+    background-color: $color-primary-black;
+  }
