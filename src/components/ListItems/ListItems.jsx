@@ -4,6 +4,8 @@ import axios from "axios";
 import WarehouseItem from "../WarehouseItem/WarehouseItem";
 import PagesHeader from "../PagesHeader/PagesHeader";
 import InventoryItem from "../InventoryItem/InventoryItem";
+import DeleteComponent from "../DeleteComponent/DeleteComponent";
+import CancelDeleteButton from "../CancelDeleteButton/CancelDeleteButton";
 
 function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
   const [list, setList] = useState([]);
@@ -20,13 +22,30 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
 
   useEffect(() => {
     const getItems = async () => {
-      const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/${items}`
-      );
-      setList(response.data);
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/${items}`
+        );
+        setList(response.data);
+      } catch (err) {
+        console.error("Failed to fetch data", err);
+      }
     };
     getItems();
   }, [items]);
+
+  const deleteItem = async (itemType, id) => {
+    try {
+      const response = await axios.delete(
+        `${import.meta.env.VITE_API_URL}/${itemType}/${id}`
+      );
+      if (response.status === 204) {
+        setList((prevList) => prevList.filter((item) => item.id !== id));
+      }
+    } catch (error) {
+      console.error(`Error deleting ${itemType}`, error);
+    }
+  };
 
   return (
     <>
@@ -35,7 +54,11 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
           <PagesHeader title="warehouses" />
           {list.map((listItem, index) => (
             <div key={listItem.id}>
-              <WarehouseItem warehouse={listItem} isFirst={index === 0} />
+              <WarehouseItem
+                warehouse={listItem}
+                onDelete={() => deleteItem("warehouses", listItem.id)}
+                isFirst={index === 0}
+              />
             </div>
           ))}
         </>

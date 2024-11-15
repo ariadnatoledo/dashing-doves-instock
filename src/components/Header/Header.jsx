@@ -2,9 +2,22 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import logoInStock from "../../assets/Logo/InStock-Logo_1x.png";
 import "./Header.scss";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   const [activeTab, setActiveTab] = useState("warehouses");
+
+  const navigate = useNavigate();
+
+  
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+    if (tab === "warehouses") {
+      navigate("/warehouses"); 
+    } else if (tab === "inventory") {
+      navigate("/inventory"); 
+    }
+  };
 
   return (
     <div>
@@ -21,9 +34,11 @@ function Header() {
             <li className="header__nav-menu-item">
               <button
                 className={`header__nav-menu-item-link ${
-                  activeTab === "warehouses" ? "header__nav-menu-item-link--active" : ""
+                  activeTab === "warehouses"
+                    ? "header__nav-menu-item-link--active"
+                    : ""
                 }`}
-                onClick={() => setActiveTab("warehouses")}
+                onClick={() => handleTabClick("warehouses")} // Corrected the onClick handler
               >
                 Warehouses
               </button>
@@ -31,9 +46,11 @@ function Header() {
             <li className="header__nav-menu-item">
               <button
                 className={`header__nav-menu-item-link ${
-                  activeTab === "inventory" ? "header__nav-menu-item-link--active" : ""
+                  activeTab === "inventory"
+                    ? "header__nav-menu-item-link--active"
+                    : ""
                 }`}
-                onClick={() => setActiveTab("inventory")}
+                onClick={() => handleTabClick("inventory")} // Corrected the onClick handler
               >
                 Inventory
               </button>
