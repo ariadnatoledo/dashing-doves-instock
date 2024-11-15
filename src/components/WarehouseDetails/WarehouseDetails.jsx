@@ -2,6 +2,7 @@ import "./WarehouseDetails.scss";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import ListItems from "../ListItems/ListItems";
 
 function WarehouseDetails() {
   const baseURL = import.meta.env.VITE_API_URL;
@@ -24,7 +25,8 @@ function WarehouseDetails() {
   }, []);
 
   return (
-    <section className="warehouse">
+    <div className="warehouse">
+    <section className="warehouse-details">
       <article className="card">
         <h4 className="card__title">Warehouse Address:</h4>
         <p className="card__text--mobile body-small">
@@ -50,6 +52,8 @@ function WarehouseDetails() {
         </article>
       </div>
     </section>
+    <ListItems items="inventories" warehouse={warehouse} display={false} isForWarehouseDetails={true}/>
+    </div>
   );
 }
 

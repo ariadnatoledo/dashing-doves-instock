@@ -11,6 +11,12 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
+  
+  &-first {
+    @include tablet {
+        border: none;
+      }
+  }
 }
 
 .item {
@@ -53,6 +59,8 @@
     &--delete {
       display: flex;
       justify-content: flex-start;
+      border: none;
+      background-color: $color-primary-white;
 
       @include tablet {
         width: auto;

@@ -6,11 +6,11 @@ import backIconImage from "../../assets/Icons/arrowback.svg";
 import SaveCancelAddButton from '../SaveCancelAddButton/SaveCancelAddButton';
 
 
-function EditWarehouse() {
+function EditWarehouse(navigateTo) {
     return (
-        <section className='editWarehouseDetails'>
+       
             <form className='editWarehouse-form'>
-                <ComponentHeader backIcon={backIconImage} text="Edit Warehouse" />
+                <ComponentHeader backIcon={backIconImage} navigateTo="/" text="Edit Warehouse" />
                 <section className='editWarehouse'>
                     <div className='warehouseDetails'>
 
@@ -40,10 +40,10 @@ function EditWarehouse() {
                     </div>
                 </section>
 
-                <SaveCancelAddButton showSave={true} />
+                <SaveCancelAddButton showSave={true} navigateTo={`/warehouses`} />
 
             </form>
-        </section>
+       
 
 
     )

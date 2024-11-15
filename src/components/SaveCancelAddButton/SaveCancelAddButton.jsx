@@ -1,10 +1,19 @@
 import React from 'react';
 import "./SaveCancelAddButton.scss";
+import { useNavigate } from 'react-router-dom';
 
-export default function SaveCancelAddButton({ showSave, showAddWarehouse, showAddItem }) {
+export default function SaveCancelAddButton({ showSave, showAddWarehouse, showAddItem, navigateTo }) {
+
+    const navigate = useNavigate();
+
+    const handleCancelClick = () => {
+        navigate(navigateTo);
+    };
+
+
     return (
         <div className='saveCancel'>
-            <button type="button" className="cancelButton" >Cancel</button>
+            <button type="button" className="cancelButton" onClick={handleCancelClick}>Cancel</button>
 
             {showSave && (
                 <button type="button" className="saveButton" >Save</button>
