@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ListItems from "../ListItems/ListItems";
+import ComponentHeader from "../ComponentHeader/ComponentHeader";
+import backIconImage from "../../assets/Icons/arrowback.svg";
+import editWhite from "../../assets/Icons/edit-white-24px.svg"
 
 function WarehouseDetails() {
   const baseURL = import.meta.env.VITE_API_URL;
@@ -24,8 +27,12 @@ function WarehouseDetails() {
     getWarehouseById(warehouseId);
   }, []);
 
+  // console.log(warehouse)
+
+
   return (
     <div className="warehouse">
+      <ComponentHeader backIcon={backIconImage} navigateTo="/" text={warehouse?.warehouse_name || "Default Text"} editIcon={editWhite} editIconTablet={editWhite} />
     <section className="warehouse-details">
       <article className="card">
         <h4 className="card__title">Warehouse Address:</h4>
