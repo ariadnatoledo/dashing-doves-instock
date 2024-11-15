@@ -2,7 +2,9 @@ import "./DeleteModal.scss";
 import closeIcon from "../../assets/Icons/close-24px.svg";
 import ReactModal from "react-modal";
 
+
 ReactModal.setAppElement("#root");
+
 
 const DeleteModal = ({
   isModalOpen,
@@ -44,6 +46,7 @@ const DeleteModal = ({
         >
           Delete
         </button>
+
       </div>
     </ReactModal>
   );
