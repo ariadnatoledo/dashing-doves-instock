@@ -9,9 +9,6 @@ import CancelDeleteButton from "../CancelDeleteButton/CancelDeleteButton";
 
 function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
   const [list, setList] = useState([]);
-
-  const [deleteItem, setDeleteItem] = useState(null);
-
   const [filteredList, setFilteredList] = useState([]);
 
   useEffect(() => {
@@ -22,7 +19,6 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
       setFilteredList(filterByWarehouse);
     }
   }, [warehouse]);
-
 
   useEffect(() => {
     const getItems = async () => {
@@ -37,7 +33,6 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
     };
     getItems();
   }, [items]);
-
 
   const deleteItem = async (itemType, id) => {
     try {
@@ -61,8 +56,8 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
             <div key={listItem.id}>
               <WarehouseItem
                 warehouse={listItem}
-                onDelete={() => deleteItem("warehouses", listItem.id)
-                isFirst={index === 0}}
+                onDelete={() => deleteItem("warehouses", listItem.id)}
+                isFirst={index === 0}
               />
             </div>
           ))}
@@ -80,7 +75,7 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
                   <InventoryItem
                     inventory={listItem}
                     isFirst={index === 0}
-                    isForWarehouseDetails={isForWarehouseDetails} onDelete= deleteItem("inventories", listItem.id)
+                    isForWarehouseDetails={isForWarehouseDetails}
                   />
                 </div>
               ))
@@ -91,11 +86,13 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
                   <InventoryItem
                     inventory={listItem}
                     isFirst={index === 0}
-                    isForWarehouseDetails={isForWarehouseDetails} onDelete= deleteItem("inventories", listItem.id)
+                    isForWarehouseDetails={isForWarehouseDetails}
                   />
                 </div>
               ))}
         </>
+      )}
+    </>
   );
 }
 
