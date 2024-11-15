@@ -3,112 +3,127 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-
-
 .top-border {
   border-top: 0.0625rem solid $color-secondary-cloud;
   width: 100%;
 }
 
 .first-top-border {
-  @include tablet{
+  @include tablet {
     display: none;
   }
 }
 
 .inventory {
   &-item {
-  padding: 1rem 1.5rem;
-  width: 100%;
-  color: $color-secondary-slate;
-  @include flex-center(column, normal, flex-start);
-
-  @include tablet {
-    @include flex-center(row);
-  }
-
-  &__info {
+    padding: 1rem 1.5rem;
     width: 100%;
-    @include flex-center(row, normal, normal);
-  }
+    color: $color-primary-black;
+    @include flex-center(column, normal, flex-start);
+    font-size: 0.5rem;
 
-  &__left {
-    width: 100%;
-    @include flex-center(column, flex-start, flex-start);
-    gap: 0.75rem;
 
     @include tablet {
       @include flex-center(row);
     }
-  }
 
-  &__right {
-    width: 100%;
-    @include flex-center(column, normal, normal);
-    gap: 0.75rem;
-
-    @include tablet {
-      @include flex-center(row, flex-start);
-    }
-  }
-
-  &__container {
-    &-item {
+    &__info {
       width: 100%;
-      @include flex-center(column, normal, flex-start);
+      @include flex-center(row, normal, normal);
     }
-    &-category {
+
+    &__left {
       width: 100%;
+      @include flex-center(column, flex-start, flex-start);
+      gap: 0.75rem;
+
+      @include tablet {
+        @include flex-center(row);
+      }
     }
-    &-status{
+
+    &__right {
+      width: 100%;
+      @include flex-center(column, normal, normal);
+      gap: 0.75rem;
+
+      @include tablet {
+        @include flex-center(row, flex-start);
+      }
+    }
+
+    &__container {
+      &-item {
         width: 100%;
-    }
-    &-quantity {
+        @include flex-center(column, normal, flex-start);
+      }
+      &-category {
         width: 100%;
-    }
-    &-warehouse {
+      }
+      &-status {
+        @include flex-center(column, normal,flex-start);
         width: 100%;
+      }
+      &-quantity {
+        width: 100%;
+      }
+      &-warehouse {
+        width: 100%;
+      }
+    }
+
+    &__label {
+      padding: 0 0 0.25rem 0;
+      color: $color-secondary-slate;
+
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &__instock {
+      color: $color-support-green;
+      background-color: $color-support-green--light;
+      border-radius: 1rem;
+      padding: 0.25rem 0.5rem;
+      font-size: .75rem;
+      line-height: 1rem;
+
+      &--false {
+        color: $color-support-red;
+        background-color: $color-support-red--light;
+      } 
+    }
+
+    &__item-link {
+      @include flex-center(row, normal, flex-start);
+
+      &-data {
+        text-decoration: none;
+        color: $color-primary-indigo;
+        font-weight: 600;
+        padding: 0;
+      }
+    }
+
+    &__buttons {
+      width: 100%;
+      @include flex-center(row, space-between);
+
+      @include tablet {
+        @include flex-center(row, flex-end);
+        width: 20%;
+        gap: 1rem;
+      }
+      &-delete {
+        background: none;
+        border: none;
+      }
+
+      &-edit {
+        background: none;
+        border: none;
+      }
     }
   }
-
-  &__label {
-    padding: 0 0 0.25rem 0;
-
-    @include tablet {
-      display: none;
-    }
-  }
-
-  &__item-link {
-    @include flex-center(row, normal, flex-start);
-
-    &-data {
-      text-decoration: none;
-      color: $color-primary-indigo;
-      font-weight: 600;
-      padding: 0;
-
-    }
-  }
-
-  &__buttons {
-    width: 100%;
-    @include flex-center(row, space-between);
-
-    @include tablet {
-      @include flex-center(row, flex-end);
-      width: 20%;
-      gap: 1rem;
-    }
-    &-delete {
-      background: none;
-      border: none;
-    }
-
-    &-edit {
-      background: none;
-      border: none;
-    }
-  }
-}
 }
