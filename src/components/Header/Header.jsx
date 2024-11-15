@@ -9,13 +9,13 @@ function Header() {
 
   const navigate = useNavigate();
 
-  // Handle tab click and navigation
+  
   const handleTabClick = (tab) => {
-    setActiveTab(tab); // Set the active tab
+    setActiveTab(tab);
     if (tab === "warehouses") {
-      navigate("/warehouses"); // Navigate to the "warehouses" page
+      navigate("/warehouses"); 
     } else if (tab === "inventory") {
-      navigate("/inventory"); // Navigate to the "inventory" page
+      navigate("/inventory"); 
     }
   };
 
