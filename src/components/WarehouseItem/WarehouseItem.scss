@@ -3,117 +3,106 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.warehouse-item {
-  border-top: 1px solid $color-secondary-cloud;
-  padding: 1rem;
+.warehouse {
+  &-item {
+    padding: 1rem 1.5rem;
+    width: 100%;
+    color: $color-primary-black;
+    @include flex-center(column, normal, flex-start);
+    font-size: 0.5rem;
 
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1rem;
-  
-  &-first {
     @include tablet {
+      @include flex-center(row);
+    }
+
+    &__info {
+      width: 100%;
+      @include flex-center(row, normal, normal);
+    }
+
+    &__left {
+      width: 100%;
+      @include flex-center(column, flex-start, flex-start);
+      gap: 0.75rem;
+
+      @include tablet {
+        @include flex-center(row);
+      }
+    }
+
+    &__right {
+      width: 100%;
+      @include flex-center(column, normal, normal);
+      gap: 0.75rem;
+
+      @include tablet {
+        @include flex-center(row, flex-start);
+      }
+    }
+
+    &__container {
+      flex-grow: 1;
+      &-name {
+        width: 100%;
+        @include flex-center(column, normal, flex-start);
+      }
+      &-address {
+        width: 90%;
+        @include tablet {
+          width: 100%;
+          flex-grow: 2;
+        }
+      }
+      &-contact-name {
+        @include flex-center(column, normal, flex-start);
+        width: 100%;
+      }
+      &-contact-info {
+        width: 100%;
+      }
+    }
+
+    &__label {
+      padding: 0 0 0.25rem 0;
+      color: $color-secondary-slate;
+      text-transform: uppercase;
+
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &__item-link {
+      @include flex-center(row, normal, flex-start);
+
+      &-data {
+        text-decoration: none;
+        color: $color-primary-indigo;
+        font-weight: 600;
+        padding: 0;
+      }
+    }
+
+    &__buttons {
+      width: 100%;
+      @include flex-center(row, space-between);
+      padding-top: 1rem;
+
+      @include tablet {
+        @include flex-center(row, flex-end);
+        width: 20%;
+        gap: 1rem;
+        padding-top: 0rem;
+      }
+      &-delete {
+        background: none;
         border: none;
       }
-  }
-}
 
-.item {
-  &__row {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    flex-grow: 1;
-
-    @include tablet {
-      flex-direction: row;
-    }
-
-    &--actions {
-      flex-direction: row;
-      @include tablet {
-        justify-content: flex-end;
-        gap: 1rem;
+      &-edit {
+        background: none;
+        border: none;
       }
-
-      @include desktop {
-        max-width: 6.25rem;
-      }
-    }
-
-    &--desktop {
-      justify-content: space-around;
-    }
-  }
-
-  &__info {
-    width: 6.9375rem;
-
-    &--contact {
-      width: 7.5rem;
-    }
-
-    &--delete {
-      display: flex;
-      justify-content: flex-start;
-      border: none;
-      background-color: $color-primary-white;
-
-      @include tablet {
-        width: auto;
-      }
-    }
-
-    &--edit {
-      width: 8.75rem;
-      display: flex;
-      justify-content: flex-end;
-
-      @include tablet {
-        width: auto;
-      }
-    }
-    &--address {
-      @include desktop {
-        min-width: 15rem;
-      }
-    }
-  }
-
-  &__delete-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-
-  &__link {
-    display: flex;
-    align-items: center;
-  }
-
-  &__chevron-icon {
-    width: 1.25rem;
-    height: 1.25rem;
-  }
-
-  &__label {
-    color: $color-secondary-slate;
-    text-transform: uppercase;
-    margin-bottom: 0.25rem;
-    font-weight: 600;
-
-    @include tablet {
-      display: none;
-    }
-  }
-
-  &__data {
-    &--link {
-      color: $color-primary-indigo;
-      font-weight: 600;
-      padding: 0;
     }
   }
 }
