@@ -5,16 +5,15 @@ import editIcon from "../../assets/Icons/edit-24px.svg";
 
 import { Link } from "react-router-dom";
 
-function InventoryItem({ inventory }) {
+function InventoryItem({ inventory, isFirst }) {
   const handleDeleteInventoryItem = () => {
     console.log("Button clicked");
   };
 
   return (
-    <>
-    <div className="top-border"></div>
+    <div className="inventory">
+    <div className={`top-border ${isFirst ? 'first-top-border' : ''}`}></div>
     <div className="inventory-item">
-
       <div className="inventory-item__info">
         <div className="inventory-item__left">
           <div className="inventory-item__container-item">
@@ -82,7 +81,7 @@ function InventoryItem({ inventory }) {
         </button>
       </div>
     </div>
-    </>
+    </div>
   );
 }
 

@@ -29,7 +29,7 @@ function PagesHeader({ title }) {
           </button>
         </div>
         <button className="pages-header__button" onClick={handleAddNewWarehouseClick}>
-          + Add New Warehouse
+          + Add New {title === "warehouses" ? "Warehouse" : "Item"}
         </button>
       </div>
     </div>

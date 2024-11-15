@@ -5,13 +5,13 @@ import editIcon from "../../assets/Icons/edit-24px.svg";
 
 import { Link } from "react-router-dom";
 
-function WarehouseItem({ warehouse }) {
+function WarehouseItem({ warehouse, isFirst }) {
   const handleDeleteWarehouse = () => {
     console.log("Button clicked");
   };
 
   return (
-    <div className="warehouse-item">
+    <div className={`warehouse-item ${isFirst ? 'warehouse-item-first' : ''}`}>
       <div className="item__row">
         <div className="item__info">
           <h4 className="item__label">Warehouse</h4>

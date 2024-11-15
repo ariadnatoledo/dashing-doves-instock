@@ -21,9 +21,9 @@ function ListItems({ items }) {
       {items === "warehouses" && (
         <>
           <PagesHeader title="warehouses" />
-          {list.map((listItem) => (
+          {list.map((listItem, index) => (
             <div key={listItem.id}>
-              <WarehouseItem warehouse={listItem} />
+              <WarehouseItem warehouse={listItem} isFirst={index === 0}/>
             </div>
           ))}
         </>
@@ -32,9 +32,9 @@ function ListItems({ items }) {
       {items === "inventories" && (
         <>
           <PagesHeader title="inventory" button="Item"/>
-          {list.map((listItem) => (
+          {list.map((listItem, index) => (
             <div key={listItem.id}>
-              <InventoryItem inventory={listItem} />
+              <InventoryItem inventory={listItem} isFirst={index === 0} />
             </div>
           ))}
         </>
