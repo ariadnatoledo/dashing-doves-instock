@@ -9,7 +9,6 @@ import EditWarehouse from "./components/EditWarehouse/EditWarehouse.jsx";
 import ListItems from "./components/ListItems/ListItems";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import InventoryItem from "./components/InventoryItem/InventoryItem.jsx";
-
 import AddNewItem from "./components/AddNewItem/AddNewItem.jsx";
 import EditItem from "./components/EditItem/EditItem.jsx";
 
