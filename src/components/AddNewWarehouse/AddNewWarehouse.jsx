@@ -5,7 +5,7 @@ import SaveCancelAddButton from '../SaveCancelAddButton/SaveCancelAddButton';
 
 
 
-export default function AddNewWarehouse() {
+export default function AddNewWarehouse(navigateTo) {
     return (
         
             <form className='addNewWarehouse-form'>
@@ -40,7 +40,7 @@ export default function AddNewWarehouse() {
                 </section>
 
 
-                <SaveCancelAddButton showAddWarehouse={true} />
+                <SaveCancelAddButton showAddWarehouse={true} navigateTo={`/warehouses`} />
             </form>
 
 

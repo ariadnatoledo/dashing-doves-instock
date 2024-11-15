@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom"; 
 import "./PagesHeader.scss";
 
-function DisplayHeader({ title }) {
+
+function PagesHeader({ title }) {
+
   const navigate = useNavigate(); 
 
   const handleAddNewWarehouseClick = () => {
@@ -34,4 +36,4 @@ function DisplayHeader({ title }) {
   );
 }
 
-export default DisplayHeader;
+export default PagesHeader;

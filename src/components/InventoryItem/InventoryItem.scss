@@ -1,0 +1,102 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.top-border {
+  border-top: 0.0625rem solid $color-secondary-cloud;
+  width: 100%;
+}
+
+.inventory-item {
+  padding: 1rem 1.5rem;
+  width: 100%;
+  color: $color-secondary-slate;
+  @include flex-center(column, normal, flex-start);
+
+  @include tablet {
+    @include flex-center(row);
+  }
+
+  &__info {
+    width: 100%;
+    @include flex-center(row, normal, normal);
+  }
+
+  &__left {
+    width: 100%;
+    @include flex-center(column, flex-start, flex-start);
+    gap: 0.75rem;
+
+    @include tablet {
+      @include flex-center(row);
+    }
+  }
+
+  &__right {
+    width: 100%;
+    @include flex-center(column, normal, normal);
+    gap: 0.75rem;
+
+    @include tablet {
+      @include flex-center(row, flex-start);
+    }
+  }
+
+  &__container {
+    &-item {
+      width: 100%;
+      @include flex-center(column, normal, flex-start);
+    }
+    &-category {
+      width: 100%;
+    }
+    &-status {
+      width: 100%;
+    }
+    &-quantity {
+      width: 100%;
+    }
+    &-warehouse {
+      width: 100%;
+    }
+  }
+
+  &__label {
+    padding: 0 0 0.25rem 0;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__item-link {
+    @include flex-center(row, normal, flex-start);
+
+    &-data {
+      text-decoration: none;
+      color: $color-primary-indigo;
+      font-weight: 600;
+    }
+  }
+
+  &__buttons {
+    width: 100%;
+    @include flex-center(row, space-between);
+
+    @include tablet {
+      @include flex-center(row, flex-end);
+      width: 20%;
+      gap: 1rem;
+    }
+    &-delete {
+      background: none;
+      border: none;
+    }
+
+    &-edit {
+      background: none;
+      border: none;
+    }
+  }
+}
