@@ -42,7 +42,7 @@ function InventoryItem({ inventory, isFirst, isForWarehouseDetails, onDelete }) 
               <div className="inventory-item__container-item">
                 <h4 className="inventory-item__label">INVENORY ITEM</h4>
                 <Link
-                  to={`inventory/${inventory.id}`}
+                  to={`/inventory/${inventory.id}`}
                   className="inventory-item__item-link"
                 >
                   <h3 className="inventory-item__item-link-data">
@@ -79,24 +79,19 @@ function InventoryItem({ inventory, isFirst, isForWarehouseDetails, onDelete }) 
               </div>
             </div>
           </div>
-
           <div className="inventory-item__buttons">
             <button className="inventory-item__buttons-delete">
-
-
               <img
                 className="inventory-item__buttons-delete-icon"
                 src={deleteIcon}
                 onClick={openDeleteModal}
                 alt="delete-icon"
               />
-
             </button>
-
             <button className="inventory-item__buttons-edit">
               <Link
                 className="inventory-item__buttons-edit-link"
-                to={`/inventory/edit/${inventory.id}`}
+                to={`/inventory/${inventory.id}/edit`}
               >
                 <img
                   className="inventory-item__buttons-edit-icon"

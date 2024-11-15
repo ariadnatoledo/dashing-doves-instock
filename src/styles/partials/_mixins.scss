@@ -36,6 +36,8 @@
   font-size: .75rem;
   line-height: 1rem;
   flex-grow: 0;
+  white-space: nowrap;
+  max-width: 4.5rem;
 
 
   @if $isInStock == false {
@@ -44,5 +46,6 @@
     background-color: $color-support-red--light;
     flex-grow: 0;
     white-space: nowrap;
+    max-width: 6rem;
   }
 }

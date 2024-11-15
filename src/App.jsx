@@ -24,6 +24,9 @@ function App() {
           <Route path="/inventory" element={<ListItems items="inventories" />} />
           <Route path="/inventory/:inventoryId" element={<InventoryDetails />} />
 
+        {/* Path to edit inventory
+          <Route path="/inventory/:inventoryId/edit" element={<InventoryDetails />} /> */}
+
           <Route path="*" element={<NotFoundPage />} />
 
 

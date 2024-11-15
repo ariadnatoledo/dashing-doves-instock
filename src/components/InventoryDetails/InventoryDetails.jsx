@@ -30,7 +30,7 @@ function WarehouseDetails() {
     <div className="inventory">
       <ComponentHeader
         backIcon={backIconImage}
-        navigateTo="/"
+        navigateTo="/inventory"
         text={inventory?.item_name || "Default Text"}
         editIcon={editWhite}
         editIconTablet={editWhite}
