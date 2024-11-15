@@ -8,7 +8,11 @@ import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse.jsx";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse.jsx";
 import ListItems from "./components/ListItems/ListItems";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
+import InventoryItem from "./components/InventoryItem/InventoryItem.jsx";
 import DeleteComponent from "./components/DeleteComponent/DeleteComponent.jsx";
+import AddNewItem from "./components/AddNewItem/AddNewItem.jsx";
+import EditItem from "./components/EditItem/EditItem.jsx";
+
 
 
 
@@ -26,6 +30,9 @@ function App() {
           <Route path="/warehouses/:id/edit" element={<EditWarehouse />} />
           <Route path="/warehouses/add-new" element={<AddNewWarehouse />} />
            <Route path="/inventory" element={<ListItems items="inventories" />} />
+           <Route path="/inventory/add-new" element={<AddNewItem />} />
+           <Route path="/inventory/:id" element={<InventoryItem />} />
+           <Route path="/inventory/:id/edit" element={<EditItem />} />
            <Route path="/inventory/:id/delete" element={<DeleteComponent/>}/>
 
 
