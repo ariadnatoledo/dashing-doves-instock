@@ -76,6 +76,7 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
                     inventory={listItem}
                     isFirst={index === 0}
                     isForWarehouseDetails={isForWarehouseDetails}
+                    onDelete={() => deleteItem("inventories", listItem.id)}
                   />
                 </div>
               ))
@@ -87,6 +88,7 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
                     inventory={listItem}
                     isFirst={index === 0}
                     isForWarehouseDetails={isForWarehouseDetails}
+                    onDelete={() => deleteItem("inventories", listItem.id)}
                   />
                 </div>
               ))}
