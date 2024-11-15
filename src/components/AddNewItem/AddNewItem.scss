@@ -72,8 +72,8 @@
     resize: none;
 
     &--description {
-        height: 7.5rem;
-      }
+      height: 7.5rem;
+    }
 
     &::placeholder {
       color: $color-primary-black;
@@ -86,6 +86,28 @@
       border-color: $color-primary-indigo;
     }
   }
+}
 
+.itemAvailability {
+  &__status {
+    display: flex;
+    align-content: center;
+  }
 
+  &__radio-label {
+    
+      width: 100%;
+      font-size: 0.8125rem;
+      line-height: 1.25rem;
+      color: $color-secondary-slate;
+
+      display: flex;
+      gap: 0.5rem;
+
+      input[type="radio"]:checked + & {
+        color: $color-primary-black; 
+      }
+
+    
+  }
 }
