@@ -3,6 +3,7 @@ import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
 
+
 import { Link } from "react-router-dom";
 
 function InventoryItem({ inventory, isFirst, isForWarehouseDetails }) {
@@ -59,12 +60,15 @@ function InventoryItem({ inventory, isFirst, isForWarehouseDetails }) {
 
       <div className="inventory-item__buttons">
         <button className="inventory-item__buttons-delete">
+          <Link  className="inventory-item__buttons-delete-link"
+            to={`/inventory/${inventory.id}/delete`}>
           <img
             className="inventory-item__buttons-delete-icon"
             src={deleteIcon}
             onClick={handleDeleteInventoryItem}
             alt="delete-icon"
           />
+          </Link>
         </button>
 
         <button className="inventory-item__buttons-edit">

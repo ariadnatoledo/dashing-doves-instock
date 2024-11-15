@@ -4,9 +4,14 @@ import axios from "axios";
 import WarehouseItem from "../WarehouseItem/WarehouseItem";
 import PagesHeader from "../PagesHeader/PagesHeader";
 import InventoryItem from "../InventoryItem/InventoryItem";
+import DeleteComponent from "../DeleteComponent/DeleteComponent";
+import CancelDeleteButton from "../CancelDeleteButton/CancelDeleteButton";
 
 function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
   const [list, setList] = useState([]);
+
+  const [deleteItem, setDeleteItem] = useState(null);
+
   const [filteredList, setFilteredList] = useState([]);
 
   useEffect(() => {
@@ -18,6 +23,7 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
     }
   }, [warehouse]);
 
+
   useEffect(() => {
     const getItems = async () => {
       const response = await axios.get(
@@ -27,6 +33,14 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
     };
     getItems();
   }, [items]);
+
+  const handleDelete = (item) => {
+    setDeleteItem(item);
+  };
+
+  const handleCloseDelete = () => {
+    setDeleteItem(null);
+  };
 
   return (
     <>
@@ -43,6 +57,7 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
 
       {items === "inventories" && (
         <>
+
           <PagesHeader title="inventory" button="Item" display={display} />
           {!warehouse
             ? list &&
@@ -52,7 +67,7 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
                   <InventoryItem
                     inventory={listItem}
                     isFirst={index === 0}
-                    isForWarehouseDetails={isForWarehouseDetails}
+                    isForWarehouseDetails={isForWarehouseDetails} onDelete={() => handleDelete(listItem)
                   />
                 </div>
               ))
@@ -63,11 +78,18 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
                   <InventoryItem
                     inventory={listItem}
                     isFirst={index === 0}
-                    isForWarehouseDetails={isForWarehouseDetails}
+                    isForWarehouseDetails={isForWarehouseDetails} onDelete={() => handleDelete(listItem)
                   />
                 </div>
               ))}
         </>
+      )}
+      {deleteItem && (
+        <DeleteComponent
+          inventory={deleteItem}
+          onClose={handleCloseDelete}
+          DeleteItemsComponent={CancelDeleteButton}
+        />
       )}
     </>
   );
