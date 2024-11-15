@@ -9,7 +9,7 @@ export default function ComponentHeader({ text, editIcon, editIconTablet, naviga
     const editNavigate = useNavigate();
 
     const handleBackClick = () => {
-        navigate(navigateTo); // Navigate to the route passed via prop
+        navigate(navigateTo); 
       };
       const handleEditClick = () => {
         editNavigate(navigateToEdit)
