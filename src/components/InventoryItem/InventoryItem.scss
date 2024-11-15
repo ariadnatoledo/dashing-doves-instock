@@ -57,7 +57,6 @@
     }
 
     &__container {
-      flex-basis: 0;
       &-item {
         @include flex-center(column, normal, flex-start);
         flex-grow: 1;
