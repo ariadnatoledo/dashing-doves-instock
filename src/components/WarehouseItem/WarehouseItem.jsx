@@ -4,7 +4,6 @@ import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
 import { useState } from "react";
 import DeleteModal from "../DeleteModal/DeleteModal";
-import axios from "axios";
 
 import { Link } from "react-router-dom";
 
