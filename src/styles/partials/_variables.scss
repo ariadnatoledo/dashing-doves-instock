@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1280px;
 
@@ -12,4 +14,6 @@ $color-bg-graphite: #232940;
 $color-bg-light-grey: #F7F8F9;
 
 $color-support-green: #158463;
+$color-support-green--light: color.adjust(#158463, $lightness: 60%);
 $color-support-red: #C94515;
+$color-support-red--light: color.adjust(#C94215, $lightness: 50%);

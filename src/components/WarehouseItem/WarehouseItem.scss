@@ -5,12 +5,18 @@
 
 .warehouse-item {
   border-top: 1px solid $color-secondary-cloud;
-  padding: 1rem 0;
+  padding: 1rem;
 
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
+  
+  &-first {
+    @include tablet {
+        border: none;
+      }
+  }
 }
 
 .item {
@@ -18,6 +24,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     gap: 1rem;
     flex-grow: 1;
 
@@ -52,6 +59,8 @@
     &--delete {
       display: flex;
       justify-content: flex-start;
+      border: none;
+      background-color: $color-primary-white;
 
       @include tablet {
         width: auto;
@@ -104,6 +113,7 @@
     &--link {
       color: $color-primary-indigo;
       font-weight: 600;
+      padding: 0;
     }
   }
 }
