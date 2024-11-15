@@ -4,8 +4,7 @@ import axios from "axios";
 import WarehouseItem from "../WarehouseItem/WarehouseItem";
 import PagesHeader from "../PagesHeader/PagesHeader";
 import InventoryItem from "../InventoryItem/InventoryItem";
-import DeleteComponent from "../DeleteComponent/DeleteComponent";
-import CancelDeleteButton from "../CancelDeleteButton/CancelDeleteButton";
+import TableHeader from "../TableHeader/TableHeader";
 
 function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
   const [list, setList] = useState([]);
@@ -52,6 +51,7 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
       {items === "warehouses" && (
         <>
           <PagesHeader title="warehouses" />
+          <TableHeader page="warehouses" />
           {list.map((listItem, index) => (
             <div key={listItem.id}>
               <WarehouseItem

@@ -12,7 +12,6 @@ import DeleteComponent from "./components/DeleteComponent/DeleteComponent.jsx";
 
 
 
-
 function App() {
   return (
     <BrowserRouter>
