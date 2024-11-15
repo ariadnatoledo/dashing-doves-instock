@@ -26,20 +26,30 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
 
   useEffect(() => {
     const getItems = async () => {
-      const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/${items}`
-      );
-      setList(response.data);
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/${items}`
+        );
+        setList(response.data);
+      } catch (err) {
+        console.error("Failed to fetch data", err);
+      }
     };
     getItems();
   }, [items]);
 
-  const handleDelete = (item) => {
-    setDeleteItem(item);
-  };
 
-  const handleCloseDelete = () => {
-    setDeleteItem(null);
+  const deleteItem = async (itemType, id) => {
+    try {
+      const response = await axios.delete(
+        `${import.meta.env.VITE_API_URL}/${itemType}/${id}`
+      );
+      if (response.status === 204) {
+        setList((prevList) => prevList.filter((item) => item.id !== id));
+      }
+    } catch (error) {
+      console.error(`Error deleting ${itemType}`, error);
+    }
   };
 
   return (
@@ -49,7 +59,11 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
           <PagesHeader title="warehouses" />
           {list.map((listItem, index) => (
             <div key={listItem.id}>
-              <WarehouseItem warehouse={listItem} isFirst={index === 0} />
+              <WarehouseItem
+                warehouse={listItem}
+                onDelete={() => deleteItem("warehouses", listItem.id)
+                isFirst={index === 0}}
+              />
             </div>
           ))}
         </>
@@ -57,7 +71,6 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
 
       {items === "inventories" && (
         <>
-
           <PagesHeader title="inventory" button="Item" display={display} />
           {!warehouse
             ? list &&
@@ -67,7 +80,7 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
                   <InventoryItem
                     inventory={listItem}
                     isFirst={index === 0}
-                    isForWarehouseDetails={isForWarehouseDetails} onDelete={() => handleDelete(listItem)
+                    isForWarehouseDetails={isForWarehouseDetails} onDelete= deleteItem("inventories", listItem.id)
                   />
                 </div>
               ))
@@ -78,20 +91,11 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
                   <InventoryItem
                     inventory={listItem}
                     isFirst={index === 0}
-                    isForWarehouseDetails={isForWarehouseDetails} onDelete={() => handleDelete(listItem)
+                    isForWarehouseDetails={isForWarehouseDetails} onDelete= deleteItem("inventories", listItem.id)
                   />
                 </div>
               ))}
         </>
-      )}
-      {deleteItem && (
-        <DeleteComponent
-          inventory={deleteItem}
-          onClose={handleCloseDelete}
-          DeleteItemsComponent={CancelDeleteButton}
-        />
-      )}
-    </>
   );
 }
 

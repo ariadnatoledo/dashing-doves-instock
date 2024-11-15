@@ -58,6 +58,8 @@
     &--delete {
       display: flex;
       justify-content: flex-start;
+      border: none;
+      background-color: $color-primary-white;
 
       @include tablet {
         width: auto;
