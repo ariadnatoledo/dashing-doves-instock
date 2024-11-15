@@ -67,29 +67,35 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
       {items === "inventories" && (
         <>
           <PagesHeader title="inventory" button="Item" display={display} />
-          {!warehouse
-            ? list &&
-              list.length > 0 &&
-              list.map((listItem, index) => (
-                <div key={listItem.id}>
-                  <InventoryItem
-                    inventory={listItem}
-                    isFirst={index === 0}
-                    isForWarehouseDetails={isForWarehouseDetails}
-                  />
-                </div>
-              ))
-            : filteredList &&
-              filteredList.length > 0 &&
-              filteredList.map((listItem, index) => (
-                <div key={listItem.id}>
-                  <InventoryItem
-                    inventory={listItem}
-                    isFirst={index === 0}
-                    isForWarehouseDetails={isForWarehouseDetails}
-                  />
-                </div>
-              ))}
+          <div className="list-table">
+            <TableHeader
+              page="inventories"
+              isForWarehouseDetails={isForWarehouseDetails}
+            />
+            {!warehouse
+              ? list &&
+                list.length > 0 &&
+                list.map((listItem, index) => (
+                  <div key={listItem.id}>
+                    <InventoryItem
+                      inventory={listItem}
+                      isFirst={index === 0}
+                      isForWarehouseDetails={isForWarehouseDetails}
+                    />
+                  </div>
+                ))
+              : filteredList &&
+                filteredList.length > 0 &&
+                filteredList.map((listItem, index) => (
+                  <div key={listItem.id}>
+                    <InventoryItem
+                      inventory={listItem}
+                      isFirst={index === 0}
+                      isForWarehouseDetails={isForWarehouseDetails}
+                    />
+                  </div>
+                ))}
+          </div>
         </>
       )}
     </>
