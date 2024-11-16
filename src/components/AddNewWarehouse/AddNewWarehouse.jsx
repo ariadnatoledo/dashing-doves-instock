@@ -20,7 +20,7 @@ export default function AddNewWarehouse() {
     contact_phone: "",
     contact_email: "",
   });
-  console.log(formData)
+  // console.log(formData)
 
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
@@ -81,6 +81,7 @@ export default function AddNewWarehouse() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    console.log(formData);
     const newErrors = {};
     Object.keys(formData).forEach((field) => {
         newErrors[field] = validateField(field, formData[field]);
@@ -91,16 +92,17 @@ export default function AddNewWarehouse() {
 
     if (!Object.values(newErrors).some((error) => error)) {
         try {
-            console.log("Submitting formData:", formData);
+            console.log("Submitting form data:", formData);
 
             const response = await axios.post(
-                `${import.meta.env.VITE_API_URL}/warehouses`, // API is not retrieving from this endpoint
+                `${import.meta.env.VITE_API_URL}/warehouses`,
                 formData
             );
 
             if (response.status === 201) {
+                alert("Thank you for your submission. \n You will now be re-directed to your new warehouse page.")
                 console.log("Warehouse added successfully:", response.data);
-                navigate("/warehouses"); 
+                navigate(`/warehouses/${response.data.newWarehouse.id}`); 
             }
         } catch (error) {
             console.error("Error adding warehouse:", error);
@@ -134,7 +136,7 @@ export default function AddNewWarehouse() {
       <section className="addNewWarehouse">
         <div className="warehouseDetails">
           <h2 className="warehouseDetails-title">Warehouse Details</h2>
-          {["Warehouse Name", "address", "city", "country"].map((field) =>
+          {["warehouse_name", "address", "city", "country"].map((field) =>
             renderField(field, "warehouseDetails")
           )}
         </div>
