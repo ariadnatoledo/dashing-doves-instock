@@ -4,37 +4,41 @@ import ComponentHeader from "../ComponentHeader/ComponentHeader";
 import SaveCancelAddButton from "../SaveCancelAddButton/SaveCancelAddButton";
 import errorIconState from "../../assets/Icons/error-24px.svg";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
-export default function AddNewWarehouse({ navigateTo }) {
+export default function AddNewWarehouse() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    warehouseName: "",
-    warehouseAddress: "",
-    warehouseCity: "",
-    warehouseCountry: "",
-    contactName: "",
-    contactPosition: "",
-    contactPhone: "",
-    contactEmail: "",
+    warehouse_name: "",
+    address: "",
+    city: "",
+    country: "",
+    contact_name: "",
+    contact_position: "",
+    contact_phone: "",
+    contact_email: "",
   });
+  console.log(formData)
 
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
 
   const validateField = (name, value) => {
     switch (name) {
-      case "warehouseName":
-      case "warehouseAddress":
-      case "warehouseCity":
-      case "warehouseCountry":
-      case "contactName":
-      case "contactPosition":
+      case "warehouse_name":
+      case "address":
+      case "city":
+      case "country":
+      case "contact_name":
+      case "contact_position":
         return value.trim() === "" ? "This field is required." : null;
-      case "contactPhone":
+      case "contact_phone":
         return !/^\+\d+ \(\d{3}\) \d{3}-\d{4}$/.test(value)
           ? "Enter a valid phone number"
           : null;
-      case "contactEmail":
+      case "contact_email":
         return !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
           ? "Enter a valid email address."
           : null;
@@ -61,7 +65,7 @@ export default function AddNewWarehouse({ navigateTo }) {
     const { name, value } = e.target;
     let formattedValue = value;
 
-    if (name === 'contactPhone') {
+    if (name === 'contact_phone') {
       formattedValue = formatPhoneNumber(value);
     }
 
@@ -96,7 +100,7 @@ export default function AddNewWarehouse({ navigateTo }) {
 
             if (response.status === 201) {
                 console.log("Warehouse added successfully:", response.data);
-                navigateTo("/warehouses"); 
+                navigate("/warehouses"); 
             }
         } catch (error) {
             console.error("Error adding warehouse:", error);
@@ -130,7 +134,7 @@ export default function AddNewWarehouse({ navigateTo }) {
       <section className="addNewWarehouse">
         <div className="warehouseDetails">
           <h2 className="warehouseDetails-title">Warehouse Details</h2>
-          {["warehouseName", "warehouseAddress", "warehouseCity", "warehouseCountry"].map((field) =>
+          {["Warehouse Name", "address", "city", "country"].map((field) =>
             renderField(field, "warehouseDetails")
           )}
         </div>
@@ -139,7 +143,7 @@ export default function AddNewWarehouse({ navigateTo }) {
 
         <div className="contactDetails">
           <h2 className="contactDetails-title">Contact Details</h2>
-          {["contactName", "contactPosition", "contactPhone", "contactEmail"].map((field) =>
+          {["contact_name", "contact_position", "contact_phone", "contact_email"].map((field) =>
             renderField(field, "contactDetails")
           )}
         </div>
