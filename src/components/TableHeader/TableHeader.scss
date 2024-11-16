@@ -34,57 +34,51 @@
 // }
 
 .table-header {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 0 1rem;
-  background-color: $color-bg-light-grey;
+  display: none;
 
-  &__item {
-    text-transform: uppercase;
+  @include tablet {
+    width: 100%;
     display: flex;
-    justify-content: row;
-    align-items: center;
-    color: $color-secondary-slate;
-    font-weight: 600;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background-color: $color-bg-light-grey;
 
-    &--warehouse {
-      min-width: 15%;
-      width: 15%;
-      flex-basis: auto;
+    &__item {
+      text-transform: uppercase;
+      display: flex;
+      justify-content: row;
+      align-items: center;
+      color: $color-secondary-slate;
+      font-weight: 600;
+
+      &--warehouse {
+        width: 15%;
+      }
+
+      &--address {
+        width: 20%;
+      }
+
+      &--contact-name {
+        width: 20%;
+      }
+
+      &--contact-information {
+        width: 20%;
+      }
+
+      &--actions {
+        width: 10%;
+      }
     }
 
-    &--address {
-      min-width: 20%;
-      width: 20%;
-      flex-basis: auto;
+    &__text {
+      white-space: nowrap;
     }
 
-    &--contact-name {
-      min-width: 20%;
-      width: 20%;
-      flex-basis: auto;
+    &__inner {
+      display: flex;
     }
-
-    &--contact-information {
-      min-width: 20%;
-      width: 20%;
-      flex-basis: auto;
-    }
-
-    &--actions {
-      min-width: 10%;
-      width: 10%;
-      flex-basis: auto;
-    }
-  }
-
-  &__text {
-    white-space: nowrap;
-  }
-
-  &__inner {
-    display: flex;
   }
 }
