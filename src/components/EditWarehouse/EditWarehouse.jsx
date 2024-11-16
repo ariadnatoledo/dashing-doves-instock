@@ -42,7 +42,6 @@ function EditWarehouse() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-console.log(handleSubmit);
 
         const updatedWarehouse = {
             id: warehouse.id,

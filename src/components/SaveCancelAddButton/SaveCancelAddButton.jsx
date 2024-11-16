@@ -6,15 +6,15 @@ export default function SaveCancelAddButton({
   showSave,
   showAddWarehouse,
   showAddItem,
-  navigateTo,
 }) {
   const navigate = useNavigate();
 
-  const handleCancelClick = () => {
+  const handleCancelClick = (e) => {
     const confirmCancel = confirm("Select OK to cancel form submission");
 
     if (confirmCancel) {
-      navigate(navigateTo);
+        e.preventDefault();
+        navigate(-1);
     }
   };
 
