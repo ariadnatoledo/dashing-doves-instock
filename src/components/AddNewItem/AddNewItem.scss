@@ -4,16 +4,6 @@
 @use "../../styles/partials/variables" as *;
 @use "../Header/Header.scss" as *;
 
-// .addNewWarehouseDetails {
-//   @include tablet {
-//     padding: 0 2rem;
-//   }
-
-//   @include desktop {
-//     padding: 0 4rem;
-//   }
-// }
-
 .addNewItem-form {
   position: relative;
   @include flex-values(column, unset, center);
@@ -23,7 +13,7 @@
   width: 100%;
 }
 
-.addNewItem {
+.addNewItem-section {
   padding-bottom: 1.5rem;
   background-color: $color-primary-white;
   width: 100%;
@@ -33,7 +23,7 @@
   @include tablet {
     flex-direction: row;
     justify-content: space-between;
-    gap: 4rem;
+    // gap: 4rem;
   }
 }
 
@@ -54,6 +44,13 @@
   @include tablet {
     width: 100%;
   }
+
+  &-title {
+    @include tablet {
+      padding-top: 0;
+    }
+  }
+
   &-label {
     color: $color-primary-black;
     font-weight: 600;
@@ -102,6 +99,12 @@
   &__status {
     display: flex;
     align-content: center;
+    @include tablet {
+      gap: 2rem;
+    }
+    @include desktop {
+      gap: 2rem;
+    }
   }
 
   &__radio-label {
@@ -112,5 +115,9 @@
     display: flex;
     gap: 0.5rem;
     cursor: pointer;
+
+    @include tablet {
+      width: auto;
+    }
   }
 }

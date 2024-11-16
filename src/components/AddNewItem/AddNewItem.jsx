@@ -106,7 +106,7 @@ function AddNewItem() {
   return (
     <form className="addNewItem-form" onSubmit={handleFormSubmit}>
       <ComponentHeader navigateTo="/inventory" text="Add New Inventory Item" />
-      <section className="addNewItem">
+      <section className="addNewItem-section">
         <div className="itemDetails">
           <h2 className="itemDetails-title">Item Details</h2>
 
