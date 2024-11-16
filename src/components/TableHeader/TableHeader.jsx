@@ -13,7 +13,6 @@ function TableHeader({ page, isForWarehouseDetails }) {
   return (
     <div className="table-header">
         {(!isForWarehouseDetails ? tableHeader : warehouseDetailsTableHeader).map((header, index) => (
-             
                 <div key={index} className={`table-header__item table-header__item--${header.replace(" ", "-")} ${index === 0 ? 'table-header__item--first' : 'table-header__item--other'}`} >
                   <h4 className="table-header__text">{header}</h4>
                   <img src={sortIcon} alt="Sort" className="table-header__sort-icon" />
