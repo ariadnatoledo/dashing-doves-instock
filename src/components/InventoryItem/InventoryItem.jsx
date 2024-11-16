@@ -170,7 +170,7 @@ function InventoryItem({ inventory, isFirst, isForWarehouseDetails, onDelete }) 
                     : ""
                 }`}
               >
-                {inventory.status.toUpperCase()}
+                {inventory.status}
               </p>
             </div>
 
