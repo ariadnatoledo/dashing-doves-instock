@@ -26,3 +26,26 @@
     @content;
   }
 }
+
+@mixin instock($isInStock) {
+  text-transform: uppercase;
+  color: $color-support-green;
+  background-color: $color-support-green--light;
+  border-radius: 1rem;
+  padding: 0.25rem 0.5rem;
+  font-size: .75rem;
+  line-height: 1rem;
+  flex-grow: 0;
+  white-space: nowrap;
+  max-width: 4.5rem;
+
+
+  @if $isInStock == false {
+    text-transform: uppercase;
+    color: $color-support-red;
+    background-color: $color-support-red--light;
+    flex-grow: 0;
+    white-space: nowrap;
+    max-width: 6rem;
+  }
+}

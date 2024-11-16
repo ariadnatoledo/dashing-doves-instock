@@ -16,21 +16,15 @@ export default function SaveCancelAddButton({ showSave, showAddWarehouse, showAd
             </button>
 
             {showSave && (
-                <button type="button" className="saveButton">
-                    Save
-                </button>
+                <button type="submit" className="saveButton" >Save</button>
             )}
 
             {showAddWarehouse && (
-                <button type="submit" className="addWarehouse">
-                    + Add Warehouse
-                </button>
+                <button type="submit" className="addWarehouse" >+ Add Warehouse</button>
             )}
 
             {showAddItem && (
-                <button type="button" className="addItem">
-                    + Add Item
-                </button>
+                <button type="submit" className="addItem" >+ Add Item</button>
             )}
         </div>
     );
