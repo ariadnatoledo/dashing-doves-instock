@@ -33,52 +33,42 @@ function WarehouseItem({ warehouse, onDelete }) {
         deleteItem={deleteWarehouse}
       ></DeleteModal>
       <div className="warehouse-item">
-        <div className="warehouse-item__info">
-          <div className="warehouse-item__left">
-            <div className="warehouse-item__container-name">
-              <h4 className="warehouse-item__label">Warehouse</h4>
-              <Link
-                to={`warehouses/${warehouse.id}`}
-                className="warehouse-item__item-link"
-              >
-                <h3 className="warehouse-item__item-link-data">
-                  {warehouse.warehouse_name}
-                </h3>
-                <img
-                  className="warehouse-item__item-link-icon"
-                  src={chevronIcon}
-                  alt="chevron-icon"
-                />
-              </Link>
-            </div>
-            <div className="warehouse-item__container-address">
-              <h4 className="warehouse-item__label">Address</h4>
-              <p className="warehouse-item__address p2">
-                {warehouse.address}, {warehouse.city}, {warehouse.country}
-              </p>
-            </div>
-          </div>
-
-          <div className="warehouse-item__right">
-            <div className="warehouse-item__container-contact-name">
-              <h4 className="warehouse-item__label">Contact Name</h4>
-              <p className="warehouse-item__contact-name p2">
-                {warehouse.contact_name}
-              </p>
-            </div>
-
-            <div className="warehouse-item__container-contact-info">
-              <h4 className="warehouse-item__label">Contact Information:</h4>
-              <p className="warehouse-item__contact-info p2">
-                {warehouse.contact_phone}
-              </p>
-              <p className="warehouse-item__contact-info p2">
-                {warehouse.contact_email}
-              </p>
-            </div>
-          </div>
+        <div className="warehouse-item__container-name">
+          <h4 className="warehouse-item__label">Warehouse</h4>
+          <Link
+            to={`warehouses/${warehouse.id}`}
+            className="warehouse-item__item-link"
+          >
+            <h3 className="warehouse-item__text--link-data">
+              {warehouse.warehouse_name}
+            </h3>
+            <img
+              className="warehouse-item__link-icon"
+              src={chevronIcon}
+              alt="chevron-icon"
+            />
+          </Link>
         </div>
-        <div className="warehouse-item__buttons">
+
+        <div className="warehouse-item__container-address">
+          <h4 className="warehouse-item__label">Address</h4>
+          <p className="warehouse-item__text p2">
+            {warehouse.address}, {warehouse.city}, {warehouse.country}
+          </p>
+        </div>
+
+        <div className="warehouse-item__container-contact-name">
+          <h4 className="warehouse-item__label">Contact Name</h4>
+          <p className="warehouse-item__text p2">{warehouse.contact_name}</p>
+        </div>
+
+        <div className="warehouse-item__container-contact-info">
+          <h4 className="warehouse-item__label">Contact Information:</h4>
+          <p className="warehouse-item__text p2">{warehouse.contact_phone}</p>
+          <p className="warehouse-item__text p2">{warehouse.contact_email}</p>
+        </div>
+
+        <div className="warehouse-item__container-buttons">
           <button className="warehouse-item__buttons-delete">
             <img
               className="warehouse-item__buttons-delete-icon"
