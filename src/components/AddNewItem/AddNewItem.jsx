@@ -10,7 +10,7 @@ function AddNewItem() {
 
   const [items, setItems] = useState([]);
   const [warehouses, setWarehouses] = useState([]);
-  const [showQuantity, setShowQuantity] = useState(true);
+  const [showQuantity, setShowQuantity] = useState(null);
   const [selectedValue, setSelectedValue] = useState({
     itemCategory: "",
     itemWarehouse: "",
@@ -84,8 +84,24 @@ function AddNewItem() {
     let itemWarehouseId = "";
 
     if (isNaN(itemQuantity)) {
-      alert("Please ensure quantity is a numeric value");
+        alert("Please ensure quantity is a numeric value");
+        return;
+      }
+
+    if (
+      !itemName ||
+      !itemDescription ||
+      !itemCategory ||
+      !itemStatus ||
+      !itemQuantity ||
+      !itemWarehouse
+    ) {
+      alert("Please ensure all form fields are filled!");
+      return;
     }
+
+  
+   
 
     for (let i of warehouses) {
       if (itemWarehouse === i.warehouse_name) {
