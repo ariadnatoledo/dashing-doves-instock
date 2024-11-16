@@ -9,8 +9,8 @@ function EditInventory() {
     const { id } = useParams();
     const navigate = useNavigate();
     const baseURL = import.meta.env.VITE_API_URL;
-
-    const [inventory, setInventory] = useState(null);
+    const [status, setStatus] = useState('')
+    const [inventory, setInventory] = useState({});
     const [uniqueCategories, setUniqueCategories] = useState([]);
     const [uniqueWarehouses, setUniqueWarehouses] = useState([]);
 
@@ -23,6 +23,12 @@ function EditInventory() {
 
                 const inventoriesResponse = await axios.get(`${baseURL}/inventories`);
                 const inventories = inventoriesResponse.data;
+
+                if (inventoryResponse.data.quantity > 0) {
+                    setStatus("in-stock");
+                } else {
+                    setStatus("Out of Stock");
+                }
 
     
                 const categories = [...new Set(inventories.map((item) => item.category))];
@@ -38,6 +44,10 @@ function EditInventory() {
         fetchInventoryAndOptions();
     }, [id]);
 
+    const handleStatusChange = (e) => {
+        setStatus(e.target.value)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -45,13 +55,13 @@ function EditInventory() {
 
         const updatedInventory = {
             id: inventory.id,
-            warehouse_id: e.target.itemWarehouseId,
+            warehouse_id: inventory.warehouse_id,
             warehouse_name: e.target.itemWarehouse.value,
             item_name: e.target.itemName.value,
             description: e.target.itemDescription.value,
             category: e.target.itemCategory.value,
             status: e.target.stock.value,
-            quantity: e.target.itemQuantity.value,  
+            quantity: parseInt(e.target.itemQuantity.value, 10)  
            
         };
 
@@ -61,7 +71,7 @@ function EditInventory() {
             !updatedInventory.description ||
             !updatedInventory.category ||
             !updatedInventory.status ||
-            isNaN(updatedInventory.quantity)
+            (isNaN(updatedInventory.quantity) && !updatedInventory.quantity >= 0 )
         ) {
             alert("All fields are required.");
             return;
@@ -78,7 +88,7 @@ function EditInventory() {
             );
             if (response.status === 200) {
                 alert("Inventory updated successfully!");
-                navigate("/inventory");
+                navigate(`/warehouses/${updatedInventory.warehouse_id}`);
             }
         } catch (error) {
             console.error("Failed to save inventory changes", error);
@@ -92,8 +102,8 @@ function EditInventory() {
     if (!inventory) {
         return <p>Loading inventory data...</p>;
     }
-
     return (
+        
         <form className="editInventory-form" onSubmit={handleSubmit}>
             <ComponentHeader navigateTo="/inventory" text="Edit Inventory Item" />
 
@@ -149,7 +159,8 @@ function EditInventory() {
                                 className="itemAvailability__radio"
                                 name="stock"
                                 value="in-stock"
-                                defaultChecked={inventory.status === "in-stock"}
+                                checked={status === "in-stock"}
+                                onChange={handleStatusChange}
                             />
                             In stock
                         </label>
@@ -158,8 +169,9 @@ function EditInventory() {
                                 type="radio"
                                 className="itemAvailability__radio"
                                 name="stock"
-                                value="out-of-stock"
-                                defaultChecked={inventory.status === "out-of-stock"}
+                                value="Out of Stock"
+                                checked={status === "Out of Stock"}
+                                onChange={handleStatusChange}
                             />
                             Out of stock
                         </label>

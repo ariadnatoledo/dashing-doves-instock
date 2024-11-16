@@ -2,11 +2,12 @@ import React from 'react';
 import "./SaveCancelAddButton.scss";
 import { useNavigate } from 'react-router-dom';
 
-export default function SaveCancelAddButton({ showSave, showAddWarehouse, showAddItem, navigateTo }) {
+export default function SaveCancelAddButton({ showSave, showAddWarehouse, showAddItem }) {
     const navigate = useNavigate();
 
-    const handleCancelClick = () => {
-        navigate(navigateTo);
+    const handleCancelClick = (e) => {
+        e.preventDefault();
+        navigate(-1);
     };
 
     return (
