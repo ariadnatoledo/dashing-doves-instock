@@ -85,9 +85,16 @@ function AddNewItem() {
     const itemDescription = event.target.itemDescription.value;
     const itemCategory = event.target.itemCategory.value;
     const itemStatus = event.target.itemStatus.value;
-    const itemQuantity = parseInt(event.target.itemQuantity.value, 10);
+    let itemQuantity = 0;
     const itemWarehouse = event.target.itemWarehouse.value;
     let itemWarehouseId = "";
+
+
+    if (itemStatus === "Out of stock") {
+      itemQuantity = 0;
+    } else {
+      itemQuantity = parseInt(event.target.itemQuantity.value, 10);   
+    }
 
     if (isNaN(itemQuantity)) {
       alert("Please ensure quantity is a numeric value");
@@ -98,7 +105,7 @@ function AddNewItem() {
       !itemName ||
       !itemDescription ||
       !itemCategory ||
-      !itemStatus ||
+      !itemStatus || itemStatus === "In stock" &&
       !itemQuantity ||
       !itemWarehouse
     ) {
