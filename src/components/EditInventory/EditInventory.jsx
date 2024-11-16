@@ -193,7 +193,7 @@ function EditInventory() {
                 </div>
             </section>
 
-            <SaveCancelAddButton showAddItem={true} navigateTo="/inventory" />
+            <SaveCancelAddButton showSave={true} navigateTo="/inventory" />
         </form>
     );
 }
