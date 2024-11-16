@@ -17,15 +17,14 @@ function EditInventory() {
     useEffect(() => {
         const fetchInventoryAndOptions = async () => {
             try {
-                // Fetch inventory data
+               
                 const inventoryResponse = await axios.get(`${baseURL}/inventories/${id}`);
                 setInventory(inventoryResponse.data);
 
-                // Fetch inventories for extracting categories and warehouses
                 const inventoriesResponse = await axios.get(`${baseURL}/inventories`);
                 const inventories = inventoriesResponse.data;
 
-                // Extract unique categories and warehouses
+    
                 const categories = [...new Set(inventories.map((item) => item.category))];
                 const warehouses = [...new Set(inventories.map((item) => item.warehouse_name))];
 
@@ -44,18 +43,18 @@ function EditInventory() {
 
         if (!inventory) return;
 
-        // Extract form data
         const updatedInventory = {
             id: inventory.id,
+            warehouse_id: e.target.itemWarehouseId,
             warehouse_name: e.target.itemWarehouse.value,
             item_name: e.target.itemName.value,
             description: e.target.itemDescription.value,
             category: e.target.itemCategory.value,
             status: e.target.stock.value,
-            quantity: e.target.itemQuantity.value,  // Ensure quantity is numeric
+            quantity: e.target.itemQuantity.value,  
+           
         };
 
-        // Check if all required fields are filled
         if (
             !updatedInventory.warehouse_name ||
             !updatedInventory.item_name ||
