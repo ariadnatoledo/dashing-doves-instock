@@ -11,20 +11,21 @@ export default function SaveCancelAddButton({ showSave, showAddWarehouse, showAd
     };
 
 
+
     return (
         <div className='saveCancel'>
             <button type="button" className="cancelButton" onClick={handleCancelClick}>Cancel</button>
 
             {showSave && (
-                <button type="button" className="saveButton" >Save</button>
+                <button type="submit" className="saveButton" >Save</button>
             )}
 
             {showAddWarehouse && (
-                <button type="button" className="addWarehouse" >+ Add Warehouse</button>
+                <button type="submit" className="addWarehouse" >+ Add Warehouse</button>
             )}
 
             {showAddItem && (
-                <button type="button" className="addItem" >+ Add Item</button>
+                <button type="submit" className="addItem" >+ Add Item</button>
             )}
 
 

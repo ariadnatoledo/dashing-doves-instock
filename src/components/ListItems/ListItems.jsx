@@ -5,10 +5,12 @@ import WarehouseItem from "../WarehouseItem/WarehouseItem";
 import PagesHeader from "../PagesHeader/PagesHeader";
 import InventoryItem from "../InventoryItem/InventoryItem";
 import TableHeader from "../TableHeader/TableHeader";
+import EditWarehouse from "../EditWarehouse/EditWarehouse";
 
 function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
   const [list, setList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
+  const [editingItem, setEditingItem] = useState(null);
 
   useEffect(() => {
     if (warehouse) {
@@ -17,7 +19,7 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
       );
       setFilteredList(filterByWarehouse);
     }
-  }, [warehouse]);
+  }, [warehouse, list]);
 
   useEffect(() => {
     const getItems = async () => {
@@ -48,6 +50,13 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
 
   return (
     <>
+      {editingItem && editingItem.type === "warehouses" && (
+        <EditWarehouse
+          warehouse={editingItem.data}
+          onCancel={() => setEditingItem(null)}
+        />
+      )}
+
       {items === "warehouses" && (
         <>
           <PagesHeader title="warehouses" />
@@ -57,6 +66,7 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
               <WarehouseItem
                 warehouse={listItem}
                 onDelete={() => deleteItem("warehouses", listItem.id)}
+                onEdit={() => setEditingItem({ type: "warehouses", data: listItem })}
                 isFirst={index === 0}
               />
             </div>
@@ -67,31 +77,35 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
       {items === "inventories" && (
         <>
           <PagesHeader title="inventory" button="Item" display={display} />
+          <TableHeader
+              page="inventories"
+              isForWarehouseDetails={isForWarehouseDetails}
+            />
           {!warehouse
             ? list &&
-              list.length > 0 &&
-              list.map((listItem, index) => (
-                <div key={listItem.id}>
-                  <InventoryItem
-                    inventory={listItem}
-                    isFirst={index === 0}
-                    isForWarehouseDetails={isForWarehouseDetails}
-                    onDelete={() => deleteItem("inventories", listItem.id)}
-                  />
-                </div>
-              ))
+            list.length > 0 &&
+            list.map((listItem, index) => (
+              <div key={listItem.id}>
+                <InventoryItem
+                  inventory={listItem}
+                  isFirst={index === 0}
+                  isForWarehouseDetails={isForWarehouseDetails}
+                  onDelete={() => deleteItem("inventories", listItem.id)}
+                />
+              </div>
+            ))
             : filteredList &&
-              filteredList.length > 0 &&
-              filteredList.map((listItem, index) => (
-                <div key={listItem.id}>
-                  <InventoryItem
-                    inventory={listItem}
-                    isFirst={index === 0}
-                    isForWarehouseDetails={isForWarehouseDetails}
-                    onDelete={() => deleteItem("inventories", listItem.id)}
-                  />
-                </div>
-              ))}
+            filteredList.length > 0 &&
+            filteredList.map((listItem, index) => (
+              <div key={listItem.id}>
+                <InventoryItem
+                  inventory={listItem}
+                  isFirst={index === 0}
+                  isForWarehouseDetails={isForWarehouseDetails}
+                  onDelete={() => deleteItem("inventories", listItem.id)}
+                />
+              </div>
+            ))}
         </>
       )}
     </>
