@@ -10,6 +10,7 @@ function AddNewItem() {
 
   const [items, setItems] = useState([]);
   const [warehouses, setWarehouses] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   async function getItems() {
     try {
@@ -23,7 +24,6 @@ function AddNewItem() {
   async function getWarehouses() {
     try {
       const response = await axios.get(`${baseURL}/warehouses`);
-    //   console.log(response.data);
       setWarehouses(response.data);
     } catch (error) {
       console.error("Error fetching inventory data", error);
@@ -37,6 +37,7 @@ function AddNewItem() {
         alert(
           "Thank you for your addition!.\n You will now be re-directed to your new Item page"
         );
+        // Confirm path to new item to redirect there
         // navigate("/");
       }
     } catch (error) {
@@ -44,78 +45,48 @@ function AddNewItem() {
     }
   }
 
-  //   console.log(items);
-
-  // const {category} = items;
   const uniqueCategories = [...new Set(items.map((item) => item.category))];
   const uniqueWarehouses = [
     ...new Set(items.map((item) => item.warehouse_name)),
   ];
 
-  // console.log(category);
-//   console.log("These are my categories", uniqueCategories);
-//   console.log("These are my warehouses", uniqueWarehouses);
-
+  const handleSelect = (event) => {
+    setSelectedCategory(event.target.value);
+  };
 
   function handleFormSubmit(event) {
     event.preventDefault();
-
 
     const itemName = event.target.itemName.value;
     const itemDescription = event.target.itemDescription.value;
     const itemCategory = event.target.itemCategory.value;
     const itemStatus = event.target.itemStatus.value;
-    const itemQuantity = event.target.itemQuantity.value;
+    const itemQuantity = parseInt(event.target.itemQuantity.value, 10);
     const itemWarehouse = event.target.itemWarehouse.value;
-    const itemWarehouseId = "";
+    let itemWarehouseId = "";
 
-    if(isNaN(itemQuantity)) {
-        alert("Please ensure quantity is a numeric value");
-    } 
-
-
-
-    // console.log(warehouses);
-
-    for (let i of warehouses) {
-        if (itemWarehouse === i.name) {
-            const itemWarehouseId = i.id
-            console.log(itemWarehouseId);
-            return itemWarehouseId;
-        }
+    if (isNaN(itemQuantity)) {
+      alert("Please ensure quantity is a numeric value");
     }
 
-    // console.log(itemName);
-    // console.log(itemDescription);
-    // console.log(itemCategory);
-    // console.log(itemStatus);
-    // console.log(itemQuantity);
-    // console.log(itemWarehouse);
-    console.log(itemWarehouseId);
+    for (let i of warehouses) {
+      if (itemWarehouse === i.warehouse_name) {
+        itemWarehouseId = i.id;
 
+        break;
+      }
+    }
 
-    // if (!title && !description) {
-    //   alert("Fields must be filled before proceeding.");
-    //   return;
-    // } else if (!title) {
-    //   alert("Please be sure to include a video title!");
+    const newItem = {
+      warehouse_id: itemWarehouseId,
+      item_name: itemName,
+      description: itemDescription,
+      category: itemCategory,
+      status: itemStatus,
+      quantity: itemQuantity,
+    };
 
-    //   return;
-    // } else if (!description) {
-    //   alert("Please be sure to include a video description!");
-    //   return;
-    // } else {
-    //   const newItem = {
-    //     warehouse_id: 1,
-    //     item_name: itemName,
-    //     description: itemDetails,
-    //     category: itemCategory,
-    //     status: itemStatus,
-    //     quantity: itemQuantity
-    //   };
-
-    //   addItem(newItem);
-    // }
+    addItem(newItem);
   }
 
   useEffect(() => {
@@ -147,12 +118,20 @@ function AddNewItem() {
           ></textarea>
 
           <label className="itemDetails-label">Category</label>
-          <select className="itemDetails-select" name="itemCategory" required>
-          <option className="itemDetails-options" value="Select a category" disabled>
+          <select
+            className="itemDetails-select"
+            name="itemCategory"
+            value={selectedCategory}
+            onChange={handleSelect}
+            required
+          >
+            <option className="itemDetails-options" value="" disabled>
               Select a category
             </option>
             {uniqueCategories.map((category) => (
-              <option key={category} value={category}>{category}</option>
+              <option key={category} value={category}>
+                {category}
+              </option>
             ))}
           </select>
         </div>
@@ -163,22 +142,30 @@ function AddNewItem() {
           <label className="itemAvailability-label">Status</label>
 
           <div className="itemAvailability__status">
-            <label htmlFor="itemStatus" className="itemAvailability__radio-label">
+            <label
+              htmlFor="itemStatus"
+              className="itemAvailability__radio-label"
+            >
               <input
                 type="radio"
                 className="itemAvailability__radio"
                 name="itemStatus"
-                value="In Stock" required
+                value="In Stock"
+                required
               />
               In stock
             </label>
 
-            <label htmlFor="itemStatus" className="itemAvailability__radio-label">
+            <label
+              htmlFor="itemStatus"
+              className="itemAvailability__radio-label"
+            >
               <input
                 type="radio"
                 className="itemAvailability__radio"
                 name="itemStatus"
-                value="Out of stock" required
+                value="Out of stock"
+                required
               />
               Out of stock
             </label>
@@ -193,12 +180,20 @@ function AddNewItem() {
           ></textarea>
 
           <label className="itemAvailability-label">Warehouse</label>
-          <select className="itemAvailability-select" name="itemWarehouse" required>
-          <option className="itemAvailability-options" value="Select a warehouse" disabled>
+          <select
+            className="itemAvailability-select"
+            name="itemWarehouse"
+            value={selectedCategory}
+            onChange={handleSelect}
+            required
+          >
+            <option className="itemAvailability-options" value="" disabled>
               Select a warehouse
             </option>
             {uniqueWarehouses.map((warehouse) => (
-              <option key={warehouse} value={warehouse}>{warehouse}</option>
+              <option key={warehouse} value={warehouse}>
+                {warehouse}
+              </option>
             ))}
           </select>
         </div>
