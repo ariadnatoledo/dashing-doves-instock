@@ -6,32 +6,34 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function AddNewItem() {
-    const baseURL = import.meta.env.VITE_API_URL;
+  const baseURL = import.meta.env.VITE_API_URL;
 
-    const [items, setItems] = useState([]);
+  const [items, setItems] = useState([]);
 
-    async function getItems() {
-        try {
-          const response = await axios.get(`${baseURL}/inventories`);
-            setItems(response.data);
-        } catch (error) {
-          console.error("Error fetching inventory data", error);
-        }
-      }
+  async function getItems() {
+    try {
+      const response = await axios.get(`${baseURL}/inventories`);
+      setItems(response.data);
+    } catch (error) {
+      console.error("Error fetching inventory data", error);
+    }
+  }
 
-    //   console.log(items);
+  //   console.log(items);
 
-    const {category} = items;
-    const uniqueCategory = [...new Set(category)];
+  // const {category} = items;
+  const uniqueCategories = [...new Set(items.map((item) => item.category))];
+  const uniqueWarehouses = [
+    ...new Set(items.map((item) => item.warehouse_name)),
+  ];
 
-    console.log(category);
-    console.log(uniqueCategory);
-    
-      useEffect(() => {
-        getItems();
-      }, []);
+  // console.log(category);
+  console.log("These are my categories", uniqueCategories);
+  console.log("These are my warehouses", uniqueWarehouses);
 
-
+  useEffect(() => {
+    getItems();
+  }, []);
 
   return (
     <form className="addNewItem-form">
@@ -57,14 +59,14 @@ function AddNewItem() {
           ></textarea>
 
           <label className="itemDetails-label">Category</label>
-            <select className="itemDetails-input" name="itemCategory" id="">
-                {items.map((item)=> (
-
-                    <option key={item.id} value={item.category}>{item.category}</option>
-                )
-                )}
-            </select>
-
+          <select className="itemDetails-select" name="itemCategory">
+          <option className="itemDetails-options" value="Select a category" disabled>
+              Select a category
+            </option>
+            {uniqueCategories.map((category) => (
+              <option value={category}>{category}</option>
+            ))}
+          </select>
         </div>
         <div className="border"></div>
         <div className="itemAvailability">
@@ -101,7 +103,14 @@ function AddNewItem() {
           ></textarea>
 
           <label className="itemAvailability-label">Warehouse</label>
-          <select className="itemAvailability-input" name="itemWarehouse" ></select>
+          <select className="itemAvailability-select" name="itemWarehouse">
+          <option className="itemAvailability-options" value="Select a warehouse" disabled>
+              Select a warehouse
+            </option>
+            {uniqueWarehouses.map((warehouse) => (
+              <option value={warehouse}>{warehouse}</option>
+            ))}
+          </select>
         </div>
       </section>
 

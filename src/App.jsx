@@ -34,7 +34,7 @@ function App() {
           />
           <Route path="/inventory/add-new" element={<AddNewItem />} />
           <Route path="/inventory/:itemId" element={<InventoryItem />} />
-          <Route path="/inventory/:itemId/edit" element={<EditItem />} />
+          <Route path="/inventory/:id/edit" element={<EditItem />} />
           {/* <Route
             path="/inventory/:itemId/delete"
             element={<DeleteComponent />}

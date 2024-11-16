@@ -62,14 +62,16 @@
     padding-top: 1rem;
   }
 
-  &-input {
+  &-input, 
+  &-select {
     display: flex;
     border-color: $color-secondary-cloud;
     height: 2.25rem;
-    padding: 0.625rem 0 0 1.25rem;
+    padding: 0.625rem 1.25rem;
     border-radius: 20px;
     color: $color-primary-black;
     resize: none;
+    overflow-y: hidden;
 
     &--description {
       height: 7.5rem;
@@ -86,6 +88,13 @@
       border-color: $color-primary-indigo;
     }
   }
+
+  &-select {
+    appearance: none;
+   background-image: url("../../assets/Icons/arrow_drop_down-24px.svg");
+   background-repeat: no-repeat;
+  //  background-position: ;
+  }
 }
 
 .itemAvailability {
@@ -95,19 +104,16 @@
   }
 
   &__radio-label {
-    
-      width: 100%;
-      font-size: 0.8125rem;
-      line-height: 1.25rem;
-      color: $color-secondary-slate;
+    width: 100%;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+    color: $color-secondary-slate;
 
-      display: flex;
-      gap: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
 
-      input[type="radio"]:checked + & {
-        color: $color-primary-black; 
-      }
-
-    
+    input[type="radio"]:checked + & {
+      color: $color-primary-black;
+    }
   }
 }

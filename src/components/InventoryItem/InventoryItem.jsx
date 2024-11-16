@@ -96,7 +96,7 @@ function InventoryItem({ inventory, isFirst, isForWarehouseDetails, onDelete }) 
             <button className="inventory-item__buttons-edit">
               <Link
                 className="inventory-item__buttons-edit-link"
-                to={`/inventory/edit/${inventory.id}`}
+                to={`/inventory/${inventory.id}/edit`}
               >
                 <img
                   className="inventory-item__buttons-edit-icon"
