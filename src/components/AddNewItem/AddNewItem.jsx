@@ -8,8 +8,28 @@ import axios from "axios";
 function AddNewItem() {
     const baseURL = import.meta.env.VITE_API_URL;
 
-    const [itemCategory, setitemCategory] = useState("");
-  
+    const [items, setItems] = useState([]);
+
+    async function getItems() {
+        try {
+          const response = await axios.get(`${baseURL}/inventories`);
+            setItems(response.data);
+        } catch (error) {
+          console.error("Error fetching inventory data", error);
+        }
+      }
+
+    //   console.log(items);
+
+    const {category} = items;
+    const uniqueCategory = [...new Set(category)];
+
+    console.log(category);
+    console.log(uniqueCategory);
+    
+      useEffect(() => {
+        getItems();
+      }, []);
 
 
 
@@ -37,7 +57,13 @@ function AddNewItem() {
           ></textarea>
 
           <label className="itemDetails-label">Category</label>
-            <select className="itemDetails-input" name="itemCategory" id=""></select>
+            <select className="itemDetails-input" name="itemCategory" id="">
+                {items.map((item)=> (
+
+                    <option key={item.id} value={item.category}>{item.category}</option>
+                )
+                )}
+            </select>
 
         </div>
         <div className="border"></div>
