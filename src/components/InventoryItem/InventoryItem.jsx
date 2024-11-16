@@ -5,8 +5,6 @@ import editIcon from "../../assets/Icons/edit-24px.svg";
 import { useState, useEffect } from "react";
 import DeleteModal from "../DeleteModal/DeleteModal";
 
-
-
 import { Link } from "react-router-dom";
 
 function InventoryItem({ inventory, isFirst, isForWarehouseDetails, onDelete }) {
@@ -59,7 +57,7 @@ function InventoryItem({ inventory, isFirst, isForWarehouseDetails, onDelete }) 
                 <div className="inventory-item__container-item">
                   <h4 className="inventory-item__label">INVENORY ITEM</h4>
                   <Link
-                    to={`inventory/${inventory.id}`}
+                    to={`/inventory/${inventory.id}`}
                     className="inventory-item__item-link"
                   >
                     <h3 className="inventory-item__item-link-data">
@@ -89,7 +87,7 @@ function InventoryItem({ inventory, isFirst, isForWarehouseDetails, onDelete }) 
                         : ""
                     }`}
                   >
-                    {inventory.status.toUpperCase()}
+                    {inventory.status}
                   </p>
                 </div>
 
@@ -116,33 +114,23 @@ function InventoryItem({ inventory, isFirst, isForWarehouseDetails, onDelete }) 
             </div>
             <div className="inventory-item__buttons">
               <button className="inventory-item__buttons-delete">
+                <Link
+                  className="inventory-item__buttons-delete-link"
+                  to={`/inventory/${inventory.id}/delete`}
+                >
                   <img
                     className="inventory-item__buttons-delete-icon"
                     src={deleteIcon}
                     onClick={openDeleteModal}
                     alt="delete-icon"
                   />
-               </button>
-              </div>
-              <div className="inventory-item__container-category">
-                <h4 className="inventory-item__label">CATEGORY</h4>
-                <p className="inventory-item__category">{inventory.category}</p>
-              </div>
-            </div>
-            <div className="inventory-item__right">
-              <div className="inventory-item__container-status">
-                <h4 className="inventory-item__label">STATUS</h4>
-                <p className={`inventory-item__instock ${inventory.status === "Out of Stock" ? 'inventory-item__instock--false' : ''}`}>{inventory.status}</p>
-              </div>
+                </Link>
+              </button>
 
-              <div className="inventory-item__container-quantity">
-                <h4 className="inventory-item__label">QTY</h4>
-                <p className="inventory-item__quantity">{inventory.quantity}</p>
-              </div>
               <button className="inventory-item__buttons-edit">
                 <Link
                   className="inventory-item__buttons-edit-link"
-                  to={`/inventory/edit/${inventory.id}`}
+                  to={`/inventory/${inventory.id}/edit`}
                 >
                   <img
                     className="inventory-item__buttons-edit-icon"
@@ -157,7 +145,7 @@ function InventoryItem({ inventory, isFirst, isForWarehouseDetails, onDelete }) 
           <>
             <div className="inventory-item__container-item">
               <Link
-                to={`inventory/${inventory.id}`}
+                to={`/inventory/${inventory.id}`}
                 className="inventory-item__item-link"
               >
                 <h3 className="inventory-item__item-link-data">
@@ -217,7 +205,7 @@ function InventoryItem({ inventory, isFirst, isForWarehouseDetails, onDelete }) 
               <button className="inventory-item__buttons-edit">
                 <Link
                   className="inventory-item__buttons-edit-link"
-                  to={`/inventory/edit/${inventory.id}`}
+                  to={`/inventory/${inventory.id}/edit`}
                 >
                   <img
                     className="inventory-item__buttons-edit-icon"
