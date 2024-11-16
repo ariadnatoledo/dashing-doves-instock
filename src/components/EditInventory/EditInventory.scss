@@ -1,0 +1,117 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+@use "../Header/Header.scss" as *;
+
+// .editWarehouseDetails {
+//   @include tablet {
+//     padding: 0 2rem;
+//   }
+
+//   @include desktop {
+//     padding: 0 4rem;
+//   }
+// }
+
+.editItem-form {
+  position: relative;
+  @include flex-values(column, unset, center);
+  box-shadow: 1px 6px 6px $color-primary-white, 1px 2px 6px $color-primary-black;
+  border-radius: 0.25rem;
+  background-color: $color-primary-white;
+  width: 100%;
+}
+
+.editItem {
+  padding-bottom: 1.5rem;
+  background-color: $color-primary-white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+}
+
+.editInventory{
+  display: flex;
+}
+
+.border {
+  border-bottom: 1px solid $color-secondary-cloud;
+
+  @include tablet {
+    border-right: 1px solid $color-secondary-cloud;
+    margin-top: 1.5rem;
+  }
+}
+.itemDetails,
+.itemAvailability {
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    width: 100%;
+  }
+  &-label {
+    color: $color-primary-black;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    padding-bottom: 0.3rem;
+    padding-top: 1rem;
+  }
+
+  &-input {
+    display: flex;
+    border-color: $color-secondary-cloud;
+    height: 2.25rem;
+    padding: 0.625rem 0 0 1.25rem;
+    border-radius: 20px;
+    color: $color-primary-black;
+    resize: none;
+
+    &--description {
+      height: 7.5rem;
+    }
+
+    &::placeholder {
+      color: $color-primary-black;
+      font-weight: 400;
+      font-size: 11px;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary-indigo;
+    }
+  }
+}
+
+.itemAvailability {
+  &__status {
+    display: flex;
+    align-content: center;
+  }
+
+  &__radio-label {
+    
+      width: 100%;
+      font-size: 0.8125rem;
+      line-height: 1.25rem;
+      color: $color-secondary-slate;
+
+      display: flex;
+      gap: 0.5rem;
+
+      input[type="radio"]:checked + & {
+        color: $color-primary-black; 
+      }
+
+    
+  }
+}

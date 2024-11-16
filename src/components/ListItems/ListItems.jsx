@@ -5,12 +5,12 @@ import WarehouseItem from "../WarehouseItem/WarehouseItem";
 import PagesHeader from "../PagesHeader/PagesHeader";
 import InventoryItem from "../InventoryItem/InventoryItem";
 import TableHeader from "../TableHeader/TableHeader";
-import EditWarehouse from "../EditWarehouse/EditWarehouse";
+
 
 function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
   const [list, setList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
-  const [editingItem, setEditingItem] = useState(null);
+
 
   useEffect(() => {
     if (warehouse) {
@@ -50,12 +50,6 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
 
   return (
     <>
-      {editingItem && editingItem.type === "warehouses" && (
-        <EditWarehouse
-          warehouse={editingItem.data}
-          onCancel={() => setEditingItem(null)}
-        />
-      )}
 
       {items === "warehouses" && (
         <>
