@@ -51,7 +51,8 @@ function EditInventory() {
             description: e.target.itemDescription.value,
             category: e.target.itemCategory.value,
             status: e.target.stock.value,
-            quantity: e.target.itemQuantity.value,  
+            quantity: parseInt(event.target.itemQuantity.value, 10),
+            
            
         };
 
