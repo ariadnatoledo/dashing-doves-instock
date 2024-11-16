@@ -4,12 +4,13 @@ import backIconImage from "../../assets/Icons/arrowback.svg";
 import { useNavigate } from "react-router-dom";
 import PropTypes from 'prop-types';
 
-export default function ComponentHeader({ text, editIcon, editIconTablet, navigateTo, navigateToEdit}) {
+export default function ComponentHeader({ text, editIcon = null, editIconTablet = null, navigateToEdit}) {
     const navigate = useNavigate();
     const editNavigate = useNavigate();
 
-    const handleBackClick = () => {
-        navigate(navigateTo); 
+    const handleBackClick = (e) => {
+        e.preventDefault();
+        navigate(-1); 
       };
       const handleEditClick = () => {
         editNavigate(navigateToEdit)
@@ -49,12 +50,6 @@ ComponentHeader.propTypes = {
     backIcon: PropTypes.string,
     editIcon: PropTypes.string,
     editIconTablet: PropTypes.string,
-    
-};
-
-ComponentHeader.defaultProps = {
-    backIcon: null,
-    editIcon: null,
-    editIconTablet: null,
-    
+    navigateTo: PropTypes.string,
+    navigateToEdit: PropTypes.string
 };

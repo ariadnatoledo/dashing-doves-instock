@@ -75,13 +75,14 @@ h3 {
 }
 
 textarea {
-  display: flex;
-  border-color: $color-secondary-cloud;
-  height: 2.25rem;
-  padding: 0.625rem 0 0 1.25rem;
-  border-radius: 20px;
-  color: $color-primary-black;
-  resize: none;
+  width: 100%;
+ display: flex;
+ border-color: $color-secondary-cloud;
+ height: 2.25rem;
+ padding: 0.625rem 0 0 1.25rem;
+ border-radius: 20px;
+ color: $color-primary-black;
+ resize: none;
 }
 
 textarea::placeholder {
@@ -94,3 +95,27 @@ textarea:focus {
   outline: none;
   border-color: $color-primary-indigo;
 }
+
+
+.error-input {
+  border: 2px solid $color-support-red !important;
+}
+
+.error-container {
+  display: flex;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+
+.error-icon {
+  width: 16px; // Adjust as needed
+  height: 16px; // Adjust as needed
+  margin-right: 0.5rem;
+}
+
+.error-message {
+  color: $color-support-red;
+  font-size: 0.875rem;
+}
+
+

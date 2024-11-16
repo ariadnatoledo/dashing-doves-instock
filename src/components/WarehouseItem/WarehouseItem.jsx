@@ -35,67 +35,63 @@ function WarehouseItem({ warehouse, onDelete, isFirst }) {
       <div
         className={`warehouse-item ${isFirst ? "warehouse-item-first" : ""}`}
       >
-        <div className="item__row">
-          <div className="item__info">
-            <h4 className="item__label">Warehouse</h4>
-            <div className="item__link-container">
-              <Link to={`warehouses/${warehouse.id}`} className="item__link">
-                <h3 className="item__data item__data--link">
-                  {warehouse.warehouse_name}
-                </h3>
-                <img
-                  className="item__chevron-icon"
-                  src={chevronIcon}
-                  alt="chevron-icon"
-                />
-              </Link>
-            </div>
-          </div>
-          <div className="item__info item__info--address">
-            <h4 className="item__label">Address</h4>
-            <p className="item__data p2">
-              {" "}
-              {warehouse.address}, {warehouse.city}, {warehouse.country}
-            </p>
-          </div>
-          <div className="item__row item__row--desktop">
-            <div className="item__info item__info--contact">
-              <h4 className="item__label">Contact Name</h4>
-              <p className="item__data p2">{warehouse.contact_name}</p>
-            </div>
-
-            <div className="item__info item__info--contact">
-              <h4 className="item__label">Contact Information:</h4>
-              <p className="item__data p2">{warehouse.contact_phone}</p>
-              <p className="item__data p2">{warehouse.contact_email}</p>
-            </div>
-          </div>
-          <div className="item__row item__row--actions">
-            <button className="item__info item__info--delete">
+        <div className="warehouse-item__container-name">
+          <h4 className="warehouse-item__label">Warehouse</h4>
+          <Link
+            to={`warehouses/${warehouse.id}`}
+            className="warehouse-item__item-link"
+          >
+            <h3 className="warehouse-item__text--link-data">
+              {warehouse.warehouse_name}
+            </h3>
+            <img
+              className="warehouse-item__link-icon"
+              src={chevronIcon}
+              alt="chevron-icon"
+            />
+          </Link>
+        </div>
+        <div className="warehouse-item__container-address">
+          <h4 className="warehouse-item__label">Address</h4>
+          <p className="warehouse-item__text p2">
+            {warehouse.address}, {warehouse.city}, {warehouse.country}
+          </p>
+        </div>
+        <div className="warehouse-item__container-contact-name">
+          <h4 className="warehouse-item__label">Contact Name</h4>
+          <p className="warehouse-item__text p2">{warehouse.contact_name}</p>
+        </div>
+        <div className="warehouse-item__container-contact-info">
+          <h4 className="warehouse-item__label">Contact Information:</h4>
+          <p className="warehouse-item__text p2">{warehouse.contact_phone}</p>
+          <p className="warehouse-item__text p2">{warehouse.contact_email}</p>
+        </div>
+        <div className="warehouse-item__container-buttons">
+          <button className="warehouse-item__buttons-delete">
+            <img
+              className="warehouse-item__buttons-delete-icon"
+              src={deleteIcon}
+              onClick={openDeleteModal}
+              alt="delete-icon"
+            />
+          </button>
+          <button className="warehouse-item__buttons-edit">
+            <Link
+              className="warehouse-item__buttons-edit-link"
+              to={`/warehouses/${warehouse.id}/edit`}
+            >
               <img
-                className="item__delete-icon"
-                src={deleteIcon}
-                onClick={openDeleteModal}
-                alt="delete-icon"
+                className="warehouse-item__buttons-edit-icon"
+                src={editIcon}
+                alt="edit icon"
               />
-            </button>
-            <div className="item__info item__info--edit">
-              <Link
-                className="item__edit-link"
-                to={`/warehouses/${warehouse.id}/edit`}
-              >
-                <img
-                  className="item__edit-icon"
-                  src={editIcon}
-                  alt="edit icon"
-                />
-              </Link>
-            </div>
-          </div>
+            </Link>
+          </button>
         </div>
       </div>
     </>
   );
 }
+
 
 export default WarehouseItem;

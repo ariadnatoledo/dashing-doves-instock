@@ -12,8 +12,8 @@ body {
   font-family: "TitilliumWeb";
   font-weight: 400;
   background: linear-gradient(
-    $color-bg-graphite 10rem,
-    $color-bg-light-grey 10rem
+    $color-bg-graphite 14rem,
+    $color-bg-light-grey 14rem
   );
   min-height: 100vh;
   margin: 0 0.75rem;
@@ -21,6 +21,10 @@ body {
 
   @include tablet {
     margin: 0 1.5rem;
+    background: linear-gradient(
+    $color-bg-graphite 11.5rem,
+    $color-bg-light-grey 11.5rem
+  );
   }
 }
 
@@ -107,6 +111,10 @@ button {
   @include tablet {
     font-size: 0.875rem;
     line-height: 1.375rem;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 }
 
