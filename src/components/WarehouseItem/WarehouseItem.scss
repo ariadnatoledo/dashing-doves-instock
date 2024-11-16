@@ -23,7 +23,8 @@
 
     @include tablet {
       order: 1;
-      width: 15%;
+      flex-grow: 1;
+      flex-basis: 0;
     }
   }
 
@@ -33,7 +34,8 @@
 
     @include tablet {
       order: 2;
-      width: 20%;
+      flex-grow: 1;
+      flex-basis: 0;
     }
   }
 
@@ -43,7 +45,8 @@
 
     @include tablet {
       order: 3;
-      width: 20%;
+      flex-grow: 1;
+      flex-basis: 0;
     }
   }
 
@@ -53,7 +56,8 @@
 
     @include tablet {
       order: 4;
-      width: 20%;
+      flex-grow: 1;
+      flex-basis: 0;
     }
   }
 
@@ -67,8 +71,8 @@
     @include tablet {
       justify-content: flex-start;
       order: 5;
-      width: 10%;
       gap: 1.5rem;
+      flex: 0.5;
     }
   }
 

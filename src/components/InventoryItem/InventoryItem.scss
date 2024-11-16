@@ -14,124 +14,146 @@
   }
 }
 
-.inventory {
-  @include flex-center(column);
+.inventory-item {
+  color: $color-secondary-slate;
+  border-top: 1px solid $color-secondary-cloud;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
 
-  &-item {
-    padding: 1rem 1.5rem;
-    width: 100%;
-    color: $color-primary-black;
-    @include flex-center(column, normal, flex-start);
-    font-size: 0.5rem;
+  @include tablet {
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  &__container-inventory {
+    order: 1;
+    width: 46%;
 
     @include tablet {
-      @include flex-center(row, space-between, center);
+      order: 1;
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+  }
+
+  &__container-category {
+    order: 3;
+    width: 46%;
+
+    @include tablet {
+      order: 2;
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+  }
+
+  &__container-status {
+    order: 2;
+    width: 46%;
+
+    @include tablet {
+      order: 3;
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+  }
+
+  &__container-quantity {
+    order: 4;
+    width: 46%;
+
+    @include tablet {
+      order: 4;
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+  }
+
+  &__container-placeholder {
+    order: 5;
+    width: 46%;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__container-warehouse {
+    order: 6;
+    width: 46%;
+    &--off {
+      display: none;
     }
 
-    &__info {
-      width: 100%;
+    @include tablet {
+      order: 5;
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+  }
+
+  &__container-buttons {
+    order: 7;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include tablet {
+      justify-content: flex-start;
+      order: 6;
+      flex: 0.5;
+      gap: 1.5rem;
+    }
+  }
+
+  &__instock {
+    @include instock(true);
+
+    &--false {
+      @include instock(false);
+    }
+  }
+
+  &__item-link {
+    display: flex;
+  }
+
+  &__label {
+    padding: 0 0 0.25rem 0;
+    color: $color-secondary-slate;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    @include tablet {
+      display: none;
+    }
+  }
+  &__text {
+    color: $color-primary-black;
+
+    &--link-data {
       @include flex-center(row, normal, flex-start);
+      text-decoration: none;
+      color: $color-primary-indigo;
+      font-weight: 600;
+      padding: 0;
+      white-space: nowrap;
     }
+  }
 
-    &__left,
-    &__right {
-      width: 100%;
-      @include flex-center(column, flex-start, flex-start);
-      gap: 0.75rem;
-    }
+  &__link-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
 
-    &__left {
-      @include tablet {
-        @include flex-center(row, normal, normal);
-        gap: 0;
-        width: 45%;
-      }
-    }
-
-    &__right {
-      @include tablet {
-        @include flex-center(row, flex-start);
-        gap: 0;
-        width: 55%;
-      }
-    }
-
-    &__container {
-      &-item {
-        @include flex-center(column, normal, flex-start);
-        flex-grow: 1;
-        flex-basis: 0;
-      }
-      &-category {
-        align-items: flex-start;
-        flex-grow: 1;
-        flex-basis: 0;
-      }
-      &-status {
-        @include flex-center(column, normal, flex-start);
-        flex-grow: 1;
-        flex-basis: 0;
-      }
-      &-quantity {
-        flex-grow: 1;
-        flex-basis: 0;
-      }
-
-      &-warehouse {
-        flex-grow: 1;
-        flex-basis: 0;
-        &--off {
-          display: none;
-        }
-      }
-    }
-
-    &__label {
-      padding: 0 0 0.25rem 0;
-      color: $color-secondary-slate;
-
-      @include tablet {
-        display: none;
-      }
-    }
-
-    &__instock {
-      @include instock(true);
-    
-      &--false {
-        @include instock(false);
-      } 
-    }
-
-    &__item-link {
-      @include flex-center(row, normal, flex-start);
-
-      &-data {
-        text-decoration: none;
-        color: $color-primary-indigo;
-        font-weight: 600;
-        padding: 0;
-      }
-    }
-
-    &__buttons {
-      width: 100%;
-      @include flex-center(row, space-between);
-
-      @include tablet {
-        @include flex-center(row, right);
-        gap: 1rem;
-        flex: 0;
-      }
-      &-delete {
-        background: none;
-        border: none;
-      }
-
-      &-edit {
-        background: none;
-        border: none;
-      }
-    }
+  &__buttons-delete,
+  &__buttons-edit {
+    background: none;
+    border: none;
   }
 }

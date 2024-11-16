@@ -73,35 +73,17 @@
       justify-content: row;
       align-items: center;
       color: $color-secondary-slate;
-      font-weight: 600;
-
-      &--warehouse {
-        width: 15%;
-      }
-
-      &--address {
-        width: 20%;
-      }
-
-      &--contact-name {
-        width: 20%;
-      }
-
-      &--contact-information {
-        width: 20%;
-      }
+      flex-grow: 1;
+      flex-basis: 0;
 
       &--actions {
-        width: 10%;
+        flex: 0.5;
       }
     }
 
     &__text {
       white-space: nowrap;
-    }
-
-    &__inner {
-      display: flex;
+      font-weight: 600;
     }
   }
 }
