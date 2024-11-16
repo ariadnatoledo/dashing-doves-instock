@@ -1,51 +1,155 @@
-import "../AddNewWarehouse/AddNewWarehouse.scss"
-import ComponentHeader from '../ComponentHeader/ComponentHeader'
-import SaveCancelAddButton from '../SaveCancelAddButton/SaveCancelAddButton';
+import React, { useState } from "react";
+import "../AddNewWarehouse/AddNewWarehouse.scss";
+import ComponentHeader from "../ComponentHeader/ComponentHeader";
+import SaveCancelAddButton from "../SaveCancelAddButton/SaveCancelAddButton";
+import errorIconState from "../../assets/Icons/error-24px.svg";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
+export default function AddNewWarehouse() {
+  const navigate = useNavigate();
 
+  const [formData, setFormData] = useState({
+    warehouse_name: "",
+    address: "",
+    city: "",
+    country: "",
+    contact_name: "",
+    contact_position: "",
+    contact_phone: "",
+    contact_email: "",
+  });
+  console.log(formData)
 
-export default function AddNewWarehouse(navigateTo) {
-    return (
-        
-            <form className='addNewWarehouse-form'>
-                <ComponentHeader navigateTo="/" text="Add New Warehouse"   />
-                <section className='addNewWarehouse'>
-                    <div className='warehouseDetails'>
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
 
+  const validateField = (name, value) => {
+    switch (name) {
+      case "warehouse_name":
+      case "address":
+      case "city":
+      case "country":
+      case "contact_name":
+      case "contact_position":
+        return value.trim() === "" ? "This field is required." : null;
+      case "contact_phone":
+        return !/^\+\d+ \(\d{3}\) \d{3}-\d{4}$/.test(value)
+          ? "Enter a valid phone number"
+          : null;
+      case "contact_email":
+        return !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+          ? "Enter a valid email address."
+          : null;
+      default:
+        return null;
+    }
+  };
 
-                        <h2 className='warehouseDetails-title'>Warehouse Details</h2>
-                        <h3 className='warehouseDetails-name'>Warehouse Name</h3>
-                        <textarea className='warehouseDetails-name-input' name='warehouseName' placeholder='Warehouse Name' required></textarea>
-                        <h3 className='warehouseDetails-address'>Street Address</h3>
-                        <textarea className='warehouseDetails-address-input' name='warehouseAddress' placeholder='Street Address' required></textarea>
-                        <h3 className='warehouseDetails-city'>City</h3>
-                        <textarea className='warehouseDetails-city-input' name='warehouseCity' placeholder='City' required></textarea>
-                        <h3 className='warehouseDetails-country'>Country</h3>
-                        <textarea className='warehouseDetails-country-input' name='warehouseCountry' placeholder='Country' required></textarea>
+  const formatPhoneNumber = (value) => {
+    const digits = value.replace(/\D/g, '');
+    let formattedNumber = '+';
 
-                    </div>
-                    <div className='border'></div>
-                    <div className='contactDetails'>
-                        <h2 className='contactDetails-title'> Contact Details</h2>
-                        <h3 className='contactDetails-name'>Contact Name</h3>
-                        <textarea className='contactDetails-name-input' name='contactName' placeholder='Contact Name' required></textarea>
-                        <h3 className='contactDetails-position'>Position</h3>
-                        <textarea className='contactDetails-position-input' name='contactPosition' placeholder='Position' required></textarea>
-                        <h3 className='contactDetails-phone'>Phone Number</h3>
-                        <textarea className='contactDetails-phone-input' name='contactPhone' placeholder='Phone Number' required></textarea>
-                        <h3 className='contactDetails-email'>Email</h3>
-                        <textarea className='contactDetails-email-input' name='contactEmail' placeholder='Email' required></textarea>
-                    </div>
-                </section>
+    for (let i = 0; i < digits.length; i++) {
+      if (i === 1) formattedNumber += ' (';
+      if (i === 4) formattedNumber += ') ';
+      if (i === 7) formattedNumber += '-';
+      if (i < 11) formattedNumber += digits[i];
+    }
 
+    return formattedNumber;
+  };
 
-                <SaveCancelAddButton showAddWarehouse={true} navigateTo={`/warehouses`} />
-            </form>
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    let formattedValue = value;
 
+    if (name === 'contact_phone') {
+      formattedValue = formatPhoneNumber(value);
+    }
 
-       
+    setFormData({ ...formData, [name]: formattedValue });
+    setErrors({ ...errors, [name]: validateField(name, formattedValue) });
+  };
 
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    setTouched({ ...touched, [name]: true });
+  };
 
-    )
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const newErrors = {};
+    Object.keys(formData).forEach((field) => {
+        newErrors[field] = validateField(field, formData[field]);
+    });
+
+    setErrors(newErrors);
+    setTouched(Object.keys(formData).reduce((acc, field) => ({ ...acc, [field]: true }), {}));
+
+    if (!Object.values(newErrors).some((error) => error)) {
+        try {
+            console.log("Submitting formData:", formData);
+
+            const response = await axios.post(
+                `${import.meta.env.VITE_API_URL}/warehouses`, // API is not retrieving from this endpoint
+                formData
+            );
+
+            if (response.status === 201) {
+                console.log("Warehouse added successfully:", response.data);
+                navigate("/warehouses"); 
+            }
+        } catch (error) {
+            console.error("Error adding warehouse:", error);
+        }
+    }
+};
+
+  const renderField = (field, section) => (
+    <div key={field} className={`${section}-group`}>
+      <h3 className={`${section}-${field}`}>{field.split(/(?=[A-Z])/).join(" ")}</h3>
+      <textarea
+        className={`${section}-${field}-input ${touched[field] && errors[field] ? 'error-input' : ''}`}
+        name={field}
+        placeholder={field === 'contactPhone' ? 'Phone Number' : field.split(/(?=[A-Z])/).join(" ")}
+        value={formData[field]}
+        onChange={handleChange}
+        onBlur={handleBlur}
+      ></textarea>
+      {touched[field] && errors[field] && (
+        <div className="error-container">
+          <img src={errorIconState} alt="Error" className="error-icon" />
+          <span className="error-message">{errors[field]}</span>
+        </div>
+      )}
+    </div>
+  );
+
+  return (
+    <form className="addNewWarehouse-form" onSubmit={handleSubmit}>
+      <ComponentHeader navigateTo="/" text="Add New Warehouse" />
+      <section className="addNewWarehouse">
+        <div className="warehouseDetails">
+          <h2 className="warehouseDetails-title">Warehouse Details</h2>
+          {["Warehouse Name", "address", "city", "country"].map((field) =>
+            renderField(field, "warehouseDetails")
+          )}
+        </div>
+
+        <div className="border"></div>
+
+        <div className="contactDetails">
+          <h2 className="contactDetails-title">Contact Details</h2>
+          {["contact_name", "contact_position", "contact_phone", "contact_email"].map((field) =>
+            renderField(field, "contactDetails")
+          )}
+        </div>
+      </section>
+
+      <SaveCancelAddButton showAddWarehouse={true} navigateTo={`/warehouses`} />
+    </form>
+  );
 }

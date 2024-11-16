@@ -7,9 +7,11 @@ import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse.jsx";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse.jsx";
 import ListItems from "./components/ListItems/ListItems";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
-import InventoryItem from "./components/InventoryItem/InventoryItem.jsx";
 import AddNewItem from "./components/AddNewItem/AddNewItem.jsx";
-import EditItem from "./components/EditItem/EditItem.jsx";
+import EditInventory from "./components/EditInventory/EditInventory.jsx"
+
+
+
 import InventoryDetails from "./components/InventoryDetails/InventoryDetails";
 
 function App() {
@@ -26,11 +28,11 @@ function App() {
 
           <Route path="/inventory" element={<ListItems items="inventories" />} />
           <Route path="/inventory/add-new" element={<AddNewItem />} />
-          {/* <Route path="/inventory/:itemId" element={<InventoryItem />} /> */}
           <Route path="/inventory/:inventoryId" element={<InventoryDetails />} />
-          <Route path="/inventory/:id/edit" element={<EditItem />} />
-          {/* Path to edit inventory <Route path="/inventory/:inventoryId/edit" element={<InventoryDetails />} /> */}
-          
+           <Route path="/inventory/:id/edit" element={<EditInventory/>}/>
+
+      
+
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
