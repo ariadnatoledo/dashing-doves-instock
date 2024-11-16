@@ -107,17 +107,19 @@
     }
   }
 
-  &__radio-label {
-    width: 100%;
-    font-size: 0.8125rem;
-    line-height: 1.25rem;
-    color: $color-secondary-slate;
-    display: flex;
-    gap: 0.5rem;
+  &__radio {
     cursor: pointer;
+    &-label {
+      width: 100%;
+      font-size: 0.8125rem;
+      line-height: 1.25rem;
+      color: $color-secondary-slate;
+      display: flex;
+      gap: 0.5rem;
 
-    @include tablet {
-      width: auto;
+      @include tablet {
+        width: auto;
+      }
     }
   }
 }

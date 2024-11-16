@@ -10,6 +10,7 @@ function AddNewItem() {
 
   const [items, setItems] = useState([]);
   const [warehouses, setWarehouses] = useState([]);
+  const [showQuantity, setShowQuantity] = useState(true);
   const [selectedValue, setSelectedValue] = useState({
     itemCategory: "",
     itemWarehouse: "",
@@ -61,6 +62,14 @@ function AddNewItem() {
       ...prev,
       [name]: value,
     }));
+  };
+
+  const handleRadio = (event) => {
+    if (event.target.value === "Out of stock") {
+      setShowQuantity(false);
+    } else if (event.target.value === "In stock") {
+      setShowQuantity(true);
+    }
   };
 
   function handleFormSubmit(event) {
@@ -159,8 +168,9 @@ function AddNewItem() {
                 type="radio"
                 className="itemAvailability__radio"
                 name="itemStatus"
-                value="In Stock"
+                value="In stock"
                 required
+                onChange={handleRadio}
               />
               In stock
             </label>
@@ -175,18 +185,23 @@ function AddNewItem() {
                 name="itemStatus"
                 value="Out of stock"
                 required
+                onChange={handleRadio}
               />
               Out of stock
             </label>
           </div>
 
-          <label className="itemAvailability-label">Quantity</label>
-          <textarea
-            className="itemAvailability-input"
-            name="itemQuantity"
-            placeholder="0"
-            required
-          ></textarea>
+          {showQuantity && (
+            <div className="quantity-div">
+              <label className="itemAvailability-label">Quantity</label>
+              <textarea
+                className="itemAvailability-input"
+                name="itemQuantity"
+                placeholder="0"
+                required
+              ></textarea>
+            </div>
+          )}
 
           <label className="itemAvailability-label">Warehouse</label>
           <select
