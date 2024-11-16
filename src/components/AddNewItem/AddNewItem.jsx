@@ -135,7 +135,7 @@ function AddNewItem() {
             required
           >
             <option className="itemDetails-options" value="" disabled>
-            Please select
+              Please select
             </option>
             {uniqueCategories.map((category) => (
               <option key={category} value={category}>
