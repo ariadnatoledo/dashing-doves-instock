@@ -10,9 +10,9 @@
   gap: 1.375rem;
   position: relative;
 
-  // @include desktop {
-  //   @include flex-center();
-  // }
+  @include desktop {
+    margin: 0 10rem;
+  }
 
   .header__nav {
     display: flex;
@@ -75,6 +75,7 @@
 
   .header__nav-menu {
     flex-direction: row;
+    justify-content: right;
   }
 
   .header__nav-menu-item {
