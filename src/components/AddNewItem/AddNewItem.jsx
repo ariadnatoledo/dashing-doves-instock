@@ -72,6 +72,12 @@ function AddNewItem() {
     }
   };
 
+  const handleQuantity = (event) => {
+    if (event.target.value == 0) {
+      alert("You've set you item in Stock, but a quantity of 0. \n ")
+    }
+  };
+
   function handleFormSubmit(event) {
     event.preventDefault();
 
@@ -84,9 +90,9 @@ function AddNewItem() {
     let itemWarehouseId = "";
 
     if (isNaN(itemQuantity)) {
-        alert("Please ensure quantity is a numeric value");
-        return;
-      }
+      alert("Please ensure quantity is a numeric value");
+      return;
+    }
 
     if (
       !itemName ||
@@ -100,13 +106,9 @@ function AddNewItem() {
       return;
     }
 
-  
-   
-
     for (let i of warehouses) {
       if (itemWarehouse === i.warehouse_name) {
         itemWarehouseId = i.id;
-
         break;
       }
     }
@@ -215,6 +217,7 @@ function AddNewItem() {
                 name="itemQuantity"
                 placeholder="0"
                 required
+                onChange={handleQuantity}
               ></textarea>
             </div>
           )}
