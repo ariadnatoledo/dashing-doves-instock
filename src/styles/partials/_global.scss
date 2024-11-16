@@ -17,6 +17,7 @@ body {
   );
   min-height: 100vh;
   margin: 0 0.75rem;
+  color: $color-primary-black;
 
   @include tablet {
     margin: 0 1.5rem;

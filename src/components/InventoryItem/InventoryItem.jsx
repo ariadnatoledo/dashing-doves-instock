@@ -116,19 +116,29 @@ function InventoryItem({ inventory, isFirst, isForWarehouseDetails, onDelete }) 
             </div>
             <div className="inventory-item__buttons">
               <button className="inventory-item__buttons-delete">
-                <Link
-                  className="inventory-item__buttons-delete-link"
-                  to={`/inventory/${inventory.id}/delete`}
-                >
                   <img
                     className="inventory-item__buttons-delete-icon"
                     src={deleteIcon}
                     onClick={openDeleteModal}
                     alt="delete-icon"
                   />
-                </Link>
-              </button>
+               </button>
+              </div>
+              <div className="inventory-item__container-category">
+                <h4 className="inventory-item__label">CATEGORY</h4>
+                <p className="inventory-item__category">{inventory.category}</p>
+              </div>
+            </div>
+            <div className="inventory-item__right">
+              <div className="inventory-item__container-status">
+                <h4 className="inventory-item__label">STATUS</h4>
+                <p className={`inventory-item__instock ${inventory.status === "Out of Stock" ? 'inventory-item__instock--false' : ''}`}>{inventory.status}</p>
+              </div>
 
+              <div className="inventory-item__container-quantity">
+                <h4 className="inventory-item__label">QTY</h4>
+                <p className="inventory-item__quantity">{inventory.quantity}</p>
+              </div>
               <button className="inventory-item__buttons-edit">
                 <Link
                   className="inventory-item__buttons-edit-link"
