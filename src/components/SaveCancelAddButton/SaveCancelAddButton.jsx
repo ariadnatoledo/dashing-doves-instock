@@ -1,32 +1,50 @@
-import React from 'react';
+import React from "react";
 import "./SaveCancelAddButton.scss";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-export default function SaveCancelAddButton({ showSave, showAddWarehouse, showAddItem, navigateTo }) {
-    const navigate = useNavigate();
+export default function SaveCancelAddButton({
+  showSave,
+  showAddWarehouse,
+  showAddItem,
+  navigateTo,
+}) {
+  const navigate = useNavigate();
 
-    const handleCancelClick = () => {
-        navigate(navigateTo);
-    };
+  const handleCancelClick = () => {
+    const confirmCancel = confirm("Select OK to cancel form submission");
 
-    return (
-        <div className="saveCancel">
-            <button type="button" className="cancelButton" onClick={handleCancelClick}>
-                Cancel
-            </button>
+    if (confirmCancel) {
+      navigate(navigateTo);
+    }
+  };
 
-            {showSave && (
-                <button type="submit" className="saveButton" >Save</button>
-            )}
+  return (
+    <div className="saveCancel">
+      <button
+        type="button"
+        className="cancelButton"
+        onClick={handleCancelClick}
+      >
+        Cancel
+      </button>
 
-            {showAddWarehouse && (
-                <button type="submit" className="addWarehouse" >+ Add Warehouse</button>
-            )}
+      {showSave && (
+        <button type="submit" className="saveButton">
+          Save
+        </button>
+      )}
 
-            {showAddItem && (
-                <button type="submit" className="addItem" >+ Add Item</button>
-            )}
-        </div>
-    );
+      {showAddWarehouse && (
+        <button type="submit" className="addWarehouse">
+          + Add Warehouse
+        </button>
+      )}
+
+      {showAddItem && (
+        <button type="submit" className="addItem">
+          + Add Item
+        </button>
+      )}
+    </div>
+  );
 }
-
