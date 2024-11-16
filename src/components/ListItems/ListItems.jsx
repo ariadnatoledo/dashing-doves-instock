@@ -71,6 +71,10 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
       {items === "inventories" && (
         <>
           <PagesHeader title="inventory" button="Item" display={display} />
+          <TableHeader
+              page="inventories"
+              isForWarehouseDetails={isForWarehouseDetails}
+            />
           {!warehouse
             ? list &&
             list.length > 0 &&
