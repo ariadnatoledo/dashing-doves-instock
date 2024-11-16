@@ -8,7 +8,7 @@ function PagesHeader({ title, display }) {
   const handleAddNewClick = () => {
     if (title === "warehouses") {
       navigate("/warehouses/add-new"); 
-    } else if (title === "items") {
+    } else if (title === "inventory") {
       navigate("/inventory/add-new");
     } else {
       console.warn("Unsupported title for Add New action");
