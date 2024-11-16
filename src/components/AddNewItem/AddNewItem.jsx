@@ -2,7 +2,7 @@ import "./AddNewItem.scss";
 import ComponentHeader from "../ComponentHeader/ComponentHeader";
 import SaveCancelAddButton from "../SaveCancelAddButton/SaveCancelAddButton";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function AddNewItem() {
@@ -10,7 +10,12 @@ function AddNewItem() {
 
   const [items, setItems] = useState([]);
   const [warehouses, setWarehouses] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedValue, setSelectedValue] = useState({
+    itemCategory: "",
+    itemWarehouse: "",
+  });
+
+  const navigate = useNavigate();
 
   async function getItems() {
     try {
@@ -37,8 +42,8 @@ function AddNewItem() {
         alert(
           "Thank you for your addition!.\n You will now be re-directed to your new Item page"
         );
-        // Confirm path to new item to redirect there
-        // navigate("/");
+        const newItemId = response.data.item;
+        navigate(`/inventory/${newItemId}`);
       }
     } catch (error) {
       console.error("There was an error posting your item", error);
@@ -51,7 +56,11 @@ function AddNewItem() {
   ];
 
   const handleSelect = (event) => {
-    setSelectedCategory(event.target.value);
+    const { name, value } = event.target;
+    setSelectedValue((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   function handleFormSubmit(event) {
@@ -96,7 +105,7 @@ function AddNewItem() {
 
   return (
     <form className="addNewItem-form" onSubmit={handleFormSubmit}>
-      <ComponentHeader navigateTo="/inventory" text="Add New Item" />
+      <ComponentHeader navigateTo="/inventory" text="Add New Inventory Item" />
       <section className="addNewItem">
         <div className="itemDetails">
           <h2 className="itemDetails-title">Item Details</h2>
@@ -121,12 +130,12 @@ function AddNewItem() {
           <select
             className="itemDetails-select"
             name="itemCategory"
-            value={selectedCategory}
+            value={selectedValue.itemCategory}
             onChange={handleSelect}
             required
           >
             <option className="itemDetails-options" value="" disabled>
-              Select a category
+            Please select
             </option>
             {uniqueCategories.map((category) => (
               <option key={category} value={category}>
@@ -183,12 +192,12 @@ function AddNewItem() {
           <select
             className="itemAvailability-select"
             name="itemWarehouse"
-            value={selectedCategory}
+            value={selectedValue.itemWarehouse}
             onChange={handleSelect}
             required
           >
             <option className="itemAvailability-options" value="" disabled>
-              Select a warehouse
+              Please select
             </option>
             {uniqueWarehouses.map((warehouse) => (
               <option key={warehouse} value={warehouse}>
