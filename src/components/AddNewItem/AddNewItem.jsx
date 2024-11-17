@@ -65,16 +65,16 @@ function AddNewItem() {
   };
 
   const handleRadio = (event) => {
-    if (event.target.value === "Out of stock") {
+    if (event.target.value === "Out of Stock") {
       setShowQuantity(false);
-    } else if (event.target.value === "In stock") {
+    } else if (event.target.value === "In Stock") {
       setShowQuantity(true);
     }
   };
 
   const handleQuantity = (event) => {
     if (event.target.value == 0) {
-      alert("You've set you item in Stock, but a quantity of 0. \n ")
+      alert("You've set your item In Stock, but a quantity of 0. \n ")
     }
   };
 
@@ -90,7 +90,7 @@ function AddNewItem() {
     let itemWarehouseId = "";
 
 
-    if (itemStatus === "Out of stock") {
+    if (itemStatus === "Out of Stock") {
       itemQuantity = 0;
     } else {
       itemQuantity = parseInt(event.target.itemQuantity.value, 10);   
@@ -105,7 +105,7 @@ function AddNewItem() {
       !itemName ||
       !itemDescription ||
       !itemCategory ||
-      !itemStatus || itemStatus === "In stock" &&
+      !itemStatus || itemStatus === "In Stock" &&
       !itemQuantity ||
       !itemWarehouse
     ) {
@@ -193,11 +193,11 @@ function AddNewItem() {
                 type="radio"
                 className="itemAvailability__radio"
                 name="itemStatus"
-                value="In stock"
+                value="In Stock"
                 required
                 onChange={handleRadio}
               />
-              In stock
+              In Stock
             </label>
 
             <label
@@ -208,11 +208,11 @@ function AddNewItem() {
                 type="radio"
                 className="itemAvailability__radio"
                 name="itemStatus"
-                value="Out of stock"
+                value="Out of Stock"
                 required
                 onChange={handleRadio}
               />
-              Out of stock
+              Out of Stock
             </label>
           </div>
 
