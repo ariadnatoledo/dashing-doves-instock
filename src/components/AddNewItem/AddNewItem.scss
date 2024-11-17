@@ -120,6 +120,10 @@
       @include tablet {
         width: auto;
       }
+      &--clicked {
+        font-weight: 600;
+        color: $color-primary-black;
+      }
     }
   }
 }

@@ -108,8 +108,9 @@
       display: flex;
       gap: 0.5rem;
 
-      input[type="radio"]:checked + & {
-        color: $color-primary-black; 
+      &--clicked {
+        font-weight: 600;
+        color: $color-primary-black;
       }
 
     

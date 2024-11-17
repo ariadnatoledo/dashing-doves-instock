@@ -151,24 +151,26 @@ function EditInventory() {
                 <div className="itemAvailability">
                     <h2 className="itemAvailability-title">Item Availability</h2>
 
-                    <label className="itemAvailability-label">Status</label>
+                    <label className="itemAvailability-label" htmlFor ="in-stock">Status</label>
                     <div className="itemAvailability__status">
-                        <label className="itemAvailability__radio-label">
+                        <label className={`itemAvailability__radio-label ${status === "in-stock" ? "itemAvailability__radio-label--clicked" : ""}`}>
                             <input
                                 type="radio"
                                 className="itemAvailability__radio"
                                 name="stock"
+                                id="in-stock"
                                 value="in-stock"
                                 checked={status === "in-stock"}
                                 onChange={handleStatusChange}
                             />
                             In stock
                         </label>
-                        <label className="itemAvailability__radio-label">
+                        <label className={`itemAvailability__radio-label ${status === "Out of Stock" ? "itemAvailability__radio-label--clicked" : ""}`} htmlFor="out-of-stock">
                             <input
                                 type="radio"
                                 className="itemAvailability__radio"
                                 name="stock"
+                                id="out-of-stock"
                                 value="Out of Stock"
                                 checked={status === "Out of Stock"}
                                 onChange={handleStatusChange}

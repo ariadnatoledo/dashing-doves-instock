@@ -10,7 +10,7 @@ function AddNewItem() {
 
   const [items, setItems] = useState([]);
   const [warehouses, setWarehouses] = useState([]);
-  const [quantity, setQuantity] = useState("0")
+  const [quantity, setQuantity] = useState("0");
   const [showQuantity, setShowQuantity] = useState(null);
   const [selectedValue, setSelectedValue] = useState({
     itemCategory: "",
@@ -100,7 +100,6 @@ function AddNewItem() {
       alert("Please ensure quantity is a numeric value");
       return;
     }
-    console.log(itemName, itemDescription, itemCategory, itemStatus, itemQuantity, itemWarehouse)
 
     if (
       !itemName ||
@@ -187,30 +186,33 @@ function AddNewItem() {
 
           <div className="itemAvailability__status">
             <label
-              htmlFor="itemStatus"
-              className="itemAvailability__radio-label"
+              htmlFor="in-stock"
+              className={`itemAvailability__radio-label ${showQuantity ? "itemAvailability__radio-label--clicked" : ""}`}
             >
               <input
                 type="radio"
                 className="itemAvailability__radio"
                 name="itemStatus"
+                id="in-stock"
                 value="in-stock"
                 required
                 onChange={handleRadio}
               />
               In stock
             </label>
-
+            
             <label
-              htmlFor="itemStatus"
-              className="itemAvailability__radio-label"
+              htmlFor="out-of-stock"
+              className={`itemAvailability__radio-label ${!showQuantity ? "itemAvailability__radio-label--clicked" : ""}`}
             >
               <input
                 type="radio"
                 className="itemAvailability__radio"
                 name="itemStatus"
+                id="out-of-stock"
                 value="Out of Stock"
                 required
+                checked={!showQuantity}
                 onChange={handleRadio}
               />
               Out of Stock
