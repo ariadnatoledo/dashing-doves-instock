@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import logoInStock from "../../assets/Logo/InStock-Logo_1x.png";
 import "./Header.scss";
 
