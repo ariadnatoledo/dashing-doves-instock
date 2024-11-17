@@ -10,6 +10,7 @@ function AddNewItem() {
 
   const [items, setItems] = useState([]);
   const [warehouses, setWarehouses] = useState([]);
+  const [quantity, setQuantity] = useState("0")
   const [showQuantity, setShowQuantity] = useState(null);
   const [selectedValue, setSelectedValue] = useState({
     itemCategory: "",
@@ -65,16 +66,21 @@ function AddNewItem() {
   };
 
   const handleRadio = (event) => {
-    if (event.target.value === "Out of stock") {
+    if (event.target.value === "Out of Stock") {
       setShowQuantity(false);
-    } else if (event.target.value === "In stock") {
+    } else if (event.target.value === "in-stock") {
       setShowQuantity(true);
     }
   };
 
   const handleQuantity = (event) => {
-    if (event.target.value == 0) {
+    const newQuantity = event.target.value;
+    if (newQuantity === 0) {
       alert("You've set you item in Stock, but a quantity of 0. \n ")
+    }
+
+    if (!isNaN(newQuantity) && newQuantity >= 0) {
+      setQuantity(newQuantity)
     }
   };
 
@@ -85,21 +91,23 @@ function AddNewItem() {
     const itemDescription = event.target.itemDescription.value;
     const itemCategory = event.target.itemCategory.value;
     const itemStatus = event.target.itemStatus.value;
-    const itemQuantity = parseInt(event.target.itemQuantity.value, 10);
+    const itemQuantity = parseInt(quantity, 10);
     const itemWarehouse = event.target.itemWarehouse.value;
     let itemWarehouseId = "";
+  
 
     if (isNaN(itemQuantity)) {
       alert("Please ensure quantity is a numeric value");
       return;
     }
+    console.log(itemName, itemDescription, itemCategory, itemStatus, itemQuantity, itemWarehouse)
 
     if (
       !itemName ||
       !itemDescription ||
       !itemCategory ||
       !itemStatus ||
-      !itemQuantity ||
+      (isNaN(itemQuantity) && itemQuantity !== 0) ||
       !itemWarehouse
     ) {
       alert("Please ensure all form fields are filled!");
@@ -119,7 +127,7 @@ function AddNewItem() {
       description: itemDescription,
       category: itemCategory,
       status: itemStatus,
-      quantity: itemQuantity,
+      quantity: itemQuantity
     };
 
     addItem(newItem);
@@ -186,7 +194,7 @@ function AddNewItem() {
                 type="radio"
                 className="itemAvailability__radio"
                 name="itemStatus"
-                value="In stock"
+                value="in-stock"
                 required
                 onChange={handleRadio}
               />
@@ -201,11 +209,11 @@ function AddNewItem() {
                 type="radio"
                 className="itemAvailability__radio"
                 name="itemStatus"
-                value="Out of stock"
+                value="Out of Stock"
                 required
                 onChange={handleRadio}
               />
-              Out of stock
+              Out of Stock
             </label>
           </div>
 
