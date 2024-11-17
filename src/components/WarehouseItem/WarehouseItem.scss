@@ -20,6 +20,7 @@
   &__container-name {
     order: 1;
     width: 45%;
+    transition: transform 0.3s ease; 
 
     @include tablet {
       order: 1;
@@ -27,6 +28,10 @@
       flex-basis: 0;
     }
   }
+
+  &__container-name:hover{
+    transform: translateX(4px); 
+    }
 
   &__container-address {
     order: 3;
