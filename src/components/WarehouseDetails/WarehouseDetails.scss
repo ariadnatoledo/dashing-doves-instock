@@ -58,12 +58,12 @@
     margin-top: 2rem;
     display: flex;
     justify-content: flex-start;
-    gap: 0.8rem;
+    gap: 3.5rem;
 
     @include tablet {
       margin-top: 0;
       padding-left: 2rem;
-      border-left: 1px solid $color-secondary-cloud;
+      border-left: .0625rem solid $color-secondary-cloud;
       gap: 2rem;
       justify-content: space-between;
       flex-grow: 1;

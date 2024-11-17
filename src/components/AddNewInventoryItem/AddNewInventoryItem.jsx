@@ -86,6 +86,7 @@ function AddNewItem() {
     if (event.target.value === "0") {
       alert("You've set your item In Stock, but with a quantity of 0.");
     }
+
   };
 
   function handleFormSubmit(event) {
@@ -100,6 +101,7 @@ function AddNewItem() {
       : 0; 
     const itemWarehouse = event.target.itemWarehouse.value;
     let itemWarehouseId = "";
+  
 
     const formErrors = {};
 
@@ -134,7 +136,7 @@ function AddNewItem() {
       description: itemDescription,
       category: itemCategory,
       status: itemStatus,
-      quantity: itemQuantity,
+      quantity: itemQuantity
     };
 
     addItem(newItem);
@@ -227,13 +229,14 @@ function AddNewItem() {
 
           <div className="itemAvailability__status">
             <label
-              htmlFor="itemStatus"
-              className="itemAvailability__radio-label"
+              htmlFor="in-stock"
+              className={`itemAvailability__radio-label ${showQuantity ? "itemAvailability__radio-label--clicked" : ""}`}
             >
               <input
                 type="radio"
                 className="itemAvailability__radio"
                 name="itemStatus"
+                id="in-stock"
                 value="In Stock"
                 onChange={handleRadio}
                 onFocus={() =>
@@ -242,22 +245,24 @@ function AddNewItem() {
               />
               In stock
             </label>
-
+            
             <label
-              htmlFor="itemStatus"
-              className="itemAvailability__radio-label"
+              htmlFor="out-of-stock"
+              className={`itemAvailability__radio-label ${!showQuantity ? "itemAvailability__radio-label--clicked" : ""}`}
             >
               <input
                 type="radio"
                 className="itemAvailability__radio"
                 name="itemStatus"
+                id="out-of-stock"
                 value="Out of Stock"
+                checked={!showQuantity}
                 onChange={handleRadio}
                 onFocus={() =>
                   setErrors((prev) => ({ ...prev, itemStatus: "" }))
                 } 
               />
-              Out of stock
+              Out of Stock
             </label>
           </div>
 

@@ -23,7 +23,6 @@
   @include tablet {
     flex-direction: row;
     justify-content: space-between;
-    gap: 2.5rem; 
   }
 }
 
@@ -123,6 +122,10 @@
 
       @include tablet {
         width: auto;
+      }
+      &--clicked {
+        font-weight: 600;
+        color: $color-primary-black;
       }
     }
   }

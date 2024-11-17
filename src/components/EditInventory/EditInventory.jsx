@@ -27,7 +27,7 @@ function EditInventory() {
         const inventories = inventoriesResponse.data;
 
         if (inventoryResponse.data.quantity > 0) {
-          setStatus("in-stock");
+          setStatus("In Stock");
           setShowQuantity(true);
         } else {
           setStatus("Out of Stock");
@@ -56,7 +56,7 @@ function EditInventory() {
 
     if (status === "Out of Stock") {
       setShowQuantity(true);
-    } else if (status === "in-stock") {
+    } else if (status === "In Stock") {
       setShowQuantity(false);
     }
   };
@@ -69,9 +69,8 @@ function EditInventory() {
     if (!inventory) return;
     console.log(inventory.warehouse_id);
 
-    if (status === "in-stock") {
+    if (status === "In Stock") {
       itemQuantity = parseInt(e.target.itemQuantity.value, 10);
-      
     } else {
       itemQuantity = 0;
     }
@@ -97,6 +96,11 @@ function EditInventory() {
     ) {
       alert("All fields are required.");
       return;
+    }
+
+    if (updatedInventory.quantity <= 0 && status === "In Stock") {
+      alert("Quantity must be more than 0 if saying In Stock")
+      return
     }
 
     saveInventory(updatedInventory);
@@ -179,24 +183,41 @@ function EditInventory() {
         <div className="itemAvailability">
           <h2 className="itemAvailability-title">Item Availability</h2>
 
-          <label className="itemAvailability-label">Status</label>
+          <label className="itemAvailability-label" htmlFor="in-stock">
+            Status
+          </label>
           <div className="itemAvailability__status">
-            <label className="itemAvailability__radio-label">
+            <label
+              className={`itemAvailability__radio-label ${
+                status === "In Stock"
+                  ? "itemAvailability__radio-label--clicked"
+                  : ""
+              }`}
+            >
               <input
                 type="radio"
                 className="itemAvailability__radio"
                 name="stock"
-                value="in-stock"
-                checked={status === "in-stock"}
+                id="in-stock"
+                value="In Stock"
+                checked={status === "In Stock"}
                 onChange={handleStatusChange}
               />
               In stock
             </label>
-            <label className="itemAvailability__radio-label">
+            <label
+              className={`itemAvailability__radio-label ${
+                status === "Out of Stock"
+                  ? "itemAvailability__radio-label--clicked"
+                  : ""
+              }`}
+              htmlFor="out-of-stock"
+            >
               <input
                 type="radio"
                 className="itemAvailability__radio"
                 name="stock"
+                id="out-of-stock"
                 value="Out of Stock"
                 checked={status === "Out of Stock"}
                 onChange={handleStatusChange}
@@ -204,7 +225,6 @@ function EditInventory() {
               Out of stock
             </label>
           </div>
-
           {showQuantity && (
             <div className="quantity-div">
               <label className="itemAvailability-label">Quantity</label>
