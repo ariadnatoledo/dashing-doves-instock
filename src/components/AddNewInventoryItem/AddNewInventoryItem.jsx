@@ -172,7 +172,7 @@ function AddNewItem() {
               Please select
             </option>
             {uniqueCategories.map((category) => (
-              <option key={category} value={category}>
+              <option className="itemDetails-options" key={category} value={category}>
                 {category}
               </option>
             ))}
@@ -241,7 +241,7 @@ function AddNewItem() {
               Please select
             </option>
             {uniqueWarehouses.map((warehouse) => (
-              <option key={warehouse} value={warehouse}>
+              <option className="itemDetails-options" key={warehouse} value={warehouse}>
                 {warehouse}
               </option>
             ))}

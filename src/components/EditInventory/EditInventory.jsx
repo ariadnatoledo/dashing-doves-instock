@@ -131,15 +131,15 @@ function EditInventory() {
 
                     <label className="itemDetails-label">Category</label>
                     <select
-                        className="itemDetails-input"
+                        className="itemDetails-select"
                         name="itemCategory"
                         defaultValue={inventory.category}
                     >
-                        <option value="" disabled>
+                        <option className="itemDetails-options" value="" disabled>
                             Select a category
                         </option>
                         {uniqueCategories.map((category) => (
-                            <option key={category} value={category}>
+                            <option className="itemDetails-options" key={category} value={category}>
                                 {category}
                             </option>
                         ))}
@@ -188,15 +188,15 @@ function EditInventory() {
 
                     <label className="itemAvailability-label">Warehouse</label>
                     <select
-                        className="itemAvailability-input"
+                        className="itemAvailability-select"
                         name="itemWarehouse"
                         defaultValue={inventory.warehouse_name}
                     >
-                        <option value="" disabled>
+                        <option className="itemDetails-options" value="" disabled>
                             Select a warehouse
                         </option>
                         {uniqueWarehouses.map((warehouse) => (
-                            <option key={warehouse} value={warehouse}>
+                            <option className="itemDetails-options" key={warehouse} value={warehouse}>
                                 {warehouse}
                             </option>
                         ))}
