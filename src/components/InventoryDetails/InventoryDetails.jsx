@@ -37,35 +37,35 @@ function WarehouseDetails() {
       />
       <section className="inventory__details">
         <div className="inventory__details--left">
-          <article className="card">
-            <h4 className="card__title">Item Description:</h4>
-            <p className="card__text p2">{inventory.description}</p>
+          <article className="inventory-card">
+            <h4 className="inventory-card__title">Item Description:</h4>
+            <p className="inventory-card__text p2">{inventory.description}</p>
           </article>
 
           <article className="card">
-            <h4 className="card__title">Category:</h4>
-            <p className="card__text p2">{inventory.category}</p>
+            <h4 className="inventory-card__title">Category:</h4>
+            <p className="inventory-card__text p2">{inventory.category}</p>
           </article>
         </div>
 
         <div className="inventory__details--right">
           <div className="inventory__status-info">
-            <article className="card">
-              <h4 className="card__title">Status:</h4>
-              <p className={`card__instock ${inventory.status === "Out of Stock" ? "card__instock--false" : ""}`}>
+            <article className="inventory-card">
+              <h4 className="inventory-card__title">Status:</h4>
+              <p className={`inventory-card__instock ${inventory.status === "Out of Stock" ? "inventory-card__instock--false" : ""}`}>
                 {inventory.status}
               </p>
             </article>
 
-            <article className="card">
-              <h4 className="card__title">Quantity:</h4>
-              <p className="card__text p2">{inventory.quantity}</p>
+            <article className="inventory-card">
+              <h4 className="inventory-card__title">Quantity:</h4>
+              <p className="inventory-card__text p2">{inventory.quantity}</p>
             </article>
           </div>
 
-          <article className="card">
-            <h4 className="card__title">Warehouse:</h4>
-            <p className="card__text p2">{inventory.warehouse_name}</p>
+          <article className="inventory-card">
+            <h4 className="inventory-card__title">Warehouse:</h4>
+            <p className="inventory-card__text p2">{inventory.warehouse_name}</p>
           </article>
         </div>
       </section>
