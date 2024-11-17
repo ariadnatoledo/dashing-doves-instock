@@ -34,6 +34,7 @@ function WarehouseDetails() {
         text={inventory?.item_name || "Default Text"}
         editIcon={editWhite}
         editIconTablet={editWhite}
+        navigateToEdit={`/inventory/${inventoryId}/edit`}
       />
       <section className="inventory__details">
         <div className="inventory__details--left">
