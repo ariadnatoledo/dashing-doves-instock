@@ -4,21 +4,11 @@
 @use "../../styles/partials/variables" as *;
 @use "../Header/Header.scss" as *;
 
-// .editWarehouseDetails {
-//   @include tablet {
-//     padding: 0 2rem;
-//   }
-
-//   @include desktop {
-//     padding: 0 4rem;
-//   }
-// }
-
 .editItem-form {
   position: relative;
   @include flex-values(column, unset, center);
-  box-shadow: .0625rem .375rem .375rem $color-primary-white, .0625rem .125rem .375rem $color-primary-black;
-  border-radius: .25rem;
+  box-shadow: 0.0625rem 0.375rem 0.375rem $color-primary-white, 0.0625rem 0.125rem 0.375rem $color-primary-black;
+  border-radius: 0.25rem;
   background-color: $color-primary-white;
   width: 100%;
 }
@@ -37,57 +27,65 @@
   }
 }
 
-.editInventory{
+.editInventory {
   display: flex;
   flex-direction: column;
+
   @include tablet {
     flex-direction: row;
   }
 }
 
 .border {
-  border-bottom: .0625rem solid $color-secondary-cloud;
+  border-bottom: 0.0625rem solid $color-secondary-cloud;
 
   @include tablet {
-    border-right: .0625rem solid $color-secondary-cloud;
+    border-right: 0.0625rem solid $color-secondary-cloud;
     margin-top: 1.5rem;
   }
 }
+
 .itemDetails,
 .itemAvailability {
   padding: 1.5rem 2rem;
   display: flex;
   flex-direction: column;
+
   @include tablet {
     width: 100%;
   }
+
   &-label {
     color: $color-primary-black;
     font-weight: 600;
-    font-size: .8125rem;
-    line-height: 1.375rem;
-    padding-bottom: .3rem;
-    padding-top: 1rem;
+    font-size: 0.8125rem; 
+    line-height: 1.375rem; 
+    padding-bottom: 0.1875rem; 
+    padding-top: 1rem; 
   }
 
-  &-input, 
+  &-input,
   &-select {
     display: flex;
     border-color: $color-secondary-cloud;
-    height: 2.25rem;
-    padding: .625rem 0 0 1.25rem;
+    height: 2.25rem; 
+    padding: 0.625rem 1.25rem; 
     border-radius: 1.25rem;
     color: $color-primary-black;
     resize: none;
 
+    font-family: "TitilliumWeb";
+    font-weight: 700;
+
     &--description {
-      height: 7.5rem;
+      height: 7.5rem; 
     }
 
     &::placeholder {
+      font-family: "TitilliumWeb"; 
       color: $color-primary-black;
       font-weight: 400;
-      font-size: .6875rem;
+      font-size: 0.6875rem; 
     }
 
     &:focus {
@@ -101,31 +99,80 @@
       background-repeat: no-repeat;
       background-position: center right;
     }
+  }
+}
 
+.itemAvailability-title {
+  padding-top: 0px;
+}
+
+.itemDetails-title {
+  padding-top: 0px;
+}
+
+.border {
+  border-bottom: 0.0625rem solid $color-secondary-cloud;
+
+  @include tablet {
+    border-right: 0.0625rem solid $color-secondary-cloud;
+    margin-top: 1.5rem; 
+    margin-bottom: 1.5rem; 
   }
 }
 
 .itemAvailability {
+  &__radio-label {
+    display: flex;
+    gap: 0.3125rem; 
+    width: 100%;
+    font-size: 0.8125rem; 
+    line-height: 1.25rem; 
+    color: $color-secondary-slate;
+  }
+
+  &__radio-label--clicked {
+    font-weight: 600;
+    color: $color-primary-black;
+    padding-bottom: 1rem; 
+  }
+
   &__status {
     display: flex;
-    align-content: center;
-  }
+    align-items: center;
 
-  &__radio-label {
-    
-      width: 100%;
-      font-size: .8125rem;
-      line-height: 1.25rem;
-      color: $color-secondary-slate;
+    @include tablet {
+      gap: 1.25rem; 
+    }
 
-      display: flex;
-      gap: .5rem;
-
-      &--clicked {
-        font-weight: 600;
-        color: $color-primary-black;
-      }
-
-    
+    @include desktop {
+      gap: 1.25rem; 
+    }
   }
 }
+
+.error-input {
+  border: 0.0625rem solid $color-support-red !important; 
+}
+
+.error-message {
+  color: $color-support-red;
+  font-size: 0.75rem; 
+}
+
+.error-icon {
+  width: 1rem; 
+  height: 1rem;
+  margin-right: 0.3125rem;
+}
+
+.error-border {
+  border: 0.0625rem solid $color-support-red !important; 
+}
+
+@include desktop {
+  .itemAvailability-input {
+    width: 7.625rem; 
+  }
+}
+
+
