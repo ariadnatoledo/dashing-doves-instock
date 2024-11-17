@@ -16,11 +16,8 @@
 
   &__nav {
     width: 100%;
-    padding: 0 0.75rem 1rem;
-
-  @include tablet{
-    padding-bottom: 0;
-  }
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
   }
 
   &__nav-menu {
@@ -65,6 +62,10 @@
       &--active {
         background-color: $color-primary-black;
         color: $color-primary-white;
+      }
+
+      &--active:hover {
+        background-color: $color-primary-black;
       }
     }
   }
