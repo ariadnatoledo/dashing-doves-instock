@@ -94,7 +94,6 @@ export default function AddNewWarehouse() {
 
     if (!Object.values(newErrors).some((error) => error)) {
       try {
-        console.log("Submitting form data:", formData);
 
         const response = await axios.post(
           `${import.meta.env.VITE_API_URL}/warehouses`,
@@ -105,7 +104,6 @@ export default function AddNewWarehouse() {
           alert(
             "Thank you for your submission. \n You will now be re-directed to your new warehouse page."
           );
-          console.log("Warehouse added successfully:", response.data);
           navigate(`/warehouses/${response.data.newWarehouse.id}`);
         }
       } catch (error) {

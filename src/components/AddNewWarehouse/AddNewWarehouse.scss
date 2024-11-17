@@ -15,12 +15,12 @@
 }
 
 .addNewWarehouse-form {
-  position: relative;
-  @include flex-values(column, unset, center);
-  box-shadow: 1px 6px 6px $color-primary-white, 1px 2px 6px $color-primary-black;
-  border-radius: 0.25rem;
-  background-color: $color-primary-white;
-  width: 100%;
+ position: relative;
+ @include flex-values(column, unset, center);
+ box-shadow: .0625rem .375rem .375rem $color-primary-white, .0625rem .125rem .375rem $color-primary-black ;
+ border-radius: 0.25rem;
+ background-color: $color-primary-white;
+ width: 100%;
 
   @include tablet {
   }
@@ -42,7 +42,7 @@
 }
 
 .border {
-  border-bottom: 1px solid $color-secondary-cloud;
+ border-bottom: .0625rem solid $color-secondary-cloud;
 
   @include tablet {
     border-right: 1px solid $color-secondary-cloud;
@@ -66,12 +66,12 @@ h2 {
 }
 
 h3 {
-  color: $color-primary-black;
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 22px;
-  padding-bottom: 0.3rem;
-  padding-top: 1rem;
+ color: $color-primary-black;
+ font-weight: 600;
+ font-size: .8125rem;
+ line-height: 1.375rem;
+ padding-bottom: 0.3rem;
+ padding-top: 1rem;
 }
 
 textarea {
@@ -80,15 +80,15 @@ textarea {
  border-color: $color-secondary-cloud;
  height: 2.25rem;
  padding: 0.625rem 0 0 1.25rem;
- border-radius: 20px;
+ border-radius: 1.25rem;
  color: $color-primary-black;
  resize: none;
 }
 
 textarea::placeholder {
-  color: $color-primary-black;
-  font-weight: 400;
-  font-size: 11px;
+ color: $color-primary-black;
+ font-weight: 400;
+ font-size: .6875rem;
 }
 
 textarea:focus {
@@ -98,7 +98,7 @@ textarea:focus {
 
 
 .error-input {
-  border: 2px solid $color-support-red !important;
+  border: .125rem solid $color-support-red !important;
 }
 
 .error-container {
@@ -108,8 +108,8 @@ textarea:focus {
 }
 
 .error-icon {
-  width: 16px; // Adjust as needed
-  height: 16px; // Adjust as needed
+  width: 1rem;
+  height: 1rem; 
   margin-right: 0.5rem;
 }
 

@@ -19,9 +19,9 @@
 
 .cancelButton {
   background-color: $color-primary-white;
-  border: 1px solid $color-secondary-cloud;
+  border: .0625rem solid $color-secondary-cloud;
   padding: 0.5rem 3rem;
-  border-radius: 20px;
+  border-radius: 1.25rem;
 
   @include tablet {
     padding: 0.5rem 1rem;
@@ -38,7 +38,7 @@
   border: none;
   color: $color-primary-white;
   padding: 0.5rem 3rem;
-  border-radius: 20px;
+  border-radius: 1.25rem;
 
   @include tablet {
     padding: 0.5rem 1rem;
@@ -54,7 +54,7 @@
   border: none;
   color: $color-primary-white;
   padding: 0.5rem 0.5rem;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   @include tablet {
     padding: 0.5rem 1rem;
   }
@@ -69,7 +69,7 @@
   border: none;
   color: $color-primary-white;
   padding: 0.5rem 2.5rem;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   @include tablet {
     padding: 0.5rem 1rem;
   }

@@ -17,8 +17,8 @@
 .editItem-form {
   position: relative;
   @include flex-values(column, unset, center);
-  box-shadow: 1px 6px 6px $color-primary-white, 1px 2px 6px $color-primary-black;
-  border-radius: 0.25rem;
+  box-shadow: .0625rem .375rem .375rem $color-primary-white, .0625rem .125rem .375rem $color-primary-black;
+  border-radius: .25rem;
   background-color: $color-primary-white;
   width: 100%;
 }
@@ -39,13 +39,17 @@
 
 .editInventory{
   display: flex;
+  flex-direction: column;
+  @include tablet {
+    flex-direction: row;
+  }
 }
 
 .border {
-  border-bottom: 1px solid $color-secondary-cloud;
+  border-bottom: .0625rem solid $color-secondary-cloud;
 
   @include tablet {
-    border-right: 1px solid $color-secondary-cloud;
+    border-right: .0625rem solid $color-secondary-cloud;
     margin-top: 1.5rem;
   }
 }
@@ -60,18 +64,19 @@
   &-label {
     color: $color-primary-black;
     font-weight: 600;
-    font-size: 13px;
-    line-height: 22px;
-    padding-bottom: 0.3rem;
+    font-size: .8125rem;
+    line-height: 1.375rem;
+    padding-bottom: .3rem;
     padding-top: 1rem;
   }
 
-  &-input {
+  &-input, 
+  &-select {
     display: flex;
     border-color: $color-secondary-cloud;
     height: 2.25rem;
-    padding: 0.625rem 0 0 1.25rem;
-    border-radius: 20px;
+    padding: .625rem 0 0 1.25rem;
+    border-radius: 1.25rem;
     color: $color-primary-black;
     resize: none;
 
@@ -82,13 +87,21 @@
     &::placeholder {
       color: $color-primary-black;
       font-weight: 400;
-      font-size: 11px;
+      font-size: .6875rem;
     }
 
     &:focus {
       outline: none;
       border-color: $color-primary-indigo;
     }
+
+    &-select {
+      appearance: none;
+      background-image: url("../../assets/Icons/arrow_drop_down-24px.svg");
+      background-repeat: no-repeat;
+      background-position: center right;
+    }
+
   }
 }
 
@@ -101,15 +114,16 @@
   &__radio-label {
     
       width: 100%;
-      font-size: 0.8125rem;
+      font-size: .8125rem;
       line-height: 1.25rem;
       color: $color-secondary-slate;
 
       display: flex;
-      gap: 0.5rem;
+      gap: .5rem;
 
-      input[type="radio"]:checked + & {
-        color: $color-primary-black; 
+      &--clicked {
+        font-weight: 600;
+        color: $color-primary-black;
       }
 
     

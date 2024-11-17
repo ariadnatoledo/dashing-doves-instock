@@ -21,7 +21,7 @@
       @include tablet {
         width: 50%;
         padding-right: 2rem;
-        border-right: 1px solid $color-secondary-cloud;
+        border-right: .0625rem solid $color-secondary-cloud;
       }
     }
 
@@ -40,7 +40,7 @@
   }
 }
 
-.card {
+.inventory-card {
   &__title {
     text-transform: uppercase;
     margin-bottom: 0.25rem;
