@@ -16,18 +16,22 @@
       flex-direction: row;
       gap: 5rem;
       align-items: flex-start;
+      padding-right: 8rem;
     }
 
     @include desktop {
-      padding: 1rem 2rem;
+      padding: 1rem 14rem 1rem 2rem;
     }
   }
 }
 
 .card {
   &__title {
+    color: $color-secondary-slate;
     text-transform: uppercase;
     margin-bottom: 0.25rem;
+    white-space: nowrap;
+    font-weight: 600;
 
     @include desktop {
       padding-right: 5rem;
@@ -54,15 +58,25 @@
     margin-top: 2rem;
     display: flex;
     justify-content: flex-start;
-    gap: 2rem;
+    gap: 3.5rem;
 
     @include tablet {
       margin-top: 0;
       padding-left: 2rem;
+      border-left: .0625rem solid $color-secondary-cloud;
+      gap: 2rem;
+      justify-content: space-between;
+      flex-grow: 1;
     }
 
     @include desktop {
       gap: 5rem;
+    }
+  }
+
+  &--first {
+    @include tablet {
+      width: 25%;
     }
   }
 }

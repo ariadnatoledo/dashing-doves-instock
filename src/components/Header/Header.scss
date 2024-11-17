@@ -42,7 +42,7 @@
       padding: 0 1rem;
       border-radius: 1.25rem;
       background: transparent;
-      color: $color-primary-white;
+      color: $color-secondary-slate;
       border: none;
       cursor: pointer;
       font-size: inherit;
@@ -55,11 +55,13 @@
         background-color: $color-bg-graphite;
         border: .0625rem solid $color-primary-indigo;
         text-decoration: underline;
-        text-decoration-color: $color-primary-indigo;
+        text-decoration-color: $color-primary-white;
+        color: $color-primary-white;
       }
 
       &--active {
-        background-color: $color-primary-black; 
+        background-color: $color-primary-black;
+        color: $color-primary-white;
       }
     }
   }
@@ -67,7 +69,7 @@
 
 @include tablet {
   .header {
-    padding: 1.5rem 0 ;
+    padding: 1.5rem 0;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -84,10 +86,9 @@
   }
 }
 
-
 @include desktop {
   .header {
     margin: 0;
-    padding: 2.25rem 7.625rem;
+    padding: 2.25rem 8rem;
   }
 }

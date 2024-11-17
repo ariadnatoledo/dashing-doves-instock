@@ -39,6 +39,10 @@
 
 .editInventory{
   display: flex;
+  flex-direction: column;
+  @include tablet {
+    flex-direction: row;
+  }
 }
 
 .border {
@@ -66,7 +70,8 @@
     padding-top: 1rem;
   }
 
-  &-input {
+  &-input, 
+  &-select {
     display: flex;
     border-color: $color-secondary-cloud;
     height: 2.25rem;
@@ -89,6 +94,14 @@
       outline: none;
       border-color: $color-primary-indigo;
     }
+
+    &-select {
+      appearance: none;
+      background-image: url("../../assets/Icons/arrow_drop_down-24px.svg");
+      background-repeat: no-repeat;
+      background-position: center right;
+    }
+
   }
 }
 

@@ -4,18 +4,15 @@
 @use "../../styles/partials/variables" as *;
 @use "../Header/Header.scss" as *;
 
-
 .addNewWarehouseDetails {
- @include tablet {
-   padding: 0 2rem;
- }
+  @include tablet {
+    padding: 0 2rem;
+  }
 
-
- @include desktop {
-   padding: 0 4rem;
- }
+  @include desktop {
+    padding: 0 4rem;
+  }
 }
-
 
 .addNewWarehouse-form {
  position: relative;
@@ -25,56 +22,48 @@
  background-color: $color-primary-white;
  width: 100%;
 
-
- @include tablet {
- }
+  @include tablet {
+  }
 }
-
 
 .addNewWarehouse {
- padding-bottom: 1.5rem;
- background-color: $color-primary-white;
- width: 100%;
- display: flex;
- flex-direction: column;
+  padding-bottom: 1.5rem;
+  background-color: $color-primary-white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
 
- @include tablet {
-   flex-direction: row;
-   justify-content: space-between;
-
-
-   gap: 4rem;
- }
+    gap: 4rem;
+  }
 }
-
 
 .border {
  border-bottom: .0625rem solid $color-secondary-cloud;
 
-
- @include tablet{
-   border-right: 1px solid $color-secondary-cloud;
-   margin-top: 1.5rem;
- }
+  @include tablet {
+    border-right: 1px solid $color-secondary-cloud;
+    margin-top: 1.5rem;
+  }
 }
 .warehouseDetails,
 .contactDetails {
- padding: 1.5rem 2rem;
- display: flex;
- flex-direction: column;
- @include tablet {
-   width: 100%;
- }
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    width: 100%;
+  }
 }
-
 
 h2 {
- padding-bottom: 1rem;
- padding-top: 1rem;
- font-size: 20px;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  font-size: 20px;
 }
-
 
 h3 {
  color: $color-primary-black;
@@ -84,7 +73,6 @@ h3 {
  padding-bottom: 0.3rem;
  padding-top: 1rem;
 }
-
 
 textarea {
   width: 100%;
@@ -97,17 +85,15 @@ textarea {
  resize: none;
 }
 
-
 textarea::placeholder {
  color: $color-primary-black;
  font-weight: 400;
  font-size: .6875rem;
 }
 
-
 textarea:focus {
- outline: none;
- border-color: $color-primary-indigo;
+  outline: none;
+  border-color: $color-primary-indigo;
 }
 
 

@@ -40,7 +40,7 @@
   }
 }
 
-.card {
+.inventory-card {
   &__title {
     text-transform: uppercase;
     margin-bottom: 0.25rem;
@@ -59,4 +59,8 @@
       @include instock(false);
     }
   }
+}
+
+.inventory:hover{
+  background-color: $color-bg-light-grey;
 }
