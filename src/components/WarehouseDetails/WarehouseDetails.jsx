@@ -34,7 +34,7 @@ function WarehouseDetails() {
         navigateTo="/"
         text={warehouse?.warehouse_name || "Default Text"}
         editIcon={editWhite}
-        editIconTablet={editWhite}
+        editIconTablet={editWhite} navigateToEdit={`/warehouses/${warehouse.id}/edit`}
       />
       <section className="warehouse-details">
         <article className="card">
