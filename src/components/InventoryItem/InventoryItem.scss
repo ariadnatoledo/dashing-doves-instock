@@ -41,7 +41,7 @@
   }
 
   &__container-inventory:hover{
-    transform: translateX(4px); 
+    transform: translateX(0.25rem); 
     }
 
   &__container-category {
@@ -155,7 +155,7 @@
   }
 
   &__link-icon:hover{
-  transform: translateX(4px); 
+  transform: translateX(0.25rem); 
   }
 
   &__buttons-delete,

@@ -31,6 +31,7 @@
 .editInventory {
   display: flex;
   flex-direction: column;
+
   @include tablet {
     flex-direction: row;
   }
@@ -42,50 +43,59 @@
   @include tablet {
     border-right: 0.0625rem solid $color-secondary-cloud;
     margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 }
+
 .itemDetails,
 .itemAvailability {
   padding: 1.5rem 2rem;
   display: flex;
   flex-direction: column;
+
   @include tablet {
     width: 100%;
   }
+
   &-label {
     color: $color-primary-black;
     font-weight: 600;
     font-size: 0.8125rem;
     line-height: 1.375rem;
-    padding-bottom: 0.3rem;
+    padding-bottom: 0.1875rem;
     padding-top: 1rem;
   }
 
+  &-input {
+    padding: 0.625rem 1.25rem;
+  }
+  &-select {
+    padding: 0 1.25rem;
+    margin: 0.625rem 0;
+  }
   &-input,
   &-select {
     display: flex;
     border-color: $color-secondary-cloud;
     height: 2.25rem;
-    padding: 0.625rem 0 0 1.25rem;
     border-radius: 1.25rem;
     color: $color-primary-black;
     resize: none;
-
+    font-family: "TitilliumWeb";
+    font-weight: 700;
     &--description {
       height: 7.5rem;
     }
-
     &::placeholder {
+      font-family: "TitilliumWeb";
       color: $color-primary-black;
       font-weight: 400;
       font-size: 0.6875rem;
     }
-
     &:focus {
       outline: none;
       border-color: $color-primary-indigo;
     }
-
     &-select {
       appearance: none;
       background-image: url("../../assets/Icons/arrow_drop_down-24px.svg");
@@ -95,12 +105,25 @@
   }
 }
 
-.itemAvailability {
-  &__status {
-    display: flex;
-    align-content: center;
-  }
+.itemAvailability-title {
+  padding-top: 0px;
+}
 
+.itemDetails-title {
+  padding-top: 0px;
+}
+
+.border {
+  border-bottom: 0.0625rem solid $color-secondary-cloud;
+
+  @include tablet {
+    border-right: 0.0625rem solid $color-secondary-cloud;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.itemAvailability {
   &__radio-label {
     width: 100%;
     font-size: 0.8125rem;
@@ -114,5 +137,42 @@
       font-weight: 600;
       color: $color-primary-black;
     }
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+
+    @include tablet {
+      gap: 1.25rem;
+    }
+
+    @include desktop {
+      gap: 1.25rem;
+    }
+  }
+}
+.error-input {
+  border: 0.0625rem solid $color-support-red !important;
+}
+
+.error-message {
+  color: $color-support-red;
+  font-size: 0.75rem;
+}
+
+.error-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.3125rem;
+}
+
+.error-border {
+  border: 0.0625rem solid $color-support-red !important;
+}
+
+@include desktop {
+  .itemAvailability-input {
+    width: 7.625rem;
   }
 }
