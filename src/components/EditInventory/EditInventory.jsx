@@ -13,7 +13,7 @@ function EditInventory() {
   const [inventory, setInventory] = useState({});
   const [uniqueCategories, setUniqueCategories] = useState([]);
   const [uniqueWarehouses, setUniqueWarehouses] = useState([]);
-  const [hideQuantity, setHideQuantity] = useState(true);
+  const [showQuantity, setShowQuantity] = useState(false);
 
   useEffect(() => {
     const fetchInventoryAndOptions = async () => {
@@ -28,8 +28,10 @@ function EditInventory() {
 
         if (inventoryResponse.data.quantity > 0) {
           setStatus("in-stock");
+          setShowQuantity(true);
         } else {
           setStatus("Out of Stock");
+          setShowQuantity(false);
         }
 
         const categories = [
@@ -53,24 +55,25 @@ function EditInventory() {
     setStatus(e.target.value);
 
     if (status === "Out of Stock") {
-      setHideQuantity(true);
+      setShowQuantity(true);
     } else if (status === "in-stock") {
-      setHideQuantity(false);
+      setShowQuantity(false);
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let itemQuantity = 0;
+    let itemQuantity;
 
     if (!inventory) return;
     console.log(inventory.warehouse_id);
 
-    if (status === "Out of Stock") {
-      itemQuantity = 0;
-    } else {
+    if (status === "in-stock") {
       itemQuantity = parseInt(e.target.itemQuantity.value, 10);
+      
+    } else {
+      itemQuantity = 0;
     }
 
     const updatedInventory = {
@@ -202,7 +205,7 @@ function EditInventory() {
             </label>
           </div>
 
-          {hideQuantity && (
+          {showQuantity && (
             <div className="quantity-div">
               <label className="itemAvailability-label">Quantity</label>
               <textarea
