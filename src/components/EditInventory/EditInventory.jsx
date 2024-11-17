@@ -14,10 +14,7 @@ function EditInventory() {
   const [uniqueCategories, setUniqueCategories] = useState([]);
   const [uniqueWarehouses, setUniqueWarehouses] = useState([]);
   const [hideQuantity, setHideQuantity] = useState(true);
-  const [selectedValue, setSelectedValue] = useState({
-    itemCategory: "",
-    itemWarehouse: "",
-  });
+
 
   useEffect(() => {
     const fetchInventoryAndOptions = async () => {
