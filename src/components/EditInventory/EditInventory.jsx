@@ -6,7 +6,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
 function EditInventory() {
-  const { id } = useParams();
+  const { inventoryId } = useParams();
   const navigate = useNavigate();
   const baseURL = import.meta.env.VITE_API_URL;
   const [status, setStatus] = useState("");
@@ -19,7 +19,7 @@ function EditInventory() {
     const fetchInventoryAndOptions = async () => {
       try {
         const inventoryResponse = await axios.get(
-          `${baseURL}/inventories/${id}`
+          `${baseURL}/inventories/${inventoryId}`
         );
         setInventory(inventoryResponse.data);
 
@@ -49,7 +49,7 @@ function EditInventory() {
     };
 
     fetchInventoryAndOptions();
-  }, [id]);
+  }, [inventoryId]);
 
   const handleStatusChange = (e) => {
     setStatus(e.target.value);

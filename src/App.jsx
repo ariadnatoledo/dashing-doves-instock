@@ -2,16 +2,13 @@ import "./App.scss";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "../src/components/Header/Header";
 import Footer from "../src/components/Footer/Footer";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
-import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse.jsx";
-import EditWarehouse from "./components/EditWarehouse/EditWarehouse.jsx";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse";
+import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
 import ListItems from "./components/ListItems/ListItems";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
-import AddNewInventoryItem from "./components/AddNewInventoryItem/AddNewInventoryItem.jsx";
-import EditInventory from "./components/EditInventory/EditInventory.jsx"
-
-
-
+import AddNewInventoryItem from "./components/AddNewInventoryItem/AddNewInventoryItem";
+import EditInventory from "./components/EditInventory/EditInventory";
 import InventoryDetails from "./components/InventoryDetails/InventoryDetails";
 
 function App() {
@@ -24,15 +21,11 @@ function App() {
           <Route path="/warehouses" element={<Navigate to="/" />} />
           <Route path="/warehouses/add-new" element={<AddNewWarehouse />} />
           <Route path="/warehouses/:warehouseId" element={<WarehouseDetails />} />
-          <Route path="/warehouses/:id/edit" element={<EditWarehouse />} />
-
+          <Route path="/warehouses/:warehouseId/edit" element={<EditWarehouse />} />
           <Route path="/inventory" element={<ListItems items="inventories" />} />
           <Route path="/inventory/add-new" element={<AddNewInventoryItem />} />
           <Route path="/inventory/:inventoryId" element={<InventoryDetails />} />
-           <Route path="/inventory/:id/edit" element={<EditInventory/>}/>
-
-      
-
+          <Route path="/inventory/:inventoryId/edit" element={<EditInventory />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>

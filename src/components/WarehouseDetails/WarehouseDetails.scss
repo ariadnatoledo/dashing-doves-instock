@@ -8,9 +8,7 @@
     width: 100%;
     margin: 1rem 0;
     padding: 1rem;
-
-    display: flex;
-    flex-direction: column;
+    @include flex-values(column);
 
     @include tablet {
       flex-direction: row;
@@ -56,8 +54,7 @@
 
   &__contact-div {
     margin-top: 2rem;
-    display: flex;
-    justify-content: flex-start;
+    @include flex-values(row, flex-start);
     gap: 3.5rem;
 
     @include tablet {

@@ -4,21 +4,12 @@
 @use "../../styles/partials/variables" as *;
 @use "../Header/Header.scss" as *;
 
-// .editWarehouseDetails {
-//   @include tablet {
-//     padding: 0 2rem;
-//   }
-
-//   @include desktop {
-//     padding: 0 4rem;
-//   }
-// }
-
 .editItem-form {
   position: relative;
   @include flex-values(column, unset, center);
-  box-shadow: .0625rem .375rem .375rem $color-primary-white, .0625rem .125rem .375rem $color-primary-black;
-  border-radius: .25rem;
+  box-shadow: 0.0625rem 0.375rem 0.375rem $color-primary-white,
+    0.0625rem 0.125rem 0.375rem $color-primary-black;
+  border-radius: 0.25rem;
   background-color: $color-primary-white;
   width: 100%;
 }
@@ -37,7 +28,7 @@
   }
 }
 
-.editInventory{
+.editInventory {
   display: flex;
   flex-direction: column;
   @include tablet {
@@ -46,10 +37,10 @@
 }
 
 .border {
-  border-bottom: .0625rem solid $color-secondary-cloud;
+  border-bottom: 0.0625rem solid $color-secondary-cloud;
 
   @include tablet {
-    border-right: .0625rem solid $color-secondary-cloud;
+    border-right: 0.0625rem solid $color-secondary-cloud;
     margin-top: 1.5rem;
   }
 }
@@ -64,18 +55,18 @@
   &-label {
     color: $color-primary-black;
     font-weight: 600;
-    font-size: .8125rem;
+    font-size: 0.8125rem;
     line-height: 1.375rem;
-    padding-bottom: .3rem;
+    padding-bottom: 0.3rem;
     padding-top: 1rem;
   }
 
-  &-input, 
+  &-input,
   &-select {
     display: flex;
     border-color: $color-secondary-cloud;
     height: 2.25rem;
-    padding: .625rem 0 0 1.25rem;
+    padding: 0.625rem 0 0 1.25rem;
     border-radius: 1.25rem;
     color: $color-primary-black;
     resize: none;
@@ -87,7 +78,7 @@
     &::placeholder {
       color: $color-primary-black;
       font-weight: 400;
-      font-size: .6875rem;
+      font-size: 0.6875rem;
     }
 
     &:focus {
@@ -101,7 +92,6 @@
       background-repeat: no-repeat;
       background-position: center right;
     }
-
   }
 }
 
@@ -112,20 +102,17 @@
   }
 
   &__radio-label {
-    
-      width: 100%;
-      font-size: .8125rem;
-      line-height: 1.25rem;
-      color: $color-secondary-slate;
+    width: 100%;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+    color: $color-secondary-slate;
 
-      display: flex;
-      gap: .5rem;
+    display: flex;
+    gap: 0.5rem;
 
-      &--clicked {
-        font-weight: 600;
-        color: $color-primary-black;
-      }
-
-    
+    &--clicked {
+      font-weight: 600;
+      color: $color-primary-black;
+    }
   }
 }

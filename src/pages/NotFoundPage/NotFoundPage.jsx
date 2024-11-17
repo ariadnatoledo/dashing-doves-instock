@@ -1,13 +1,14 @@
-import { Link } from 'react-router-dom';
+import ComponentHeader from "../../components/ComponentHeader/ComponentHeader";
+import backIconImage from "../../assets/Icons/arrowback.svg";
+
 const NotFoundPage = () => {
-    
-    return (
-        <div className="not-found-container">
-            <h1 className="not-found__header">404</h1>
-            <h2 className="not-found__header-2">Oops! Page Not Found</h2>
-            <Link href="/" className="home-link"><p className="home-link__text"></p>Go back to Homepage</Link>
-        </div>
-    );
+  return (
+    <ComponentHeader
+      backIcon={backIconImage}
+      navigateTo="/"
+      text="Oops! Page Not Found"
+    />
+  );
 };
 
 export default NotFoundPage;
