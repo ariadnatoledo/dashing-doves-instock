@@ -16,8 +16,11 @@
 
   &__nav {
     width: 100%;
-  padding-right: .75rem;
-  padding-left: .75rem;
+    padding: 0 0.75rem 1rem;
+
+  @include tablet{
+    padding-bottom: 0;
+  }
   }
 
   &__nav-menu {
@@ -28,6 +31,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    gap: 0.5rem;
   }
 
   &__nav-menu-item {
