@@ -197,7 +197,7 @@ function AddNewItem() {
                 required
                 onChange={handleRadio}
               />
-              In Stock
+              In stock
             </label>
 
             <label
@@ -212,7 +212,7 @@ function AddNewItem() {
                 required
                 onChange={handleRadio}
               />
-              Out of Stock
+              Out of stock
             </label>
           </div>
 
