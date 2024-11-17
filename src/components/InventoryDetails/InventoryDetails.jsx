@@ -33,7 +33,7 @@ function WarehouseDetails() {
         navigateTo="/inventory"
         text={inventory?.item_name || "Default Text"}
         editIcon={editWhite}
-        editIconTablet={editWhite}
+        editIconTablet={editWhite} navigateToEdit={`/warehouses/${inventory.id}/edit`}
       />
       <section className="inventory__details">
         <div className="inventory__details--left">

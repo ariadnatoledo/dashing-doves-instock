@@ -20,6 +20,7 @@
   &__container-name {
     order: 1;
     width: 45%;
+    transition: transform 0.3s ease; 
 
     @include tablet {
       order: 1;
@@ -27,6 +28,10 @@
       flex-basis: 0;
     }
   }
+
+  &__container-name:hover{
+    transform: translateX(4px); 
+    }
 
   &__container-address {
     order: 3;
@@ -105,11 +110,21 @@
   &__link-icon {
     width: 1.25rem;
     height: 1.25rem;
+    transition: transform 0.3s ease; 
   }
 
+  &__link-icon:hover{
+  transform: translateX(4px); 
+  }
+  
   &__buttons-delete,
   &__buttons-edit {
     background: none;
     border: none;
   }
+}
+
+
+.warehouse-item:hover{
+  background-color: $color-bg-light-grey;
 }
