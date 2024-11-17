@@ -26,6 +26,7 @@ function WarehouseDetails() {
   useEffect(() => {
     getWarehouseById(warehouseId);
   }, [warehouseId]);
+  
 
   return (
     <div className="warehouse">
@@ -34,8 +35,7 @@ function WarehouseDetails() {
         navigateTo="/"
         text={warehouse?.warehouse_name || "Default Text"}
         editIcon={editWhite}
-        editIconTablet={editWhite}
-        navigateToEdit={`/warehouses/${warehouseId}/edit`}
+        editIconTablet={editWhite} navigateToEdit={`/warehouses/${warehouse.id}/edit`}
       />
       <section className="warehouse-details">
         <article className="card--first">

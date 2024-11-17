@@ -29,11 +29,10 @@ function Header() {
       <nav className="header__nav">
         <ul className="header__nav-menu">
           <li className="header__nav-menu-item">
-            
+
             <button
-              className={`header__nav-menu-item-link ${
-                activeTab === "warehouses" ? "header__nav-menu-item-link--active" : ""
-              }`}
+              className={`header__nav-menu-item-link ${activeTab === "warehouses" ? "header__nav-menu-item-link--active" : ""
+                }`}
               onClick={() => handleTabClick("warehouses")}
             >
               Warehouses
@@ -41,9 +40,8 @@ function Header() {
           </li>
           <li className="header__nav-menu-item">
             <button
-              className={`header__nav-menu-item-link ${
-                activeTab === "inventory" ? "header__nav-menu-item-link--active" : ""
-              }`}
+              className={`header__nav-menu-item-link ${activeTab === "inventory" ? "header__nav-menu-item-link--active" : ""
+                }`}
               onClick={() => handleTabClick("inventory")}
             >
               Inventory
