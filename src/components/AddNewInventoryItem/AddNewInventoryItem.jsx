@@ -1,4 +1,4 @@
-import "./AddNewItem.scss";
+import "./AddNewInventoryItem.scss";
 import ComponentHeader from "../ComponentHeader/ComponentHeader";
 import SaveCancelAddButton from "../SaveCancelAddButton/SaveCancelAddButton";
 import { useState, useEffect } from "react";
@@ -75,16 +75,16 @@ function AddNewItem() {
   };
 
   const handleRadio = (event) => {
-    if (event.target.value === "Out of stock") {
+    if (event.target.value === "Out of Stock") {
       setShowQuantity(false);
-    } else if (event.target.value === "In stock") {
+    } else if (event.target.value === "In Stock") {
       setShowQuantity(true);
     }
   };
 
   const handleQuantity = (event) => {
     if (event.target.value === "0") {
-      alert("You've set your item in stock, but with a quantity of 0.");
+      alert("You've set your item In Stock, but with a quantity of 0.");
     }
   };
 
@@ -109,7 +109,7 @@ function AddNewItem() {
     if (!itemCategory) formErrors.itemCategory = "Category is required.";
     if (!itemStatus) formErrors.itemStatus = "Status is required.";
 
-    if (itemStatus === "In stock" && (!itemQuantity || itemQuantity <= 0)) {
+    if (itemStatus === "In Stock" && (!itemQuantity || itemQuantity <= 0)) {
       formErrors.itemQuantity =
         "Quantity must be a valid number greater than 0.";
     }
@@ -234,7 +234,7 @@ function AddNewItem() {
                 type="radio"
                 className="itemAvailability__radio"
                 name="itemStatus"
-                value="In stock"
+                value="In Stock"
                 onChange={handleRadio}
                 onFocus={() =>
                   setErrors((prev) => ({ ...prev, itemStatus: "" }))
@@ -251,7 +251,7 @@ function AddNewItem() {
                 type="radio"
                 className="itemAvailability__radio"
                 name="itemStatus"
-                value="Out of stock"
+                value="Out of Stock"
                 onChange={handleRadio}
                 onFocus={() =>
                   setErrors((prev) => ({ ...prev, itemStatus: "" }))
@@ -311,7 +311,7 @@ function AddNewItem() {
               Please select
             </option>
             {uniqueWarehouses.map((warehouse) => (
-              <option key={warehouse} value={warehouse}>
+              <option className="itemDetails-options" key={warehouse} value={warehouse}>
                 {warehouse}
               </option>
             ))}
