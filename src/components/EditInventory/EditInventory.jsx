@@ -149,6 +149,7 @@ function EditInventory() {
             className="itemDetails-select"
             name="itemCategory"
             defaultValue={inventory.category}
+            required
           >
             <option className="itemDetails-options" value="" disabled>
               Select a category
@@ -214,6 +215,7 @@ function EditInventory() {
             className="itemAvailability-select"
             name="itemWarehouse"
             defaultValue={inventory.warehouse_name}
+            required
           >
             <option className="itemDetails-options" value="" disabled>
               Select a warehouse
