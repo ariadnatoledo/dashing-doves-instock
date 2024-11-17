@@ -24,7 +24,7 @@
 }
 .componentHeader-2 {
   display: flex;
-  border-radius: 20px;
+  border-radius: 1.25rem;
 
   background-color: transparent;
 }
@@ -40,14 +40,14 @@ h2 {
   @include tablet {
     background-color: $color-primary-indigo;
     color: $color-primary-white;
-    border-radius: 20px;
-    padding: 0.3rem 1.5rem;
+    border-radius: 1.25rem;
+    padding: .3rem 1.5rem;
     @include flex-values(row, center, center);
-    gap: 0.5rem;
+    gap: .5rem;
 
     .editIconTablet {
-      width: 24px;
-      height: 24px;
+      width: 1.5rem;
+      height: 1.5rem;
       background-color: $color-primary-indigo;
     }
 
@@ -74,13 +74,13 @@ h2 {
 .editMobile {
   display: flex;
   background-color: $color-primary-indigo;
-  border-radius: 50px;
-  height: 50px;
-  width: 50px;
+  border-radius: 3.125rem;
+  height: 3.125rem;
+  width: 3.125rem;
   @include flex-values(row, center, center);
   .editIcon {
-    width: 24px;
-    height: 24px;
+    width: 1.5rem;
+    height: 1.5rem;
     background-color: $color-primary-indigo;
   }
 
