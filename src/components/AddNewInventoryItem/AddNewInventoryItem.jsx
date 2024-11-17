@@ -1,4 +1,4 @@
-import "./AddNewItem.scss";
+import "./AddNewInventoryItem.scss";
 import ComponentHeader from "../ComponentHeader/ComponentHeader";
 import SaveCancelAddButton from "../SaveCancelAddButton/SaveCancelAddButton";
 import { useState, useEffect } from "react";
