@@ -15,7 +15,6 @@ function EditInventory() {
   const [uniqueWarehouses, setUniqueWarehouses] = useState([]);
   const [hideQuantity, setHideQuantity] = useState(true);
 
-
   useEffect(() => {
     const fetchInventoryAndOptions = async () => {
       try {
@@ -63,7 +62,16 @@ function EditInventory() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    let itemQuantity = 0;
+
     if (!inventory) return;
+    console.log(inventory.warehouse_id);
+
+    if (status === "Out of Stock") {
+      itemQuantity = 0;
+    } else {
+      itemQuantity = parseInt(e.target.itemQuantity.value, 10);
+    }
 
     const updatedInventory = {
       id: inventory.id,
@@ -73,7 +81,7 @@ function EditInventory() {
       description: e.target.itemDescription.value,
       category: e.target.itemCategory.value,
       status: e.target.stock.value,
-      quantity: parseInt(e.target.itemQuantity.value, 10),
+      quantity: itemQuantity,
     };
 
     if (
