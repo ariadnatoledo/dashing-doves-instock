@@ -5,12 +5,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import iconErrorState from "../../assets/Icons/error-24px.svg";
 import { useParams, useNavigate } from "react-router-dom";
-
 function EditInventory() {
   const { id } = useParams();
   const navigate = useNavigate();
   const baseURL = import.meta.env.VITE_API_URL;
-
   const [inventory, setInventory] = useState({});
   const [uniqueCategories, setUniqueCategories] = useState([]);
   const [uniqueWarehouses, setUniqueWarehouses] = useState([]);
@@ -24,7 +22,6 @@ function EditInventory() {
     itemQuantity: "",
     itemWarehouse: "",
   });
-
   useEffect(() => {
     const fetchInventoryAndOptions = async () => {
       try {
@@ -33,27 +30,22 @@ function EditInventory() {
         );
         setInventory(inventoryResponse.data);
         setStatus(inventoryResponse.data.status);
-
         const inventoriesResponse = await axios.get(`${baseURL}/inventories`);
         const inventories = inventoriesResponse.data;
-
         const categories = [
           ...new Set(inventories.map((item) => item.category)),
         ];
         const warehouses = [
           ...new Set(inventories.map((item) => item.warehouse_name)),
         ];
-
         setUniqueCategories(categories);
         setUniqueWarehouses(warehouses);
       } catch (error) {
         console.error("Failed to fetch inventory or options data", error);
       }
     };
-
     fetchInventoryAndOptions();
   }, [id]);
-
   useEffect(() => {
     if (status === "In Stock") {
       setShowQuantity(true);
@@ -61,26 +53,20 @@ function EditInventory() {
       setShowQuantity(false);
     }
   }, [status]);
-
   const handleStatusChange = (e) => {
     setStatus(e.target.value);
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const itemName = e.target.itemName.value;
     const itemDescription = e.target.itemDescription.value;
     const itemCategory = e.target.itemCategory.value;
     const itemStatus = e.target.itemStatus.value;
     let itemQuantity = 0;
-
     if (status === "In Stock") {
       itemQuantity = parseInt(e.target.itemQuantity.value, 10);
     }
-
     const formErrors = {};
-
     if (!itemName) formErrors.itemName = "Item Name is required.";
     if (!itemDescription)
       formErrors.itemDescription = "Description is required.";
@@ -91,12 +77,10 @@ function EditInventory() {
     }
     if (!e.target.itemWarehouse.value)
       formErrors.itemWarehouse = "Warehouse is required.";
-
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
       return;
     }
-
     const updatedInventory = {
       id: inventory.id,
       warehouse_id: inventory.warehouse_id,
@@ -107,10 +91,8 @@ function EditInventory() {
       status: itemStatus,
       quantity: itemQuantity,
     };
-
     saveInventory(updatedInventory);
   };
-
   const saveInventory = async (updatedInventory) => {
     try {
       const response = await axios.put(
@@ -126,18 +108,15 @@ function EditInventory() {
       alert("Failed to save inventory.");
     }
   };
-
   if (!inventory) {
     return <p>Loading inventory data...</p>;
   }
-
   return (
     <form className="editInventory-form" onSubmit={handleSubmit}>
       <ComponentHeader navigateTo="/inventory" text="Edit Inventory Item" />
       <section className="editInventory">
         <div className="itemDetails">
           <h2 className="itemDetails-title">Item Details</h2>
-
           <label className="itemDetails-label">Item Name</label>
           <textarea
             className={`itemDetails-input ${
@@ -156,7 +135,6 @@ function EditInventory() {
               {errors.itemName}
             </p>
           )}
-
           <label className="itemDetails-label">Description</label>
           <textarea
             className={`itemDetails-input itemDetails-input--description ${
@@ -175,7 +153,6 @@ function EditInventory() {
               {errors.itemDescription}
             </p>
           )}
-
           <label className="itemDetails-label">Category</label>
           <select
             className={`itemDetails-select ${
@@ -209,9 +186,7 @@ function EditInventory() {
         <div className="border"></div>
         <div className="itemAvailability">
           <h2 className="itemAvailability-title">Item Availability</h2>
-
           <label className="itemAvailability-label">Status</label>
-
           <div className="itemAvailability__status">
             <label
               htmlFor="in-stock"
@@ -244,14 +219,12 @@ function EditInventory() {
               Out of Stock
             </label>
           </div>
-
           {errors.itemStatus && (
             <p className="error-message">
               <img src={iconErrorState} alt="Error" className="error-icon" />
               {errors.itemStatus}
             </p>
           )}
-
           {showQuantity && (
             <div className="quantity-div">
               <label className="itemAvailability-label">Quantity</label>
@@ -279,18 +252,17 @@ function EditInventory() {
               )}
             </div>
           )}
-
           <label className="itemAvailability-label">Warehouse</label>
           <select
   className={`itemDetails-select ${
     errors.itemWarehouse ? "error-border" : ""
   }`}
   name="itemWarehouse"
-  value={inventory.warehouse_name || ""}  
+  value={inventory.warehouse_name || ""}
   onChange={(e) =>
     setInventory((prevInventory) => ({
       ...prevInventory,
-      warehouse_name: e.target.value,  
+      warehouse_name: e.target.value,
     }))
   }
   onFocus={() =>
@@ -322,5 +294,4 @@ function EditInventory() {
     </form>
   );
 }
-
 export default EditInventory;

@@ -56,9 +56,6 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
               <WarehouseItem
                 warehouse={listItem}
                 onDelete={() => deleteItem("warehouses", listItem.id)}
-                onEdit={() =>
-                  setEditingItem({ type: "warehouses", data: listItem })
-                }
                 isFirst={index === 0}
               />
             </div>
@@ -75,22 +72,13 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
               isForWarehouseDetails={isForWarehouseDetails}
             />
           )}
-          {!warehouse
-            ? list &&
-              list.length > 0 &&
-              list.map((listItem, index) => (
-                <div key={listItem.id}>
-                  <InventoryItem
-                    inventory={listItem}
-                    isFirst={index === 0}
-                    isForWarehouseDetails={isForWarehouseDetails}
-                    onDelete={() => deleteItem("inventories", listItem.id)}
-                  />
-                </div>
-              ))
-            : filteredList &&
-              filteredList.length > 0 &&
-              filteredList.map((listItem, index) => (
+          {!warehouse && list && list.length > 0 && (
+            <>
+              <TableHeader
+                page="inventories"
+                isForWarehouseDetails={isForWarehouseDetails}
+              />
+              {list.map((listItem, index) => (
                 <div key={listItem.id}>
                   <InventoryItem
                     inventory={listItem}
@@ -100,6 +88,21 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
                   />
                 </div>
               ))}
+            </>
+          )}
+          {warehouse &&
+            filteredList &&
+            filteredList.length > 0 &&
+            filteredList.map((listItem, index) => (
+              <div key={listItem.id}>
+                <InventoryItem
+                  inventory={listItem}
+                  isFirst={index === 0}
+                  isForWarehouseDetails={isForWarehouseDetails}
+                  onDelete={() => deleteItem("inventories", listItem.id)}
+                />
+              </div>
+            ))}
         </>
       )}
     </>

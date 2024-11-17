@@ -18,8 +18,7 @@
   color: $color-secondary-slate;
   border-top: .0625rem solid $color-secondary-cloud;
   padding: 1rem;
-  display: flex;
-  flex-direction: row;
+  @include flex-values(row);
   flex-wrap: wrap;
   gap: 1rem;
   width: 100%;
@@ -40,7 +39,6 @@
       flex-basis: 0;
     }
   }
-
 
   &__container-inventory:hover{
     transform: translateX(0.25rem); 
@@ -105,9 +103,7 @@
   &__container-buttons {
     order: 7;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    @include flex-values(row, space-between);
 
     @include tablet {
       justify-content: flex-start;

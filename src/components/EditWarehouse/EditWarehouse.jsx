@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import "../EditWarehouse/EditWarehouse.scss";
@@ -7,7 +7,7 @@ import backIconImage from "../../assets/Icons/arrowback.svg";
 import SaveCancelAddButton from "../SaveCancelAddButton/SaveCancelAddButton";
 
 function EditWarehouse() {
-    const { id } = useParams();
+    const { warehouseId } = useParams();
     const [warehouse, setWarehouse] = useState(null);
     const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ function EditWarehouse() {
         const fetchWarehouse = async () => {
             try {
                 const response = await axios.get(
-                    `${import.meta.env.VITE_API_URL}/warehouses/${id}`
+                    `${import.meta.env.VITE_API_URL}/warehouses/${warehouseId}`
                 );
                 setWarehouse(response.data);
             } catch (error) {
@@ -23,7 +23,7 @@ function EditWarehouse() {
             }
         };
         fetchWarehouse();
-    }, [id]);
+    }, [warehouseId]);
 
     const saveWarehouse = async (updatedWarehouse) => {
         try {

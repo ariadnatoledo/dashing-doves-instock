@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import  { useEffect, useState } from "react";
-import logoInStock from "../../assets/Logo/InStock-Logo_1x.png";
+import { useEffect, useState } from "react";
+import logoInStock from "../../assets/logos/InStock-Logo_1x.png";
 import "./Header.scss";
 
 function Header() {
