@@ -7,7 +7,7 @@
   justify-content: $justify;
   align-items: $align;
 }
-//adams preferd flex settings
+
 @mixin flex-center($direction: row, $justify: center, $align: center) {
   display: flex;
   flex-direction: $direction;
