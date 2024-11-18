@@ -11,6 +11,7 @@ function EditWarehouse() {
     const { warehouseId } = useParams();
     const navigate = useNavigate();
     const [warehouse, setWarehouse] = useState(null);
+    const [touched, setTouched] = useState({});
     const [errors, setErrors] = useState({
         warehouseName: "",
         warehouseAddress: "",
