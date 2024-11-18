@@ -193,7 +193,7 @@ function EditWarehouse() {
                         onBlur={handleBlur}
                         onFocus={() =>
                             setErrors((prevErrors) => ({ ...prevErrors, warehouseName: "" }))
-                          }
+                        }
                     ></textarea>
                     {errors.warehouseName && (
                         <p className="error-message">
@@ -212,7 +212,7 @@ function EditWarehouse() {
                         onBlur={handleBlur}
                         onFocus={() =>
                             setErrors((prevErrors) => ({ ...prevErrors, warehouseAddress: "" }))
-                          }
+                        }
                     ></textarea>
                     {errors.warehouseAddress && (
                         <p className="error-message">
@@ -231,7 +231,7 @@ function EditWarehouse() {
                         onBlur={handleBlur}
                         onFocus={() =>
                             setErrors((prevErrors) => ({ ...prevErrors, warehouseCity: "" }))
-                          }
+                        }
                     ></textarea>
                     {errors.warehouseCity && (
                         <p className="error-message">
@@ -250,7 +250,7 @@ function EditWarehouse() {
                         onBlur={handleBlur}
                         onFocus={() =>
                             setErrors((prevErrors) => ({ ...prevErrors, warehouseCountry: "" }))
-                          }
+                        }
                     ></textarea>
                     {errors.warehouseCountry && (
                         <p className="error-message">
@@ -272,7 +272,7 @@ function EditWarehouse() {
                         onBlur={handleBlur}
                         onFocus={() =>
                             setErrors((prevErrors) => ({ ...prevErrors, contactName: "" }))
-                          }
+                        }
                     ></textarea>
                     {errors.contactName && (
                         <p className="error-message">
@@ -291,7 +291,7 @@ function EditWarehouse() {
                         onBlur={handleBlur}
                         onFocus={() =>
                             setErrors((prevErrors) => ({ ...prevErrors, contactPosition: "" }))
-                          }
+                        }
                     ></textarea>
                     {errors.contactPosition && (
                         <p className="error-message">
@@ -310,7 +310,7 @@ function EditWarehouse() {
                         onBlur={handleBlur}
                         onFocus={() =>
                             setErrors((prevErrors) => ({ ...prevErrors, contactPhone: "" }))
-                          }
+                        }
                     ></textarea>
                     {errors.contactPhone && (
                         <p className="error-message">
@@ -329,7 +329,7 @@ function EditWarehouse() {
                         onBlur={handleBlur}
                         onFocus={() =>
                             setErrors((prevErrors) => ({ ...prevErrors, contactEmail: "" }))
-                          }
+                        }
                     ></textarea>
                     {errors.contactEmail && (
                         <p className="error-message">
@@ -341,9 +341,9 @@ function EditWarehouse() {
             </section>
             <SaveCancelAddButton
                 showSave={true}
-                navigateTo="/warehouses" 
-            />           
-             </form>
+                navigateTo="/warehouses"
+            />
+        </form>
     );
 }
 
