@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../AddNewWarehouse/AddNewWarehouse.scss";
 import ComponentHeader from "../ComponentHeader/ComponentHeader";
 import SaveCancelAddButton from "../SaveCancelAddButton/SaveCancelAddButton";
