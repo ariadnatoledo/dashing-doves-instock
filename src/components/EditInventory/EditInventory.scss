@@ -62,12 +62,6 @@
     font-weight: 600;
     font-size: 0.8125rem;
     line-height: 1.375rem;
-<<<<<<< HEAD
-    padding-bottom: 0.3rem;
-    padding-top: 1rem;
-  }
-
-=======
     padding-bottom: 0.1875rem;
     padding-top: 1rem;
   }
@@ -79,16 +73,11 @@
     padding: 0 1.25rem;
     margin: 0.625rem 0;
   }
->>>>>>> main
   &-input,
   &-select {
     display: flex;
     border-color: $color-secondary-cloud;
     height: 2.25rem;
-<<<<<<< HEAD
-    padding: 0.625rem 0 0 1.25rem;
-=======
->>>>>>> main
     border-radius: 1.25rem;
     color: $color-primary-black;
     resize: none;
@@ -113,8 +102,6 @@
       background-repeat: no-repeat;
       background-position: center right;
     }
-<<<<<<< HEAD
-=======
   }
 }
 
@@ -133,7 +120,6 @@
     border-right: 0.0625rem solid $color-secondary-cloud;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
->>>>>>> main
   }
 }
 
@@ -170,21 +156,6 @@
   border: 0.0625rem solid $color-support-red !important;
 }
 
-<<<<<<< HEAD
-  &__radio-label {
-    width: 100%;
-    font-size: 0.8125rem;
-    line-height: 1.25rem;
-    color: $color-secondary-slate;
-
-    display: flex;
-    gap: 0.5rem;
-
-    &--clicked {
-      font-weight: 600;
-      color: $color-primary-black;
-    }
-=======
 .error-message {
   color: $color-support-red;
   font-size: 0.75rem;
@@ -203,6 +174,5 @@
 @include desktop {
   .itemAvailability-input {
     width: 7.625rem;
->>>>>>> main
   }
 }
