@@ -6,7 +6,7 @@
 .saveCancel {
   background-color: $color-bg-light-grey;
   width: 100%;
-  padding: 2rem 0;
+  padding: 2rem 1.5rem;
   gap: 1rem;
 
   @include flex-values(row, center, center);
@@ -20,11 +20,14 @@
 .cancelButton {
   background-color: $color-primary-white;
   border: .0625rem solid $color-secondary-cloud;
-  padding: 0.5rem 3rem;
+  padding: 0.5rem 0rem;
+  width: 100%;
+
   border-radius: 1.25rem;
 
   @include tablet {
     padding: 0.5rem 1rem;
+    width: unset;
   }
 }
 
@@ -37,11 +40,13 @@
   background-color: $color-primary-indigo;
   border: none;
   color: $color-primary-white;
-  padding: 0.5rem 3rem;
+  padding: 0.5rem 0rem;
+  width: 100%;
   border-radius: 1.25rem;
 
   @include tablet {
     padding: 0.5rem 1rem;
+    width: unset;
   }
 }
 
@@ -53,10 +58,12 @@
   background-color: $color-primary-indigo;
   border: none;
   color: $color-primary-white;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 0rem;
+  width: 100%;
   border-radius: 1.25rem;
   @include tablet {
     padding: 0.5rem 1rem;
+    width: unset;
   }
 }
 
@@ -68,10 +75,12 @@
   background-color: $color-primary-indigo;
   border: none;
   color: $color-primary-white;
-  padding: 0.5rem 2.5rem;
+  padding: 0.5rem 0rem;
+  width: 100%;
   border-radius: 1.25rem;
   @include tablet {
     padding: 0.5rem 1rem;
+    width: unset;
   }
 }
 
