@@ -63,9 +63,9 @@ function AddNewItem() {
 
   const uniqueCategories = [...new Set(items.map((item) => item.category))];
   const uniqueWarehouses = [
-    ...new Set(items.map((item) => item.warehouse_name)),
+    ...new Set(warehouses.map((warehouse) => warehouse.warehouse_name)),
   ];
-
+  
   const handleSelect = (event) => {
     const { name, value } = event.target;
     setSelectedValue((prev) => ({
