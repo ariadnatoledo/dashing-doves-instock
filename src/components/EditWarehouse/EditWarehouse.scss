@@ -37,7 +37,6 @@
     flex-direction: row;
     justify-content: space-between;
 
-    gap: 4rem;
   }
 }
 
@@ -93,4 +92,12 @@ textarea::placeholder {
 textarea:focus {
   outline: none;
   border-color: $color-primary-indigo;
+}
+
+.warehouseDetails-title {
+  padding-top: 0;
+}
+
+.contactDetails-title {
+  padding-top: 0;
 }
