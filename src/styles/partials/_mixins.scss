@@ -1,0 +1,51 @@
+@use "./variables" as *;
+@use "./typography" as *;
+
+@mixin flex-values($direction: column, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin tablet {
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin instock($isInStock) {
+  text-transform: uppercase;
+  color: $color-support-green;
+  background-color: $color-support-green--light;
+  border-radius: 1rem;
+  padding: 0.25rem 0.5rem;
+  font-size: .75rem;
+  line-height: 1rem;
+  flex-grow: 0;
+  white-space: nowrap;
+  max-width: 4.5rem;
+
+
+  @if $isInStock == false {
+    text-transform: uppercase;
+    color: $color-support-red;
+    background-color: $color-support-red--light;
+    flex-grow: 0;
+    white-space: nowrap;
+    max-width: 6rem;
+  }
+}

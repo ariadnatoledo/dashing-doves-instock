@@ -1,0 +1,127 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.warehouse-item {
+  color: $color-secondary-slate;
+  border-top: 1px solid $color-secondary-cloud;
+  padding: 1rem;
+  @include flex-values(row);
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+
+  @include tablet {
+    justify-content: space-between;
+  }
+
+  &__container-name {
+    order: 1;
+    width: 45%;
+    transition: transform 0.3s ease; 
+
+    @include tablet {
+      order: 1;
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+  }
+
+  &__container-name:hover{
+    transform: translateX(0.25rem); 
+    }
+
+  &__container-address {
+    order: 3;
+    width: 45%;
+
+    @include tablet {
+      order: 2;
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+  }
+
+  &__container-contact-name {
+    order: 2;
+    width: 45%;
+
+    @include tablet {
+      order: 3;
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+  }
+
+  &__container-contact-info {
+    order: 4;
+    width: 45%;
+
+    @include tablet {
+      order: 4;
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+  }
+
+  &__container-buttons {
+    order: 5;
+    width: 100%;
+    @include flex-values(row, space-between);
+
+    @include tablet {
+      justify-content: flex-start;
+      order: 5;
+      gap: 1.5rem;
+      flex: 0.5;
+    }
+  }
+
+  &__item-link {
+    display: flex;
+  }
+
+  &__label {
+    padding: 0 0 0.25rem 0;
+    color: $color-secondary-slate;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    @include tablet {
+      display: none;
+    }
+  }
+  &__text {
+    color: $color-primary-black;
+
+    &--link-data {
+      @include flex-center(row, normal, flex-start);
+      text-decoration: none;
+      color: $color-primary-indigo;
+      font-weight: 600;
+      padding: 0;
+    }
+  }
+
+  &__link-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.3s ease; 
+  }
+
+  &__link-icon:hover{
+  transform: translateX(0.25rem); 
+  }
+  
+  &__buttons-delete,
+  &__buttons-edit {
+    background: none;
+    border: none;
+  }
+}
+
+
+.warehouse-item:hover{
+  background-color: $color-bg-light-grey;
+}
