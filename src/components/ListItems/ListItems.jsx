@@ -24,7 +24,10 @@ function ListItems({ items, display, isForWarehouseDetails, warehouse }) {
         const response = await axios.get(
           `${import.meta.env.VITE_API_URL}/${items}`
         );
-        setList(response.data);
+        const sortedList = response.data.sort((a, b) => {
+          return new Date(b.created_at) - new Date(a.created_at);
+        });
+        setList(sortedList);
       } catch (err) {
         console.error("Failed to fetch data", err);
       }
