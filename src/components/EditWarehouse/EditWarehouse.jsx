@@ -25,6 +25,72 @@ function EditWarehouse() {
         fetchWarehouse();
     }, [id]);
 
+    const [formData, setFormData] = useState({
+        warehouse_name: "",
+        address: "",
+        city: "",
+        country: "",
+        contact_name: "",
+        contact_position: "",
+        contact_phone: "",
+        contact_email: "",
+      });
+    const [errors, setErrors] = useState({});
+    const [touched, setTouched] = useState({});
+  
+    const validateField = (name, value) => {
+      switch (name) {
+        case "warehouse_name":
+        case "address":
+        case "city":
+        case "country":
+        case "contact_name":
+        case "contact_position":
+          return value.trim() === "" ? "This field is required." : null;
+        case "contact_phone":
+          return !/^\+\d+ \(\d{3}\) \d{3}-\d{4}$/.test(value)
+            ? "Enter a valid phone number"
+            : null;
+        case "contact_email":
+          return !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+            ? "Enter a valid email address."
+            : null;
+        default:
+          return null;
+      }
+    };
+
+    const formatPhoneNumber = (value) => {
+        const digits = value.replace(/\D/g, "");
+        let formattedNumber = "+";
+    
+        for (let i = 0; i < digits.length; i++) {
+          if (i === 1) formattedNumber += " (";
+          if (i === 4) formattedNumber += ") ";
+          if (i === 7) formattedNumber += "-";
+          if (i < 11) formattedNumber += digits[i];
+        }
+    
+        return formattedNumber;
+      };
+
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        let formattedValue = value;
+    
+        if (name === "contact_phone") {
+          formattedValue = formatPhoneNumber(value);
+        }
+    
+        setFormData({ ...formData, [name]: formattedValue });
+        setErrors({ ...errors, [name]: validateField(name, formattedValue) });
+      };
+
+      const handleBlur = (e) => {
+        const { name } = e.target;
+        setTouched({ ...touched, [name]: true });
+      };
+
     const saveWarehouse = async (updatedWarehouse) => {
         try {
             const response = await axios.put(
@@ -43,6 +109,7 @@ function EditWarehouse() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        
         const updatedWarehouse = {
             id: warehouse.id,
             warehouse_name: e.target.warehouseName.value,
