@@ -1,0 +1,13 @@
+@use "./styles/partials/global";
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/mixins" as *;
+
+.main__card {
+  background-color: $color-primary-white;
+  border-radius: 0.25rem;
+  box-shadow: 0 .125rem .3125rem 0 #13182c1a;
+
+  @include desktop {
+    margin: 0 8rem;
+  }
+}

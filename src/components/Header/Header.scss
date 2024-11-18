@@ -1,0 +1,98 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.header {
+  @include flex-center(column);
+  background: none;
+  padding: 1rem 0 0 0;
+  gap: 1.375rem;
+  position: relative;
+
+  @include desktop {
+    margin: 0 10rem;
+  }
+
+  &__nav {
+    width: 100%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  &__nav-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 0.5rem;
+  }
+
+  &__nav-menu-item {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0.5rem;
+
+    .header__nav-menu-item-link {
+      width: 100%;
+      height: 2.25rem;
+      padding: 0 1rem;
+      border-radius: 1.25rem;
+      background: transparent;
+      color: $color-secondary-slate;
+      border: none;
+      cursor: pointer;
+      font-size: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+
+      &:hover {
+        background-color: $color-bg-graphite;
+        text-decoration: underline;
+        text-decoration-color: $color-primary-white;
+        color: $color-primary-white;
+      }
+
+      &--active {
+        background-color: $color-primary-black;
+        color: $color-primary-white;
+      }
+
+      &--active:hover {
+        background-color: $color-primary-black;
+      }
+    }
+  }
+}
+
+@include tablet {
+  .header {
+    padding: 1.5rem 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    &__nav {
+      width: 10.25rem;
+    }
+    &__nav-menu {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      gap: 0;
+      align-items: center;
+    }
+  }
+}
+
+@include desktop {
+  .header {
+    margin: 0;
+    padding: 2.25rem 8rem;
+  }
+}

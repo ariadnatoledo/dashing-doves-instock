@@ -1,0 +1,65 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.inventory {
+  &__details {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1rem;
+    @include flex-values(column);
+
+    @include tablet {
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    &--left {
+      @include tablet {
+        width: 50%;
+        padding-right: 2rem;
+        border-right: .0625rem solid $color-secondary-cloud;
+      }
+    }
+
+    &--right {
+      @include tablet {
+        width: 50%;
+        padding-left: 2rem;
+      }
+    }
+  }
+
+  &__status-info {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+  }
+}
+
+.inventory-card {
+  &__title {
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+    color: $color-secondary-slate;
+    font-weight: 600;
+  }
+
+  &__text {
+    margin-bottom: 1rem;
+  }
+
+  &__instock {
+    @include instock(true);
+
+    &--false {
+      @include instock(false);
+    }
+  }
+}
+
+.inventory:hover{
+  background-color: $color-bg-light-grey;
+}
