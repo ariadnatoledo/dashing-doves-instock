@@ -139,6 +139,9 @@ export default function AddNewWarehouse() {
           value={formData[field]}
           onChange={handleChange}
           onBlur={handleBlur}
+          onFocus={() =>
+            setErrors((prevErrors) => ({ ...prevErrors, [field]: "" }))
+          }
         ></textarea>
         {touched[field] && errors[field] && (
           <div className="error-container">
